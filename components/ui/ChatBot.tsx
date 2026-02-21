@@ -236,9 +236,10 @@ export function ChatBot() {
       {/* Chat Window */}
       <div
         className={cn(
-          "fixed bottom-20 right-4 z-[100] flex flex-col rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300 origin-bottom-right lg:bottom-6 lg:right-6",
+          "fixed z-[100] flex flex-col shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300",
+          "inset-0 rounded-none lg:inset-auto lg:bottom-6 lg:right-6 lg:rounded-2xl lg:origin-bottom-right",
           open
-            ? "w-[calc(100vw-2rem)] max-w-[380px] h-[min(520px,calc(100vh-8rem))] scale-100 opacity-100"
+            ? "scale-100 opacity-100 lg:w-[380px] lg:h-[min(520px,calc(100vh-8rem))]"
             : "w-0 h-0 scale-90 opacity-0 pointer-events-none"
         )}
       >
@@ -333,7 +334,7 @@ export function ChatBot() {
             onChange={(e) => setInput(e.target.value)}
             placeholder={t("chat.placeholder")}
             disabled={typing}
-            className="flex-1 text-sm px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:border-navy-deep disabled:opacity-50"
+            className="flex-1 text-base lg:text-sm px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:border-navy-deep disabled:opacity-50"
           />
           <button
             type="submit"

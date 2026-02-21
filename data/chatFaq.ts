@@ -41,12 +41,12 @@ export function formatLeadSummary(data: Record<string, string>): string {
     "",
   ];
 
-  if (data.name) lines.push(`• **Name:** ${data.name}`);
+  if (data.name) lines.push(`• Name: ${data.name}`);
   if (data.company && data.company.toLowerCase() !== "skip")
-    lines.push(`• **Company:** ${data.company}`);
-  if (data.email) lines.push(`• **Email:** ${data.email}`);
+    lines.push(`• Company: ${data.company}`);
+  if (data.email) lines.push(`• Email: ${data.email}`);
   if (data.phone && data.phone.toLowerCase() !== "skip")
-    lines.push(`• **Phone:** ${data.phone}`);
+    lines.push(`• Phone: ${data.phone}`);
 
   lines.push(
     "",
@@ -74,17 +74,17 @@ const faqCategories: FaqCategory[] = [
       const other = featuredJobs.filter((j) => !j.urgent);
 
       const formatJob = (j: typeof featuredJobs[number]) =>
-        `• **${j.title}** – ${j.location} | ${j.payRange} | ${j.shift}${j.urgent ? " 🔥 Urgent" : ""}`;
+        `• ${j.title} – ${j.location} | ${j.payRange} | ${j.shift}${j.urgent ? " 🔥 Urgent" : ""}`;
 
       const sections: string[] = [
         `Great news — ${company.name} is actively hiring! Here are some of our current openings:`,
       ];
 
       if (urgent.length) {
-        sections.push("", "**Urgently Hiring:**", ...urgent.map(formatJob));
+        sections.push("", "Urgently Hiring:", ...urgent.map(formatJob));
       }
       if (other.length) {
-        sections.push("", "**More Openings:**", ...other.map(formatJob));
+        sections.push("", "More Openings:", ...other.map(formatJob));
       }
 
       sections.push(
@@ -109,10 +109,10 @@ const faqCategories: FaqCategory[] = [
       [
         `Applying with ${company.name} is easy! Here's how:`,
         "",
-        `1. **Visit our job portal:** ${company.externalUrls.jobPortal}`,
-        "2. **Browse available positions** and apply online — it only takes a few minutes.",
-        "3. **Or visit any of our offices in person** — walk-ins are welcome!",
-        "4. **Bring a valid government-issued ID** (driver's license, passport, etc.).",
+        `1. Visit our job portal: ${company.externalUrls.jobPortal}`,
+        "2. Browse available positions and apply online — it only takes a few minutes.",
+        "3. Or visit any of our offices in person — walk-ins are welcome!",
+        "4. Bring a valid government-issued ID (driver's license, passport, etc.).",
         "",
         "Want us to reach out to you directly? Share your info and a recruiter will contact you.",
       ].join("\n"),
@@ -130,7 +130,7 @@ const faqCategories: FaqCategory[] = [
       const rest = locations.filter((l) => !l.isHQ);
 
       const fmt = (l: typeof locations[number]) =>
-        `• **${l.city}, ${l.state}** – ${l.address} | ${l.phone}`;
+        `• ${l.city}, ${l.state} – ${l.address} | ${l.phone}`;
 
       const lines: string[] = [
         `${company.name} has offices across the Southeast! Here's where you can find us:`,
@@ -138,7 +138,7 @@ const faqCategories: FaqCategory[] = [
       ];
 
       if (hq) {
-        lines.push("**Headquarters:**", fmt(hq), "");
+        lines.push("Headquarters:", fmt(hq), "");
       }
 
       lines.push(...rest.map(fmt));
@@ -180,7 +180,7 @@ const faqCategories: FaqCategory[] = [
     ],
     buildResponse: () => {
       const rows = payRanges.map(
-        (p) => `• **${p.role}:** $${p.min} – $${p.max}${p.suffix}`
+        (p) => `• ${p.role}: $${p.min} – $${p.max}${p.suffix}`
       );
 
       return [
@@ -188,7 +188,7 @@ const faqCategories: FaqCategory[] = [
         "",
         ...rows,
         "",
-        "_Pay varies by experience, skills, and location._",
+        "Pay varies by experience, skills, and location.",
         "",
         "Want to discuss specific pay for your skills? Leave your info and a recruiter can give you a personalized answer.",
       ].join("\n");
@@ -204,7 +204,7 @@ const faqCategories: FaqCategory[] = [
     ],
     buildResponse: () => {
       const items = services.map(
-        (s) => `• **${s.title}** – ${s.shortDescription}`
+        (s) => `• ${s.title} – ${s.shortDescription}`
       );
 
       return [
@@ -247,12 +247,12 @@ const faqCategories: FaqCategory[] = [
       [
         `We'd love to hear from you! Here's how to reach ${company.name}:`,
         "",
-        `• **Phone:** ${company.phone}`,
-        `• **Email:** ${company.email}`,
-        `• **Address:** ${company.address.full}`,
-        `• **Hours:** ${company.hours.weekdays} | ${company.hours.friday}`,
+        `• Phone: ${company.phone}`,
+        `• Email: ${company.email}`,
+        `• Address: ${company.address.full}`,
+        `• Hours: ${company.hours.weekdays} | ${company.hours.friday}`,
         "",
-        "**Follow us:**",
+        "Follow us:",
         `• Facebook: ${company.social.facebook}`,
         `• LinkedIn: ${company.social.linkedin}`,
         "",

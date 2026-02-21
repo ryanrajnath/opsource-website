@@ -41,10 +41,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={cn(
-            "flex items-center justify-between transition-[height] duration-300",
-            scrolled ? "h-14" : "h-16 lg:h-20"
-          )}
+          className="flex items-center justify-between h-14"
         >
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -53,10 +50,7 @@ export function Navbar() {
               alt="OpSource Staffing"
               width={192}
               height={48}
-              className={cn(
-                "w-auto transition-[height] duration-300",
-                scrolled ? "h-8 lg:h-10" : "h-10 lg:h-12"
-              )}
+              className="w-auto h-9"
               priority
             />
           </Link>

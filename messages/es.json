@@ -1,0 +1,431 @@
+{
+  "common": {
+    "findAJob": "Buscar Empleo",
+    "applyNow": "Aplicar Ahora",
+    "contactUs": "Contáctenos",
+    "searchJobs": "Buscar Empleos",
+    "ourServices": "Nuestros Servicios",
+    "viewAllOpenJobs": "Ver Todos los Empleos",
+    "learnMore": "Más Información",
+    "getStarted": "Comenzar",
+    "sendMessage": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "submitting": "Enviando...",
+    "skipToContent": "Ir al contenido",
+    "walkInsWelcome": "Se aceptan visitas sin cita",
+    "getDirections": "Cómo Llegar",
+    "urgent": "Urgente",
+    "seeAllOpenPositions": "Ver Todas las Posiciones",
+    "requestTalent": "Solicitar Personal",
+    "referAFriend": "Recomendar a un Amigo",
+    "callUs": "Llámenos",
+    "textToApply": "Envíe un Texto para Aplicar",
+    "walkInToday": "Visítenos Hoy",
+    "browseOpenJobs": "Ver Empleos Disponibles",
+    "contactUsToday": "Contáctenos Hoy",
+    "goHome": "Ir al Inicio",
+    "getCalledBack": "Recibir Llamada"
+  },
+
+  "nav": {
+    "about": "Nosotros",
+    "locations": "Ubicaciones",
+    "allLocations": "Todas las Ubicaciones",
+    "services": "Servicios",
+    "allServices": "Todos los Servicios",
+    "traditionalStaffing": "Personal Temporal",
+    "skilledTrades": "Oficios Especializados",
+    "directHire": "Contratación Directa",
+    "payrollServices": "Servicios de Nómina",
+    "jobPortal": "Portal de Empleo",
+    "employeePortal": "Portal del Empleado",
+    "needTalent": "¿Necesita Personal?",
+    "needTalentMobile": "¿Necesita Personal? — (866) 870-8133",
+    "callUsMobile": "Llámenos (866) 870-8133",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+
+  "home": {
+    "hero": {
+      "sectionLabel": "Soluciones de Personal que Funcionan",
+      "title": "Su Fuente de",
+      "titleHighlight": "Oportunidad",
+      "subtitle": "Empleos de $14–$32/hr en almacén, manufactura y oficios especializados. La mayoría comienza en 3 días."
+    },
+    "splitPanels": {
+      "findJob": {
+        "title": "Encuentre Su Próximo Empleo",
+        "description": "Visítenos o aplique en línea. No necesita currículum. La mayoría de los candidatos comienzan en 3 días."
+      },
+      "buildTeam": {
+        "title": "Construya Su Equipo",
+        "description": "Candidatos pre-evaluados listos para empezar. Colocación promedio en 3 días. Nosotros nos encargamos."
+      }
+    },
+    "payRanges": {
+      "sectionLabel": "Lo Que Puede Ganar",
+      "title": "Rangos de Pago por Puesto",
+      "subtitle": "Pago competitivo en todas las posiciones. Pago semanal con depósito directo disponible.",
+      "perHour": "hr"
+    },
+    "featuredJobs": {
+      "sectionLabel": "Contratando Ahora",
+      "title": "Empleos Destacados",
+      "subtitle": "Posiciones reales disponibles ahora mismo. Aplique hoy, comience esta semana.",
+      "walkInNote": "O visite cualquiera de nuestras 10 ubicaciones — no necesita cita"
+    },
+    "candidateTestimonials": {
+      "sectionLabel": "De Nuestros Trabajadores",
+      "title": "Lo Que Dicen los Buscadores de Empleo",
+      "subtitle": "Personas reales, historias reales. Escuche a los trabajadores que hemos colocado en el Sureste."
+    },
+    "statsBar": {
+      "employersLink": "Empleadores: Explore nuestras soluciones de personal"
+    },
+    "locationsPreview": {
+      "sectionLabel": "Encuéntrenos Cerca de Usted",
+      "title": "Ubicaciones que Servimos",
+      "subtitle": "Con 10 sucursales en el Sureste, siempre estamos cerca de donde nos necesita.",
+      "walkInsWelcomeAll": "Se aceptan visitas sin cita en todas las ubicaciones.",
+      "contactOnSite": "¡Contáctenos sobre servicios en sitio!"
+    },
+    "tabbedTestimonials": {
+      "sectionLabel": "Lo Que Dice la Gente",
+      "title": "La Confianza de Trabajadores y Empleadores",
+      "subtitle": "Escuche a quienes nos conocen mejor — los trabajadores que hemos colocado y las empresas que servimos."
+    },
+    "referFriend": {
+      "title": "¿Conoce a Alguien Buscando Trabajo?",
+      "description": "Recomiende a un amigo a OpSource y ayúdelo a encontrar su próxima oportunidad. Buenos empleos. Buen pago. Buena gente."
+    },
+    "cta": {
+      "title": "¿Listo para Comenzar?",
+      "subtitle": "Ya sea que busque su próxima oportunidad o necesite formar su equipo, estamos aquí para ayudar."
+    }
+  },
+
+  "urgencyBanner": {
+    "headline": "¡Estamos Contratando AHORA en las 10 Ubicaciones!",
+    "subtext": "Visítenos hoy o aplique en línea — la mayoría de los candidatos comienzan en 3 días"
+  },
+
+  "about": {
+    "hero": {
+      "title": "Estamos Aquí Para Usted",
+      "subtitle": "Más de 20 años conectando personas trabajadoras con grandes empresas en el Sureste."
+    },
+    "stats": {
+      "yearsInBusiness": "Años en el Negocio",
+      "locations": "Ubicaciones",
+      "annualPlacements": "Colocaciones Anuales",
+      "clientPartners": "Socios Empresariales"
+    },
+    "team": {
+      "leadershipLabel": "Liderazgo",
+      "executiveTeam": "Equipo Ejecutivo",
+      "ourTeamLabel": "Nuestro Equipo",
+      "managers": "Gerentes"
+    },
+    "industries": {
+      "sectionLabel": "Nuestra Experiencia",
+      "title": "Industrias que Servimos",
+      "subtitle": "Amplia experiencia en los sectores que impulsan la economía del Sureste.",
+      "automotiveManufacturing": "Manufactura Automotriz",
+      "automotiveDesc": "Líneas de ensamblaje, control de calidad y personal de apoyo a la producción.",
+      "foodBeverage": "Alimentos y Bebidas",
+      "foodDesc": "Procesamiento, empaque, saneamiento y operaciones de almacén.",
+      "distributionLogistics": "Distribución y Logística",
+      "distributionDesc": "Operadores de montacargas, recolectores, empacadores y coordinadores de envío.",
+      "construction": "Construcción",
+      "constructionDesc": "Oficios especializados, trabajadores generales y personal de apoyo en obra.",
+      "aerospaceDefense": "Aeroespacial y Defensa",
+      "aerospaceDesc": "Ensamblaje de precisión, inspección y roles técnicos certificados.",
+      "pharmaChemical": "Farmacéutica y Química",
+      "pharmaDesc": "Operadores de sala limpia, procesamiento por lotes y personal listo para cumplimiento."
+    },
+    "values": {
+      "sectionLabel": "Lo Que Defendemos",
+      "title": "Nuestros Valores Fundamentales",
+      "integrity": {
+        "title": "Integridad",
+        "description": "Cumplimos nuestras promesas con clientes y trabajadores — llegando a tiempo, siempre, con honestidad en la que puede confiar."
+      },
+      "excellence": {
+        "title": "Excelencia",
+        "description": "Evaluamos a cada candidato minuciosamente y hacemos seguimiento sin descanso para que su operación nunca se detenga."
+      },
+      "loyalty": {
+        "title": "Lealtad",
+        "description": "Construimos relaciones duraderas — no colocaciones de una sola vez. Muchos de nuestros clientes y trabajadores llevan más de 10 años con nosotros."
+      },
+      "servantLeadership": {
+        "title": "Liderazgo de Servicio",
+        "description": "Contestamos el teléfono, resolvemos problemas el mismo día y tratamos con respeto a cada persona que entra por nuestra puerta."
+      }
+    },
+    "safety": {
+      "sectionLabel": "Su Seguridad Importa",
+      "title": "Seguridad y Cumplimiento",
+      "oshaCompliant": "Cumplimiento OSHA",
+      "drugFree": "Lugar de Trabajo Libre de Drogas",
+      "safetyTraining": "Capacitación de Seguridad Incluida",
+      "workersComp": "Cobertura de Compensación Laboral"
+    },
+    "testimonialHighlight": {
+      "quote": "Entré un lunes y estaba trabajando el miércoles. Me trataron como una persona, no solo como un número.",
+      "author": "— Marcus T., Operador de Montacargas, Greenville SC"
+    },
+    "difference": {
+      "title": "La Diferencia OpSource",
+      "quote": "En OpSource, nuestro enfoque #1 es usted.",
+      "mission": "Nuestra misión es servir y conectar a personas excelentes con grandes empresas a través de nuestra visión compartida de construir un negocio que sea la opción correcta para el servicio y la conexión."
+    }
+  },
+
+  "services": {
+    "hero": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Soluciones integrales de personal y fuerza laboral adaptadas a las necesidades de su negocio."
+    },
+    "serviceDetails": {
+      "traditional": {
+        "title": "Personal Temporal",
+        "description": "Nuestras soluciones de personal temporal brindan la flexibilidad que su negocio necesita. Ya sea que requiera trabajadores temporales para picos estacionales, acuerdos de temporal a permanente para evaluar candidatos, o gestión en sitio, entregamos profesionales calificados listos para contribuir desde el primer día.",
+        "ctaText": "Ver Posiciones Abiertas",
+        "bullets": [
+          "Asociados de almacén y manipuladores de materiales",
+          "Trabajadores de producción y línea de ensamblaje",
+          "Empaque, clasificación e inspección de calidad",
+          "Temporal a permanente y gestión en sitio disponible"
+        ]
+      },
+      "skilledTrades": {
+        "title": "Oficios Especializados",
+        "description": "Nuestra división de oficios especializados se especializa en colocar trabajadores calificados en los sectores de manufactura, construcción e industria. Desde soldadores y electricistas hasta operadores CNC y técnicos de mantenimiento, conectamos profesionales experimentados con empleadores que valoran su experiencia.",
+        "ctaText": "Ver Empleos de Oficios",
+        "bullets": [
+          "Soldadores MIG/TIG (certificación AWS)",
+          "Maquinistas CNC y operadores de máquinas",
+          "Técnicos de mantenimiento industrial",
+          "Electricistas y especialistas en HVAC"
+        ]
+      },
+      "directHire": {
+        "title": "Contratación Directa",
+        "description": "Cuando necesita encontrar la adición permanente perfecta para su equipo, nuestra división de contratación directa cumple. Manejamos el ciclo completo de reclutamiento — desde la búsqueda y evaluación hasta entrevistas y negociación de ofertas — asegurando que cada candidato se alinee con su cultura empresarial y objetivos a largo plazo.",
+        "ctaText": "Más Información",
+        "bullets": [
+          "Gerentes de planta y supervisores de producción",
+          "Gerentes de control de calidad y seguridad",
+          "Coordinadores de logística y cadena de suministro",
+          "Especialistas en ingeniería y técnicos"
+        ]
+      },
+      "payroll": {
+        "title": "Servicios de Nómina",
+        "description": "Déjenos manejar la complejidad de la nómina para que pueda enfocarse en hacer crecer su negocio. Nuestros servicios de nómina incluyen procesamiento, declaración de impuestos, gestión de cumplimiento e informes — todo optimizado para ahorrarle tiempo y reducir la carga administrativa.",
+        "ctaText": "Comenzar",
+        "bullets": [
+          "Gestión de compensación laboral",
+          "Verificación I-9 y cumplimiento E-Verify",
+          "Informes ACA y declaración de impuestos",
+          "Procesamiento de pago semanal con depósito directo"
+        ]
+      }
+    },
+    "candidateJourney": {
+      "sectionLabel": "Para Buscadores de Empleo",
+      "title": "Su Camino a un Gran Empleo",
+      "subtitle": "¿Sin currículum? No hay problema. Así de fácil es comenzar.",
+      "step1": {
+        "title": "Visítenos o Aplique en Línea",
+        "description": "Visite cualquiera de nuestras 10 ubicaciones o aplique en línea. No necesita cita. Traiga una identificación válida y lo pondremos en marcha."
+      },
+      "step2": {
+        "title": "Entrevista Rápida y Evaluación",
+        "description": "Hablaremos sobre su experiencia, habilidades y qué tipo de trabajo busca. Entrevistas el mismo día disponibles."
+      },
+      "step3": {
+        "title": "Orientación y Capacitación de Seguridad",
+        "description": "Complete una breve orientación y cualquier capacitación de seguridad requerida. Nos aseguramos de que esté preparado para el éxito."
+      },
+      "step4": {
+        "title": "Comience a Trabajar",
+        "description": "La mayoría de los candidatos son colocados en 3 días. Reciba pago semanal con depósito directo disponible."
+      },
+      "walkInNote": "O visite cualquier ubicación — no necesita cita"
+    },
+    "whatToBring": {
+      "sectionLabel": "Esté Preparado",
+      "title": "Qué Traer Cuando Nos Visite",
+      "subtitle": "¿Viene a aplicar? Esto es lo que necesitará para comenzar rápidamente.",
+      "validId": {
+        "title": "Identificación con Foto",
+        "description": "Licencia de conducir, identificación estatal o pasaporte"
+      },
+      "ssCard": {
+        "title": "Tarjeta de Seguro Social",
+        "description": "U otra prueba de elegibilidad para trabajar"
+      },
+      "workHistory": {
+        "title": "Historial Laboral",
+        "description": "Nombres y fechas de empleadores recientes — no necesita currículum formal"
+      },
+      "steelToes": {
+        "title": "Botas con Punta de Acero",
+        "description": "Requeridas para muchas posiciones industriales — le avisaremos"
+      }
+    },
+    "recruitingProcess": {
+      "sectionLabel": "Cómo Funciona",
+      "title": "Nuestro Proceso de Reclutamiento",
+      "subtitle": "Un proceso optimizado diseñado para conseguirle a las personas correctas, rápido.",
+      "step1": {
+        "title": "Envíe Sus Necesidades",
+        "description": "Cuéntenos sobre las posiciones que necesita cubrir y sus requisitos específicos."
+      },
+      "step2": {
+        "title": "Buscamos y Evaluamos",
+        "description": "Nuestros reclutadores identifican, entrevistan y verifican candidatos calificados para sus roles."
+      },
+      "step3": {
+        "title": "Revise y Seleccione",
+        "description": "Revise candidatos pre-evaluados y seleccione al mejor para su equipo."
+      },
+      "step4": {
+        "title": "Incorporación y Éxito",
+        "description": "Nos encargamos de la incorporación y hacemos seguimiento para asegurar el éxito a largo plazo."
+      }
+    },
+    "cta": {
+      "title": "¿Necesita una Solución de Personal Personalizada?",
+      "subtitle": "Cada negocio es único. Construyamos un plan de fuerza laboral que se ajuste perfectamente a sus necesidades."
+    }
+  },
+
+  "locations": {
+    "hero": {
+      "title": "Nuestras Ubicaciones",
+      "subtitle": "Con 10 sucursales en el Sureste, siempre estamos cerca de donde nos necesita."
+    },
+    "hq": {
+      "sectionLabel": "Sede Central",
+      "title": "Oficina Corporativa",
+      "tag": "HQ",
+      "label": "Sede Corporativa"
+    },
+    "branches": {
+      "sectionLabel": "Nuestras Sucursales",
+      "title": "Sucursales"
+    },
+    "cta": {
+      "title": "¿No Ve Su Ubicación?",
+      "subtitle": "Ofrecemos servicios en sitio y podemos trabajar con empresas en todo el Sureste. Comuníquese para saber más."
+    }
+  },
+
+  "contact": {
+    "hero": {
+      "title": "Contáctenos",
+      "subtitle": "¿Tiene una pregunta o necesita apoyo con personal? Nos encantaría saber de usted."
+    },
+    "infoCards": {
+      "callUs": "Llámenos",
+      "emailUs": "Escríbanos",
+      "visitUs": "Visítenos",
+      "hours": "Horario"
+    },
+    "textBanner": {
+      "title": "¿Prefiere Enviar un Texto?",
+      "subtitle": "Envíenos un mensaje de texto y un reclutador le responderá de inmediato.",
+      "cta": "Texto (866) 870-8133"
+    },
+    "form": {
+      "title": "Envíenos un Mensaje",
+      "fullName": "Nombre Completo *",
+      "email": "Correo Electrónico *",
+      "phone": "Teléfono",
+      "subject": "Asunto *",
+      "message": "Mensaje *",
+      "namePlaceholder": "Juan Pérez",
+      "emailPlaceholder": "juan@ejemplo.com",
+      "phonePlaceholder": "(555) 123-4567",
+      "messagePlaceholder": "Cuéntenos cómo podemos ayudar...",
+      "selectSubject": "Seleccione un asunto...",
+      "subjectJob": "Estoy buscando empleo",
+      "subjectHiring": "Necesito contratar personal",
+      "subjectPayroll": "Consulta sobre servicios de nómina",
+      "subjectGeneral": "Consulta general",
+      "successTitle": "¡Mensaje Enviado!",
+      "successMessage": "Gracias por comunicarse. Le responderemos dentro de un día hábil.",
+      "validation": {
+        "nameRequired": "El nombre debe tener al menos 2 caracteres",
+        "emailRequired": "Por favor ingrese un correo electrónico válido",
+        "subjectRequired": "Por favor seleccione un asunto",
+        "messageRequired": "El mensaje debe tener al menos 10 caracteres"
+      }
+    },
+    "quickApply": {
+      "title": "Aplicación Rápida",
+      "subtitle": "No necesita currículum. Solo 3 campos — le llamaremos en 2 horas.",
+      "namePlaceholder": "Su Nombre",
+      "phonePlaceholder": "Su Número de Teléfono",
+      "jobTypePlaceholder": "¿Qué tipo de trabajo?",
+      "jobTypeWarehouse": "Almacén y Trabajo General",
+      "jobTypeManufacturing": "Manufactura y Ensamblaje",
+      "jobTypeSkilledTrades": "Oficios Especializados (Soldadura, CNC, etc.)",
+      "jobTypeMaintenance": "Mantenimiento y Técnico",
+      "jobTypeOther": "Otro / No Estoy Seguro",
+      "successTitle": "¡Listo!",
+      "successMessage": "Un reclutador le llamará en las próximas 2 horas durante horario laboral.",
+      "validation": {
+        "nameRequired": "El nombre es requerido",
+        "phoneRequired": "El número de teléfono es requerido",
+        "jobTypeRequired": "Por favor seleccione un tipo de trabajo"
+      }
+    },
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "searchOpenJobs": "Buscar Empleos Disponibles",
+      "employeePortal": "Portal del Empleado",
+      "directHire": "Contratación Directa OpSource"
+    },
+    "immediateHelp": {
+      "title": "¿Necesita Ayuda Inmediata?",
+      "subtitle": "Llámenos directamente y hable con un reclutador de inmediato."
+    }
+  },
+
+  "notFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que busca no existe o ha sido movida."
+  },
+
+  "footer": {
+    "seoDescription": "Conectando personas trabajadoras con grandes empresas en SC, NC y TN desde 2003. Personal industrial, oficios especializados y soluciones de fuerza laboral.",
+    "company": "Empresa",
+    "resources": "Recursos",
+    "opSourceDirect": "OpSource Direct",
+    "corporateOffice": "Oficina Corporativa",
+    "connectWithUs": "Conéctese Con Nosotros",
+    "comingSoon": "Próximamente",
+    "findAJob": "Buscar Empleo",
+    "copyright": "OpSource Staffing. Todos los derechos reservados.",
+    "eeoStatement": "Empleador de Igualdad de Oportunidades. OpSource Staffing se compromete a proporcionar igualdad de oportunidades de empleo sin importar raza, color, religión, sexo, origen nacional, edad, discapacidad o estado de veterano."
+  },
+
+  "testimonials": {
+    "fromWorkers": "De Trabajadores",
+    "fromEmployers": "De Empleadores",
+    "jobSeeker": "Buscador de Empleo",
+    "employer": "Empleador"
+  },
+
+  "jobFilter": {
+    "allJobs": "Todos los Empleos",
+    "warehouse": "Almacén",
+    "manufacturing": "Manufactura",
+    "skilledTrades": "Oficios Especializados"
+  }
+}

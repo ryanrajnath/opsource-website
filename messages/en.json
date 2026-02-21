@@ -1,0 +1,431 @@
+{
+  "common": {
+    "findAJob": "Find a Job",
+    "applyNow": "Apply Now",
+    "contactUs": "Contact Us",
+    "searchJobs": "Search Jobs",
+    "ourServices": "Our Services",
+    "viewAllOpenJobs": "View All Open Jobs",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "submitting": "Submitting...",
+    "skipToContent": "Skip to content",
+    "walkInsWelcome": "Walk-ins welcome",
+    "getDirections": "Get Directions",
+    "urgent": "Urgent",
+    "seeAllOpenPositions": "See All Open Positions",
+    "requestTalent": "Request Talent",
+    "referAFriend": "Refer a Friend",
+    "callUs": "Call Us",
+    "textToApply": "Text to Apply",
+    "walkInToday": "Walk In Today",
+    "browseOpenJobs": "Browse Open Jobs",
+    "contactUsToday": "Contact Us Today",
+    "goHome": "Go Home",
+    "getCalledBack": "Get Called Back"
+  },
+
+  "nav": {
+    "about": "About",
+    "locations": "Locations",
+    "allLocations": "All Locations",
+    "services": "Services",
+    "allServices": "All Services",
+    "traditionalStaffing": "Traditional Staffing",
+    "skilledTrades": "Skilled Trades",
+    "directHire": "Direct Hire",
+    "payrollServices": "Payroll Services",
+    "jobPortal": "Job Portal",
+    "employeePortal": "Employee Portal",
+    "needTalent": "Need Talent?",
+    "needTalentMobile": "Need Talent? — (866) 870-8133",
+    "callUsMobile": "Call Us (866) 870-8133",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+
+  "home": {
+    "hero": {
+      "sectionLabel": "Staffing Solutions That Work",
+      "title": "Your Source of",
+      "titleHighlight": "Opportunity",
+      "subtitle": "$14–$32/hr jobs in warehouse, manufacturing & skilled trades. Most people start within 3 days."
+    },
+    "splitPanels": {
+      "findJob": {
+        "title": "Find Your Next Job",
+        "description": "Walk in or apply online. No resume needed. Most candidates start within 3 days."
+      },
+      "buildTeam": {
+        "title": "Build Your Team",
+        "description": "Pre-screened candidates ready to start. Average placement in 3 days. We handle the heavy lifting."
+      }
+    },
+    "payRanges": {
+      "sectionLabel": "What You Can Earn",
+      "title": "Pay Ranges by Role",
+      "subtitle": "Competitive pay across all positions. Weekly pay with direct deposit available.",
+      "perHour": "hr"
+    },
+    "featuredJobs": {
+      "sectionLabel": "Hiring Now",
+      "title": "Featured Jobs",
+      "subtitle": "Real positions available right now. Apply today, start this week.",
+      "walkInNote": "Or walk into any of our 10 locations — no appointment needed"
+    },
+    "candidateTestimonials": {
+      "sectionLabel": "From Our Workers",
+      "title": "What Job Seekers Say",
+      "subtitle": "Real people, real stories. Hear from workers we've placed across the Southeast."
+    },
+    "statsBar": {
+      "employersLink": "Employers: Explore our staffing solutions"
+    },
+    "locationsPreview": {
+      "sectionLabel": "Find Us Near You",
+      "title": "Locations We Service",
+      "subtitle": "With 10 branches across the Southeast, we're always close to where you need us.",
+      "walkInsWelcomeAll": "Walk-ins welcome at all locations.",
+      "contactOnSite": "Contact us about on-site services!"
+    },
+    "tabbedTestimonials": {
+      "sectionLabel": "What People Are Saying",
+      "title": "Trusted by Workers & Employers",
+      "subtitle": "Hear from the people who know us best — the workers we've placed and the businesses we serve."
+    },
+    "referFriend": {
+      "title": "Know Someone Looking for Work?",
+      "description": "Refer a friend to OpSource and help them find their next opportunity. Great jobs. Great pay. Great people."
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Whether you're looking for your next opportunity or need to build your team, we're here to help."
+    }
+  },
+
+  "urgencyBanner": {
+    "headline": "We're Hiring NOW Across All 10 Locations",
+    "subtext": "Walk in today or apply online — most candidates start within 3 days"
+  },
+
+  "about": {
+    "hero": {
+      "title": "We Are Here For You",
+      "subtitle": "20+ years connecting hardworking people with great companies across the Southeast."
+    },
+    "stats": {
+      "yearsInBusiness": "Years in Business",
+      "locations": "Locations",
+      "annualPlacements": "Annual Placements",
+      "clientPartners": "Client Partners"
+    },
+    "team": {
+      "leadershipLabel": "Leadership",
+      "executiveTeam": "Executive Team",
+      "ourTeamLabel": "Our Team",
+      "managers": "Managers"
+    },
+    "industries": {
+      "sectionLabel": "Our Expertise",
+      "title": "Industries We Serve",
+      "subtitle": "Deep experience in the sectors that power the Southeast economy.",
+      "automotiveManufacturing": "Automotive Manufacturing",
+      "automotiveDesc": "Assembly lines, quality control, and production support staff.",
+      "foodBeverage": "Food & Beverage",
+      "foodDesc": "Processing, packaging, sanitation, and warehouse operations.",
+      "distributionLogistics": "Distribution & Logistics",
+      "distributionDesc": "Forklift operators, pickers, packers, and shipping coordinators.",
+      "construction": "Construction",
+      "constructionDesc": "Skilled trades, general laborers, and site support personnel.",
+      "aerospaceDefense": "Aerospace & Defense",
+      "aerospaceDesc": "Precision assembly, inspection, and certified technical roles.",
+      "pharmaChemical": "Pharmaceutical & Chemical",
+      "pharmaDesc": "Cleanroom operators, batch processing, and compliance-ready staff."
+    },
+    "values": {
+      "sectionLabel": "What We Stand For",
+      "title": "Our Core Values",
+      "integrity": {
+        "title": "Integrity",
+        "description": "We keep our promises to clients and workers — showing up on time, every time, with honesty you can count on."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We vet every candidate thoroughly and follow up relentlessly so your operation never misses a beat."
+      },
+      "loyalty": {
+        "title": "Loyalty",
+        "description": "We build lasting relationships — not one-time placements. Many of our clients and workers have been with us for 10+ years."
+      },
+      "servantLeadership": {
+        "title": "Servant-Leadership",
+        "description": "We answer the phone, solve problems same-day, and treat every person who walks through our door with respect."
+      }
+    },
+    "safety": {
+      "sectionLabel": "Your Safety Matters",
+      "title": "Safety & Compliance",
+      "oshaCompliant": "OSHA Compliant",
+      "drugFree": "Drug-Free Workplace",
+      "safetyTraining": "Safety Training Provided",
+      "workersComp": "Workers' Comp Coverage"
+    },
+    "testimonialHighlight": {
+      "quote": "I walked in on a Monday and was working by Wednesday. They treated me like a person, not just a number.",
+      "author": "— Marcus T., Forklift Operator, Greenville SC"
+    },
+    "difference": {
+      "title": "The OpSource Difference",
+      "quote": "At OpSource, our #1 focus is you.",
+      "mission": "Our mission is to serve and connect great people to great companies through our shared vision of building a business that is the right choice for service and connection."
+    }
+  },
+
+  "services": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive staffing and workforce solutions tailored to your business needs."
+    },
+    "serviceDetails": {
+      "traditional": {
+        "title": "Traditional Staffing",
+        "description": "Our traditional staffing solutions provide the flexibility your business needs. Whether you require temporary workers for seasonal peaks, temp-to-hire arrangements to evaluate candidates, or on-site management, we deliver qualified professionals ready to contribute from day one.",
+        "ctaText": "View Open Positions",
+        "bullets": [
+          "Warehouse associates & material handlers",
+          "Production & assembly line workers",
+          "Packaging, sorting & quality inspection",
+          "Temp-to-hire and on-site management available"
+        ]
+      },
+      "skilledTrades": {
+        "title": "Skilled Trades",
+        "description": "Our skilled trades division specializes in placing qualified tradespeople across manufacturing, construction, and industrial sectors. From welders and electricians to CNC operators and maintenance technicians, we connect experienced professionals with employers who value their expertise.",
+        "ctaText": "Browse Trades Jobs",
+        "bullets": [
+          "MIG/TIG welders (AWS certified)",
+          "CNC machinists & machine operators",
+          "Industrial maintenance technicians",
+          "Electricians & HVAC specialists"
+        ]
+      },
+      "directHire": {
+        "title": "Direct Hire",
+        "description": "When you need to find the perfect permanent addition to your team, our direct hire division delivers. We handle the full recruitment cycle — from sourcing and screening to interviewing and offer negotiation — ensuring every candidate aligns with your company culture and long-term goals.",
+        "ctaText": "Learn More",
+        "bullets": [
+          "Plant managers & production supervisors",
+          "Quality control & safety managers",
+          "Logistics & supply chain coordinators",
+          "Engineering & technical specialists"
+        ]
+      },
+      "payroll": {
+        "title": "Payroll Services",
+        "description": "Let us handle the complexity of payroll so you can focus on growing your business. Our payroll services include processing, tax filing, compliance management, and reporting — all streamlined to save you time and reduce administrative burden.",
+        "ctaText": "Get Started",
+        "bullets": [
+          "Workers' compensation management",
+          "I-9 verification & E-Verify compliance",
+          "ACA reporting & tax filing",
+          "Weekly pay processing with direct deposit"
+        ]
+      }
+    },
+    "candidateJourney": {
+      "sectionLabel": "For Job Seekers",
+      "title": "Your Path to a Great Job",
+      "subtitle": "No resume? No problem. Here's how easy it is to get started.",
+      "step1": {
+        "title": "Walk In or Apply Online",
+        "description": "Visit any of our 10 locations or apply online. No appointment needed. Bring a valid ID and we'll get you started."
+      },
+      "step2": {
+        "title": "Quick Interview & Skills Match",
+        "description": "We'll chat about your experience, skills, and what kind of work you're looking for. Same-day interviews available."
+      },
+      "step3": {
+        "title": "Orientation & Safety Training",
+        "description": "Complete a brief orientation and any required safety training. We make sure you're set up for success."
+      },
+      "step4": {
+        "title": "Start Working",
+        "description": "Most candidates are placed within 3 days. Get paid weekly with direct deposit available."
+      },
+      "walkInNote": "Or walk into any location — no appointment needed"
+    },
+    "whatToBring": {
+      "sectionLabel": "Be Prepared",
+      "title": "What to Bring When You Visit",
+      "subtitle": "Coming in to apply? Here's what you'll need to get started quickly.",
+      "validId": {
+        "title": "Valid Photo ID",
+        "description": "Driver's license, state ID, or passport"
+      },
+      "ssCard": {
+        "title": "Social Security Card",
+        "description": "Or other proof of work eligibility"
+      },
+      "workHistory": {
+        "title": "Work History",
+        "description": "Names and dates of recent employers — no formal resume needed"
+      },
+      "steelToes": {
+        "title": "Steel-Toed Boots",
+        "description": "Required for many industrial positions — we'll let you know"
+      }
+    },
+    "recruitingProcess": {
+      "sectionLabel": "How It Works",
+      "title": "Our Recruiting Process",
+      "subtitle": "A streamlined process designed to get you the right people, fast.",
+      "step1": {
+        "title": "Submit Your Needs",
+        "description": "Tell us about the positions you need filled and your specific requirements."
+      },
+      "step2": {
+        "title": "We Source & Screen",
+        "description": "Our recruiters identify, interview, and vet qualified candidates for your roles."
+      },
+      "step3": {
+        "title": "Review & Select",
+        "description": "Review pre-screened candidates and select the best fit for your team."
+      },
+      "step4": {
+        "title": "Onboard & Succeed",
+        "description": "We handle onboarding and follow up to ensure long-term success."
+      }
+    },
+    "cta": {
+      "title": "Need a Custom Staffing Solution?",
+      "subtitle": "Every business is unique. Let's build a workforce plan that fits your needs perfectly."
+    }
+  },
+
+  "locations": {
+    "hero": {
+      "title": "Our Locations",
+      "subtitle": "With 10 branches across the Southeast, we're always close to where you need us."
+    },
+    "hq": {
+      "sectionLabel": "Headquarters",
+      "title": "Corporate Office",
+      "tag": "HQ",
+      "label": "Corporate Headquarters"
+    },
+    "branches": {
+      "sectionLabel": "Our Branches",
+      "title": "Branch Locations"
+    },
+    "cta": {
+      "title": "Don't See Your Location?",
+      "subtitle": "We offer on-site services and can work with businesses across the Southeast. Reach out to learn more."
+    }
+  },
+
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Have a question or need staffing support? We'd love to hear from you."
+    },
+    "infoCards": {
+      "callUs": "Call Us",
+      "emailUs": "Email Us",
+      "visitUs": "Visit Us",
+      "hours": "Hours"
+    },
+    "textBanner": {
+      "title": "Prefer to Text?",
+      "subtitle": "Send us a text message and a recruiter will respond right away.",
+      "cta": "Text (866) 870-8133"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "fullName": "Full Name *",
+      "email": "Email *",
+      "phone": "Phone",
+      "subject": "Subject *",
+      "message": "Message *",
+      "namePlaceholder": "John Doe",
+      "emailPlaceholder": "john@example.com",
+      "phonePlaceholder": "(555) 123-4567",
+      "messagePlaceholder": "Tell us how we can help...",
+      "selectSubject": "Select a subject...",
+      "subjectJob": "I'm looking for a job",
+      "subjectHiring": "I need to hire staff",
+      "subjectPayroll": "Payroll services inquiry",
+      "subjectGeneral": "General inquiry",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for reaching out. We'll get back to you within one business day.",
+      "validation": {
+        "nameRequired": "Name must be at least 2 characters",
+        "emailRequired": "Please enter a valid email address",
+        "subjectRequired": "Please select a subject",
+        "messageRequired": "Message must be at least 10 characters"
+      }
+    },
+    "quickApply": {
+      "title": "Quick Apply",
+      "subtitle": "No resume needed. Just 3 fields — we'll call you back within 2 hours.",
+      "namePlaceholder": "Your Name",
+      "phonePlaceholder": "Your Phone Number",
+      "jobTypePlaceholder": "What kind of work?",
+      "jobTypeWarehouse": "Warehouse & General Labor",
+      "jobTypeManufacturing": "Manufacturing & Assembly",
+      "jobTypeSkilledTrades": "Skilled Trades (Welding, CNC, etc.)",
+      "jobTypeMaintenance": "Maintenance & Technical",
+      "jobTypeOther": "Other / Not Sure",
+      "successTitle": "We Got You!",
+      "successMessage": "A recruiter will call you back within 2 hours during business hours.",
+      "validation": {
+        "nameRequired": "Name is required",
+        "phoneRequired": "Phone number is required",
+        "jobTypeRequired": "Please select a job type"
+      }
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "searchOpenJobs": "Search Open Jobs",
+      "employeePortal": "Employee Portal",
+      "directHire": "OpSource Direct Hire"
+    },
+    "immediateHelp": {
+      "title": "Need Immediate Help?",
+      "subtitle": "Call us directly and speak with a recruiter right away."
+    }
+  },
+
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved."
+  },
+
+  "footer": {
+    "seoDescription": "Connecting hardworking people with great companies across SC, NC & TN since 2003. Industrial staffing, skilled trades, and workforce solutions.",
+    "company": "Company",
+    "resources": "Resources",
+    "opSourceDirect": "OpSource Direct",
+    "corporateOffice": "Corporate Office",
+    "connectWithUs": "Connect With Us",
+    "comingSoon": "Coming soon",
+    "findAJob": "Find a Job",
+    "copyright": "OpSource Staffing. All rights reserved.",
+    "eeoStatement": "Equal Opportunity Employer. OpSource Staffing is committed to providing equal employment opportunities regardless of race, color, religion, sex, national origin, age, disability, or veteran status."
+  },
+
+  "testimonials": {
+    "fromWorkers": "From Workers",
+    "fromEmployers": "From Employers",
+    "jobSeeker": "Job Seeker",
+    "employer": "Employer"
+  },
+
+  "jobFilter": {
+    "allJobs": "All Jobs",
+    "warehouse": "Warehouse",
+    "manufacturing": "Manufacturing",
+    "skilledTrades": "Skilled Trades"
+  }
+}

@@ -57,19 +57,23 @@ export default function ServicesPage() {
       </section>
 
       {/* Quick Nav */}
-      <nav className="bg-white border-b border-slate-200 sticky top-14 z-40">
+      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/60 sticky top-14 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="flex items-center gap-2 py-3 overflow-x-auto scrollbar-hide">
-            {services.map((service) => {
+          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+            {services.map((service, i) => {
               const keys = serviceKeys[service.id];
               return (
-                <li key={service.id}>
+                <li key={service.id} className="flex items-center">
                   <a
                     href={`#${service.id}`}
-                    className="inline-block whitespace-nowrap px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 rounded-full hover:bg-orange-action hover:text-white transition-colors"
+                    className="group inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-medium text-slate-500 rounded-lg hover:bg-navy-deep hover:text-white transition-all duration-200"
                   >
+                    <span className="w-5 h-5 flex items-center justify-center rounded text-[11px] font-bold bg-slate-200 text-slate-500 group-hover:bg-white/20 group-hover:text-white transition-colors">{i + 1}</span>
                     {keys ? t(keys.titleKey) : service.title}
                   </a>
+                  {i < services.length - 1 && (
+                    <span className="hidden sm:block w-px h-4 bg-slate-200 ml-1 sm:ml-2" />
+                  )}
                 </li>
               );
             })}

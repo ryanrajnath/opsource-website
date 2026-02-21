@@ -31,17 +31,24 @@ export default function HomePage() {
 
       {/* === 2. SPLIT-AUDIENCE HERO === */}
       <section className="relative bg-slate-surface overflow-hidden">
-        {/* Video background */}
+        {/* Video background — mobile (portrait crop) */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        >
-          <source src="/hero-video-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+          className="absolute inset-0 w-full h-full object-cover opacity-30 md:hidden"
+          src="/hero-video-mobile.mp4"
+        />
+        {/* Video background — desktop (landscape) */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30 hidden md:block"
+          src="/hero-video.mp4"
+        />
 
         {/* Overlays */}
         <div className="absolute inset-0 bg-slate-surface/70" />

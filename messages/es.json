@@ -126,6 +126,14 @@
   },
 
   "about": {
+    "quickNav": {
+      "stats": "En Cifras",
+      "leadership": "Liderazgo",
+      "industries": "Industrias",
+      "values": "Valores",
+      "safety": "Seguridad",
+      "difference": "Diferencia"
+    },
     "hero": {
       "title": "Estamos Aquí Para Usted",
       "subtitle": "Más de 20 años conectando personas trabajadoras con grandes empresas en el Sureste."
@@ -290,6 +298,10 @@
       "steelToes": {
         "title": "Botas con Punta de Acero",
         "description": "Requeridas para muchas posiciones industriales — le avisaremos"
+      },
+      "steelToeBoots": {
+        "title": "Botas con Punta de Acero",
+        "description": "Requeridas para la mayoría de posiciones de almacén e industriales"
       }
     },
     "recruitingProcess": {
@@ -333,6 +345,10 @@
     "branches": {
       "sectionLabel": "Nuestras Sucursales",
       "title": "Sucursales"
+    },
+    "quickNav": {
+      "headquarters": "Sede Central",
+      "allBranches": "Todas las Sucursales"
     },
     "cta": {
       "title": "¿No Ve Su Ubicación?",

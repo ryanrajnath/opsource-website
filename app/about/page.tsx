@@ -73,8 +73,37 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Quick Nav */}
+      <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+            {[
+              { href: "#stats", labelKey: "about.quickNav.stats", num: "1" },
+              { href: "#leadership", labelKey: "about.quickNav.leadership", num: "2" },
+              { href: "#industries", labelKey: "about.quickNav.industries", num: "3" },
+              { href: "#values", labelKey: "about.quickNav.values", num: "4" },
+              { href: "#safety", labelKey: "about.quickNav.safety", num: "5" },
+              { href: "#difference", labelKey: "about.quickNav.difference", num: "6" },
+            ].map((item, i, arr) => (
+              <li key={item.href} className="flex items-center">
+                <a
+                  href={item.href}
+                  className="group inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-semibold text-white/90 rounded-lg hover:bg-white/20 hover:text-white transition-all duration-200"
+                >
+                  <span className="w-5 h-5 flex items-center justify-center rounded text-[11px] font-bold bg-white/20 text-white group-hover:bg-white/30 transition-colors">{item.num}</span>
+                  {t(item.labelKey)}
+                </a>
+                {i < arr.length - 1 && (
+                  <span className="hidden sm:block w-px h-4 bg-white/30 ml-1 sm:ml-2" />
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
       {/* By the Numbers */}
-      <section className="bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface py-12">
+      <section id="stats" className="scroll-mt-28 bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => (
@@ -92,7 +121,7 @@ export default function AboutPage() {
       </section>
 
       {/* Executive Team */}
-      <section className="py-20 sm:py-28 bg-white">
+      <section id="leadership" className="scroll-mt-28 py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("about.team.leadershipLabel")}</SectionLabel>
@@ -139,7 +168,7 @@ export default function AboutPage() {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 sm:py-28 bg-white border-t border-slate-100">
+      <section id="industries" className="scroll-mt-28 py-20 sm:py-28 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("about.industries.sectionLabel")}</SectionLabel>
@@ -199,7 +228,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 sm:py-28 bg-white">
+      <section id="values" className="scroll-mt-28 py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("about.values.sectionLabel")}</SectionLabel>
@@ -225,7 +254,7 @@ export default function AboutPage() {
       </section>
 
       {/* Safety & Compliance */}
-      <section className="py-12 bg-emerald-50 border-y border-emerald-100">
+      <section id="safety" className="scroll-mt-28 py-12 bg-emerald-50 border-y border-emerald-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-8">
             <SectionLabel className="mb-3">{t("about.safety.sectionLabel")}</SectionLabel>
@@ -263,7 +292,7 @@ export default function AboutPage() {
       </section>
 
       {/* OpSource Difference */}
-      <section className="py-20 sm:py-28 bg-slate-50">
+      <section id="difference" className="scroll-mt-28 py-20 sm:py-28 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("about.difference.title")}</h2>

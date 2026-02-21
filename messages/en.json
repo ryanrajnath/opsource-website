@@ -126,6 +126,14 @@
   },
 
   "about": {
+    "quickNav": {
+      "stats": "By the Numbers",
+      "leadership": "Leadership",
+      "industries": "Industries",
+      "values": "Values",
+      "safety": "Safety",
+      "difference": "Difference"
+    },
     "hero": {
       "title": "We Are Here For You",
       "subtitle": "20+ years connecting hardworking people with great companies across the Southeast."
@@ -290,6 +298,10 @@
       "steelToes": {
         "title": "Steel-Toed Boots",
         "description": "Required for many industrial positions — we'll let you know"
+      },
+      "steelToeBoots": {
+        "title": "Steel-Toe Boots",
+        "description": "Required for most warehouse & industrial positions"
       }
     },
     "recruitingProcess": {
@@ -333,6 +345,10 @@
     "branches": {
       "sectionLabel": "Our Branches",
       "title": "Branch Locations"
+    },
+    "quickNav": {
+      "headquarters": "Headquarters",
+      "allBranches": "All Branches"
     },
     "cta": {
       "title": "Don't See Your Location?",

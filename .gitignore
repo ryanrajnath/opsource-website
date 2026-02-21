@@ -42,3 +42,6 @@ _old/
 
 # misc assets
 homepage-full.jpeg
+
+.vercel
+*.png

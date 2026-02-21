@@ -27,8 +27,38 @@ export default function LocationsPage() {
         </div>
       </section>
 
+      {/* Quick Nav */}
+      <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+            {[
+              { href: `#${hq.id}`, num: "1", label: t("locations.quickNav.headquarters") },
+              { href: "#all-branches", num: "2", label: t("locations.quickNav.allBranches") },
+              ...branches.map((loc, i) => ({
+                href: `#${loc.id}`,
+                num: String(i + 3),
+                label: loc.city,
+              })),
+            ].map((item, i, arr) => (
+              <li key={item.href} className="flex items-center">
+                <a
+                  href={item.href}
+                  className="group inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-semibold text-white/90 rounded-lg hover:bg-white/20 hover:text-white transition-all duration-200"
+                >
+                  <span className="w-5 h-5 flex items-center justify-center rounded text-[11px] font-bold bg-white/20 text-white group-hover:bg-white/30 transition-colors">{item.num}</span>
+                  {item.label}
+                </a>
+                {i < arr.length - 1 && (
+                  <span className="hidden sm:block w-px h-4 bg-white/30 ml-1 sm:ml-2" />
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
       {/* Corporate HQ */}
-      <section id={hq.id} className="py-20 sm:py-28 bg-white">
+      <section id={hq.id} className="py-20 sm:py-28 bg-white scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("locations.hq.sectionLabel")}</SectionLabel>
@@ -105,7 +135,7 @@ export default function LocationsPage() {
       </section>
 
       {/* All Branches */}
-      <section className="py-20 sm:py-28 bg-slate-50">
+      <section id="all-branches" className="py-20 sm:py-28 bg-slate-50 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("locations.branches.sectionLabel")}</SectionLabel>
@@ -116,7 +146,7 @@ export default function LocationsPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {branches.map((loc, i) => (
               <ScrollReveal key={loc.id} delay={i * 0.05}>
-                <div id={loc.id} className="group bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 accent-bar-navy">
+                <div id={loc.id} className="group bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 accent-bar-navy scroll-mt-28">
                   <div className="h-44 overflow-hidden relative">
                     <Image
                       src={loc.image}

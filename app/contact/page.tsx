@@ -66,7 +66,7 @@ export default function ContactPage() {
           <ScrollReveal className="mb-20">
             <div className="bg-gradient-to-r from-navy-deep to-slate-surface rounded-xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="text-white text-center sm:text-left">
-                <h2 className="text-2xl font-bold mb-2 font-[family-name:var(--font-heading)]">{t("contact.textBanner.title")}</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-2 font-[family-name:var(--font-heading)]">{t("contact.textBanner.title")}</h2>
                 <p className="text-blue-200 text-sm">{t("contact.textBanner.subtitle")}</p>
               </div>
               <a
@@ -85,7 +85,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <ScrollReveal>
                 <div className="bg-white border border-slate-200 rounded-xl p-8 sm:p-10 shadow-sm">
-                  <h2 className="text-2xl font-bold text-slate-800 mb-2 font-[family-name:var(--font-heading)]">{t("contact.form.title")}</h2>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-2 font-[family-name:var(--font-heading)]">{t("contact.form.title")}</h2>
                   <div className="w-16 h-1 bg-orange-action rounded-full mb-8" />
                   <ContactForm />
                 </div>

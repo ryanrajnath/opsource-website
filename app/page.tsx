@@ -122,7 +122,7 @@ export default function HomePage() {
       {/* Quick Nav */}
       <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+          <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-2.5">
             {[
               { href: "#pay-ranges", labelKey: "home.quickNav.payRanges", num: "1" },
               { href: "#open-jobs", labelKey: "home.quickNav.openJobs", num: "2" },
@@ -149,7 +149,7 @@ export default function HomePage() {
       </nav>
 
       {/* === 3. PAY RANGES === */}
-      <section id="pay-ranges" className="py-16 sm:py-20 bg-white scroll-mt-28">
+      <section id="pay-ranges" className="py-20 sm:py-28 bg-white scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <SectionLabel className="mb-3">{t("home.payRanges.sectionLabel")}</SectionLabel>
@@ -180,7 +180,7 @@ export default function HomePage() {
       </section>
 
       {/* === 4. JOB TYPE FILTER + FEATURED JOBS === */}
-      <section id="open-jobs" className="py-16 sm:py-20 bg-slate-50 scroll-mt-28">
+      <section id="open-jobs" className="py-20 sm:py-28 bg-slate-50 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-8">
             <SectionLabel className="mb-3">{t("home.featuredJobs.sectionLabel")}</SectionLabel>
@@ -342,7 +342,7 @@ export default function HomePage() {
               <div className="w-14 h-14 bg-orange-action/15 rounded-xl flex items-center justify-center mx-auto mb-6">
                 <Gift className="w-7 h-7 text-orange-action" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("home.referFriend.title")}</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("home.referFriend.title")}</h2>
               <p className="text-slate-600 max-w-xl mx-auto mb-8">
                 {t("home.referFriend.description")}
               </p>

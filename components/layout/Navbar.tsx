@@ -167,10 +167,11 @@ export function Navbar() {
                 </Link>
               )
             )}
-            <div className="mb-3">
+            <div className="flex items-center justify-between pt-3 mt-2 border-t border-slate-200">
+              <span className="text-sm text-slate-500 font-medium">Language</span>
               <LanguageToggle />
             </div>
-            <div className="pt-2 space-y-2">
+            <div className="pt-3 space-y-2">
               <Link
                 href={EXTERNAL_URLS.jobPortal}
                 target="_blank"

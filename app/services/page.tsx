@@ -59,7 +59,7 @@ export default function ServicesPage() {
       {/* Quick Nav */}
       <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+          <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-2.5">
             {services.map((service, i) => {
               const keys = serviceKeys[service.id];
               return (
@@ -175,7 +175,7 @@ export default function ServicesPage() {
       </section>
 
       {/* What to Bring */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <SectionLabel className="mb-3">{t("services.whatToBring.sectionLabel")}</SectionLabel>

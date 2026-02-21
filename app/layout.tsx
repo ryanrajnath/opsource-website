@@ -44,7 +44,7 @@ export default function RootLayout({
           </a>
           <ScrollProgress />
           <Navbar />
-          <main id="main-content">{children}</main>
+          <main id="main-content" className="pb-20 lg:pb-0">{children}</main>
           <Footer />
           <ScrollToTop />
         </LanguageProvider>

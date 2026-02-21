@@ -76,7 +76,7 @@ export default function AboutPage() {
       {/* Quick Nav */}
       <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+          <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-2.5">
             {[
               { href: "#stats", labelKey: "about.quickNav.stats", num: "1" },
               { href: "#leadership", labelKey: "about.quickNav.leadership", num: "2" },
@@ -258,7 +258,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-8">
             <SectionLabel className="mb-3">{t("about.safety.sectionLabel")}</SectionLabel>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 font-[family-name:var(--font-heading)]">{t("about.safety.title")}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 font-[family-name:var(--font-heading)]">{t("about.safety.title")}</h2>
           </ScrollReveal>
           <ScrollReveal>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -277,7 +277,7 @@ export default function AboutPage() {
       </section>
 
       {/* Candidate Testimonial Highlight */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-8 sm:p-10 text-center relative">

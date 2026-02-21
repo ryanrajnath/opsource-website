@@ -30,7 +30,7 @@ export default function LocationsPage() {
       {/* Quick Nav */}
       <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+          <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-2.5">
             {[
               { href: `#${hq.id}`, num: "1", label: t("locations.quickNav.headquarters") },
               { href: "#all-branches", num: "2", label: t("locations.quickNav.allBranches") },
@@ -43,9 +43,9 @@ export default function LocationsPage() {
               <li key={item.href} className="flex items-center">
                 <a
                   href={item.href}
-                  className="group inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-semibold text-white/90 rounded-lg hover:bg-white/20 hover:text-white transition-all duration-200"
+                  className="group inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white/90 rounded-lg hover:bg-white/20 hover:text-white transition-all duration-200"
                 >
-                  <span className="w-5 h-5 flex items-center justify-center rounded text-[11px] font-bold bg-white/20 text-white group-hover:bg-white/30 transition-colors">{item.num}</span>
+                  <span className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center rounded text-[10px] sm:text-[11px] font-bold bg-white/20 text-white group-hover:bg-white/30 transition-colors">{item.num}</span>
                   {item.label}
                 </a>
                 {i < arr.length - 1 && (
@@ -77,7 +77,7 @@ export default function LocationsPage() {
                     height={400}
                     className="w-full h-64 lg:h-full object-cover"
                   />
-                  <div className="absolute top-4 left-4 bg-orange-action text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                  <div className="absolute top-4 left-4 bg-orange-action text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">
                     {t("locations.hq.tag")}
                   </div>
                 </div>

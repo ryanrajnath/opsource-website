@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { LanguagePrompt } from "@/components/ui/LanguagePrompt";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -47,6 +48,7 @@ export default function RootLayout({
           <main id="main-content" className="pb-20 lg:pb-0">{children}</main>
           <Footer />
           <ScrollToTop />
+          <LanguagePrompt />
         </LanguageProvider>
       </body>
     </html>

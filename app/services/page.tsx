@@ -47,12 +47,12 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface overflow-hidden">
-        <div className="absolute inset-0 grid-pattern" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-action/5 rounded-full blur-3xl" />
+      <section className="relative bg-gradient-to-r from-orange-600 via-orange-action to-orange-600 overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 font-[family-name:var(--font-heading)]">{t("services.hero.title")}</h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">{t("services.hero.subtitle")}</p>
+          <p className="text-lg text-orange-100 max-w-2xl mx-auto">{t("services.hero.subtitle")}</p>
         </div>
       </section>
 

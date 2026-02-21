@@ -194,7 +194,13 @@ export function Navbar() {
 
       {/* Mobile Sticky Bottom Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2 flex items-center gap-2">
-        <LanguageToggle className="shrink-0 text-[11px] px-2 py-2" />
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 text-slate-700"
+          aria-label={mobileOpen ? t("nav.closeMenu") : t("nav.openMenu")}
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
         <a
           href="tel:8668708133"
           className="flex-1 flex items-center justify-center gap-2 bg-orange-action text-white font-semibold py-2.5 rounded-lg text-sm shadow-[0_2px_10px_rgba(234,88,12,0.25)]"

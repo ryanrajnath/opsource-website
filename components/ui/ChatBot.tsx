@@ -1,23 +1,83 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import { MessageCircle, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/context/LanguageContext";
+import { matchFaq, leadCaptureSteps, formatLeadSummary } from "@/data/chatFaq";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
 
+interface LeadCaptureState {
+  active: boolean;
+  step: number;
+  data: Record<string, string>;
+  completed: boolean;
+}
+
+const AFFIRMATIVE_WORDS = [
+  "yes",
+  "sure",
+  "ok",
+  "okay",
+  "si",
+  "sí",
+  "yeah",
+  "yep",
+  "please",
+  "por favor",
+  "claro",
+  "dale",
+  "of course",
+];
+
+const SKIP_WORDS = ["skip", "saltar", "no", "next", "siguiente", "n/a", "na"];
+
 export function ChatBot() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [streaming, setStreaming] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [leadCapture, setLeadCapture] = useState<LeadCaptureState>({
+    active: false,
+    step: 0,
+    data: {},
+    completed: false,
+  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const pendingLeadPromptRef = useRef(false);
+
+  const isSpanish = useCallback(
+    (text: string): boolean => {
+      if (locale === "es") return true;
+      const spanishIndicators = [
+        "hola",
+        "quiero",
+        "necesito",
+        "trabajo",
+        "dónde",
+        "donde",
+        "cómo",
+        "como",
+        "qué",
+        "que",
+        "por favor",
+        "gracias",
+        "busco",
+        "tengo",
+        "puedo",
+        "hay",
+      ];
+      const lower = text.toLowerCase();
+      return spanishIndicators.some((w) => lower.includes(w));
+    },
+    [locale]
+  );
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -25,69 +85,132 @@ export function ChatBot() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, scrollToBottom]);
+  }, [messages, typing, scrollToBottom]);
 
   useEffect(() => {
-    if (open && !streaming) inputRef.current?.focus();
-  }, [open, streaming]);
+    if (open && !typing) inputRef.current?.focus();
+  }, [open, typing]);
+
+  const addBotMessage = useCallback(
+    (content: string): Promise<void> => {
+      return new Promise((resolve) => {
+        setTyping(true);
+        const delay = 400 + Math.random() * 200;
+        setTimeout(() => {
+          setTyping(false);
+          setMessages((prev) => [...prev, { role: "assistant", content }]);
+          resolve();
+        }, delay);
+      });
+    },
+    []
+  );
+
+  const startLeadCapture = useCallback(async () => {
+    setLeadCapture((prev) => ({ ...prev, active: true, step: 0, data: {} }));
+    const step = leadCaptureSteps[0];
+    const prompt =
+      locale === "es" && step.promptEs ? step.promptEs : step.prompt;
+    await addBotMessage(prompt);
+  }, [locale, addBotMessage]);
+
+  const processLeadCaptureStep = useCallback(
+    async (userText: string) => {
+      const currentStep = leadCaptureSteps[leadCapture.step];
+      const isSkip = SKIP_WORDS.some((w) =>
+        userText.toLowerCase().trim().includes(w)
+      );
+      const value = isSkip ? "" : userText.trim();
+
+      const newData = { ...leadCapture.data, [currentStep.field]: value };
+      const nextStepIndex = leadCapture.step + 1;
+
+      if (nextStepIndex < leadCaptureSteps.length) {
+        setLeadCapture((prev) => ({
+          ...prev,
+          step: nextStepIndex,
+          data: newData,
+        }));
+        const nextStep = leadCaptureSteps[nextStepIndex];
+        const prompt =
+          locale === "es" && nextStep.promptEs
+            ? nextStep.promptEs
+            : nextStep.prompt;
+        await addBotMessage(prompt);
+      } else {
+        // Lead capture complete
+        const summary = formatLeadSummary(newData);
+        await addBotMessage(summary);
+        const thankYou =
+          locale === "es"
+            ? "¡Gracias! Un miembro de nuestro equipo se pondrá en contacto pronto. ¿Hay algo más en lo que pueda ayudarte?"
+            : "Thank you! A team member will be in touch soon. Is there anything else I can help with?";
+        await addBotMessage(thankYou);
+        setLeadCapture({
+          active: false,
+          step: 0,
+          data: {},
+          completed: true,
+        });
+      }
+    },
+    [leadCapture.step, leadCapture.data, locale, addBotMessage]
+  );
 
   const sendMessage = useCallback(
     async (text: string) => {
       const trimmed = text.trim();
-      if (!trimmed || streaming) return;
+      if (!trimmed || typing) return;
 
       const userMsg: Message = { role: "user", content: trimmed };
-      const history = [...messages, userMsg];
-      setMessages(history);
+      setMessages((prev) => [...prev, userMsg]);
       setInput("");
-      setStreaming(true);
 
-      // Add empty assistant message for streaming
-      setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+      // If currently in lead capture, process as lead capture step
+      if (leadCapture.active) {
+        await processLeadCaptureStep(trimmed);
+        return;
+      }
 
-      try {
-        const res = await fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ messages: history }),
-        });
-
-        if (!res.ok || !res.body) throw new Error("Chat request failed");
-
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          const chunk = decoder.decode(value, { stream: true });
-          setMessages((prev) => {
-            const updated = [...prev];
-            const last = updated[updated.length - 1];
-            updated[updated.length - 1] = {
-              ...last,
-              content: last.content + chunk,
-            };
-            return updated;
-          });
+      // Check if user is responding affirmatively to a lead capture prompt
+      if (pendingLeadPromptRef.current) {
+        pendingLeadPromptRef.current = false;
+        const isAffirmative = AFFIRMATIVE_WORDS.some((w) =>
+          trimmed.toLowerCase().includes(w)
+        );
+        if (isAffirmative) {
+          await startLeadCapture();
+          return;
         }
-      } catch {
-        setMessages((prev) => {
-          const updated = [...prev];
-          const last = updated[updated.length - 1];
-          updated[updated.length - 1] = {
-            ...last,
-            content:
-              last.content ||
-              "Sorry, I'm having trouble connecting. Please try again or call us at (866) 870-8133.",
-          };
-          return updated;
-        });
-      } finally {
-        setStreaming(false);
+      }
+
+      // FAQ matching
+      const spanish = isSpanish(trimmed);
+      const result = matchFaq(trimmed);
+      await addBotMessage(result.response);
+
+      // Suggest lead capture if appropriate and not already completed
+      if (result.suggestLeadCapture && !leadCapture.completed) {
+        pendingLeadPromptRef.current = true;
+        setTimeout(async () => {
+          const transitionMsg =
+            spanish || locale === "es"
+              ? "¿Te gustaría que un miembro de nuestro equipo se comunique contigo? Solo necesito algunos datos rápidos."
+              : "Would you like a team member to reach out to you? I just need a few quick details.";
+          await addBotMessage(transitionMsg);
+        }, 800);
       }
     },
-    [messages, streaming]
+    [
+      typing,
+      leadCapture.active,
+      leadCapture.completed,
+      processLeadCaptureStep,
+      startLeadCapture,
+      isSpanish,
+      locale,
+      addBotMessage,
+    ]
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -101,6 +224,12 @@ export function ChatBot() {
     t("chat.suggestion3"),
     t("chat.suggestion4"),
   ];
+
+  const leadProgressText = leadCapture.active
+    ? locale === "es"
+      ? `Paso ${leadCapture.step + 1} de ${leadCaptureSteps.length}`
+      : `Step ${leadCapture.step + 1} of ${leadCaptureSteps.length}`
+    : null;
 
   return (
     <>
@@ -132,7 +261,7 @@ export function ChatBot() {
 
         {/* Messages */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50">
-          {messages.length === 0 && (
+          {messages.length === 0 && !typing && (
             <div className="space-y-3">
               <p className="text-sm text-slate-500 text-center">
                 {t("chat.welcome")}
@@ -168,14 +297,29 @@ export function ChatBot() {
                 )}
               >
                 {msg.content}
-                {msg.role === "assistant" &&
-                  msg.content === "" &&
-                  streaming && <TypingDots />}
               </div>
             </div>
           ))}
+
+          {typing && (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] px-3 py-2 rounded-xl text-sm leading-relaxed bg-white border border-slate-200 text-slate-800 rounded-bl-sm">
+                <TypingDots />
+              </div>
+            </div>
+          )}
+
           <div ref={messagesEndRef} />
         </div>
+
+        {/* Lead capture progress */}
+        {leadProgressText && (
+          <div className="px-3 py-1.5 bg-slate-100 border-t border-slate-200 shrink-0">
+            <span className="text-xs text-slate-500 font-medium">
+              {leadProgressText}
+            </span>
+          </div>
+        )}
 
         {/* Input */}
         <form
@@ -188,20 +332,16 @@ export function ChatBot() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={t("chat.placeholder")}
-            disabled={streaming}
+            disabled={typing}
             className="flex-1 text-sm px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:border-navy-deep disabled:opacity-50"
           />
           <button
             type="submit"
-            disabled={streaming || !input.trim()}
+            disabled={typing || !input.trim()}
             className="p-2 rounded-lg bg-orange-action text-white hover:bg-orange-action-dark disabled:opacity-40 transition-colors cursor-pointer disabled:cursor-not-allowed"
             aria-label="Send"
           >
-            {streaming ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
-            ) : (
-              <Send className="w-4 h-4" />
-            )}
+            <Send className="w-4 h-4" />
           </button>
         </form>
       </div>

@@ -468,6 +468,12 @@
     "suggestion1": "¿Qué empleos hay disponibles?",
     "suggestion2": "Ubicaciones de oficinas",
     "suggestion3": "¿Cómo aplico?",
-    "suggestion4": "Necesito trabajadores"
+    "suggestion4": "Necesito trabajadores",
+    "leadCaptureIntro": "¡Con gusto te conecto con nuestro equipo! Déjame tomar algunos datos.",
+    "leadCaptureComplete": "¡Gracias! Un miembro de nuestro equipo se comunicará contigo pronto.",
+    "leadCaptureAnythingElse": "¿Hay algo más en lo que pueda ayudarte?",
+    "leadCaptureStep": "Paso {step} de {total}",
+    "skipText": "Escribe 'omitir' para omitir",
+    "connectPrompt": "¿Te gustaría que te conecte con nuestro equipo?"
   }
 }

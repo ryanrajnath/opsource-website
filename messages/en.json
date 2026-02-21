@@ -468,6 +468,12 @@
     "suggestion1": "What jobs are available?",
     "suggestion2": "Office locations",
     "suggestion3": "How do I apply?",
-    "suggestion4": "I need workers"
+    "suggestion4": "I need workers",
+    "leadCaptureIntro": "I'd be happy to connect you with our team! Let me grab a few details.",
+    "leadCaptureComplete": "Thank you! A member of our team will reach out to you soon.",
+    "leadCaptureAnythingElse": "Is there anything else I can help you with?",
+    "leadCaptureStep": "Step {step} of {total}",
+    "skipText": "Type 'skip' to skip",
+    "connectPrompt": "Would you like me to connect you with our team?"
   }
 }

@@ -31,20 +31,65 @@ export default function HomePage() {
 
       {/* === 2. SPLIT-AUDIENCE HERO === */}
       <section className="relative bg-slate-surface overflow-hidden">
+        {/* Photo mosaic background */}
+        <div className="absolute inset-0 grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-1 opacity-[0.07]">
+          {[
+            "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&q=60",
+            "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&q=60",
+            "https://images.unsplash.com/photo-1574194173423-79a68de90fef?w=300&q=60",
+            "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=300&q=60",
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=300&q=60",
+            "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&q=60",
+            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&q=60",
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300&q=60",
+            "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&q=60",
+            "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&q=60",
+            "https://images.unsplash.com/photo-1574194173423-79a68de90fef?w=300&q=60",
+            "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=300&q=60",
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=300&q=60",
+            "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&q=60",
+            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&q=60",
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300&q=60",
+          ].map((src, i) => (
+            <div key={i} className="aspect-square overflow-hidden rounded-lg">
+              <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+          ))}
+        </div>
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-slate-surface/80" />
         <div className="absolute inset-0 grid-pattern" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-action/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-orange-action/15 rounded-full blur-[120px]" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-navy-deep/10 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
-          <div className="text-center mb-12">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+          <div className="text-center mb-8">
             <SectionLabel className="mb-4">{t("home.hero.sectionLabel")}</SectionLabel>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 font-[family-name:var(--font-heading)]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 font-[family-name:var(--font-heading)]">
               {t("home.hero.title")}{" "}
               <span className="text-orange-action">{t("home.hero.titleHighlight")}</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
               {t("home.hero.subtitle")}
             </p>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-10">
+            {[
+              { value: "3", suffix: t("home.trustBadges.daySuffix"), label: t("home.trustBadges.placement") },
+              { value: "10", suffix: "+", label: t("home.trustBadges.locations") },
+              { value: "20", suffix: "+", label: t("home.trustBadges.years") },
+              { value: "5k", suffix: "+", label: t("home.trustBadges.placed") },
+            ].map((badge) => (
+              <div key={badge.label} className="text-center">
+                <p className="text-2xl sm:text-3xl font-extrabold text-white font-[family-name:var(--font-mono)]">
+                  {badge.value}<span className="text-orange-action">{badge.suffix}</span>
+                </p>
+                <p className="text-xs sm:text-sm text-slate-400 font-medium">{badge.label}</p>
+              </div>
+            ))}
           </div>
 
           {/* Split Panels */}

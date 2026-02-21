@@ -55,6 +55,13 @@
       "locations": "Locations",
       "referral": "Refer a Friend"
     },
+    "trustBadges": {
+      "daySuffix": "-Day",
+      "placement": "Avg. Placement",
+      "locations": "Locations",
+      "years": "Years in Business",
+      "placed": "Workers Placed"
+    },
     "hero": {
       "sectionLabel": "Staffing Solutions That Work",
       "title": "Your Source of",

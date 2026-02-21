@@ -55,6 +55,13 @@
       "locations": "Ubicaciones",
       "referral": "Referir Amigo"
     },
+    "trustBadges": {
+      "daySuffix": " Días",
+      "placement": "Colocación Prom.",
+      "locations": "Ubicaciones",
+      "years": "Años de Experiencia",
+      "placed": "Trabajadores Colocados"
+    },
     "hero": {
       "sectionLabel": "Soluciones de Personal que Funcionan",
       "title": "Su Fuente de",

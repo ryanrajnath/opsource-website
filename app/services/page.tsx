@@ -47,17 +47,17 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-orange-600 via-orange-action to-orange-600 overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-10" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+      <section className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface overflow-hidden">
+        <div className="absolute inset-0 grid-pattern" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-action/5 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 font-[family-name:var(--font-heading)]">{t("services.hero.title")}</h1>
-          <p className="text-lg text-orange-100 max-w-2xl mx-auto">{t("services.hero.subtitle")}</p>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">{t("services.hero.subtitle")}</p>
         </div>
       </section>
 
       {/* Quick Nav */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200/60 sticky top-14 z-40 shadow-sm">
+      <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
             {services.map((service, i) => {
@@ -66,13 +66,13 @@ export default function ServicesPage() {
                 <li key={service.id} className="flex items-center">
                   <a
                     href={`#${service.id}`}
-                    className="group inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-medium text-slate-500 rounded-lg hover:bg-navy-deep hover:text-white transition-all duration-200"
+                    className="group inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-semibold text-white/90 rounded-lg hover:bg-white/20 hover:text-white transition-all duration-200"
                   >
-                    <span className="w-5 h-5 flex items-center justify-center rounded text-[11px] font-bold bg-slate-200 text-slate-500 group-hover:bg-white/20 group-hover:text-white transition-colors">{i + 1}</span>
+                    <span className="w-5 h-5 flex items-center justify-center rounded text-[11px] font-bold bg-white/20 text-white group-hover:bg-white/30 transition-colors">{i + 1}</span>
                     {keys ? t(keys.titleKey) : service.title}
                   </a>
                   {i < services.length - 1 && (
-                    <span className="hidden sm:block w-px h-4 bg-slate-200 ml-1 sm:ml-2" />
+                    <span className="hidden sm:block w-px h-4 bg-white/30 ml-1 sm:ml-2" />
                   )}
                 </li>
               );

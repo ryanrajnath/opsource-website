@@ -5,7 +5,6 @@ import { Search, Users, MapPin, ArrowRight, Flame, Clock, BadgeDollarSign, Gift 
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { TestimonialCarousel } from "@/components/ui/TestimonialCarousel";
 import { UrgencyBanner } from "@/components/ui/UrgencyBanner";
 import { Button } from "@/components/ui/Button";
 import { TabbedTestimonials } from "@/components/ui/TabbedTestimonials";
@@ -230,22 +229,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* === 5. CANDIDATE TESTIMONIALS (moved up for emotional proof) === */}
-      <section id="testimonials" className="py-20 sm:py-28 bg-white scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <SectionLabel className="mb-3">{t("home.candidateTestimonials.sectionLabel")}</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("home.candidateTestimonials.title")}</h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">{t("home.candidateTestimonials.subtitle")}</p>
-          </ScrollReveal>
-
-          <ScrollReveal direction="scale">
-            <TestimonialCarousel testimonials={candidateTestimonials} />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* === 6. STATS BAR === */}
+      {/* === 5. STATS BAR === */}
       <section id="stats" className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface py-16 sm:py-20 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -308,8 +292,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* === 8. TABBED TESTIMONIALS (employer + candidate combined) === */}
-      <section className="py-20 sm:py-28 bg-white">
+      {/* === 7. TABBED TESTIMONIALS (employer + candidate combined) === */}
+      <section id="testimonials" className="py-20 sm:py-28 bg-white scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("home.tabbedTestimonials.sectionLabel")}</SectionLabel>

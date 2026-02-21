@@ -74,7 +74,7 @@ export default function AboutPage() {
       </section>
 
       {/* Quick Nav */}
-      <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
+      <nav className="hidden lg:block bg-orange-action sticky top-14 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-2.5">
             {[

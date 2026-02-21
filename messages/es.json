@@ -47,6 +47,14 @@
   },
 
   "home": {
+    "quickNav": {
+      "payRanges": "Salarios",
+      "openJobs": "Empleos",
+      "testimonials": "Testimonios",
+      "stats": "En Cifras",
+      "locations": "Ubicaciones",
+      "referral": "Referir Amigo"
+    },
     "hero": {
       "sectionLabel": "Soluciones de Personal que Funcionan",
       "title": "Su Fuente de",

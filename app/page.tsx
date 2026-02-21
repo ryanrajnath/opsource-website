@@ -74,8 +74,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Quick Nav */}
+      <nav className="bg-orange-action sticky top-14 z-40 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ul className="flex items-center justify-center gap-1 sm:gap-2 py-2.5 overflow-x-auto scrollbar-hide">
+            {[
+              { href: "#pay-ranges", labelKey: "home.quickNav.payRanges", num: "1" },
+              { href: "#open-jobs", labelKey: "home.quickNav.openJobs", num: "2" },
+              { href: "#testimonials", labelKey: "home.quickNav.testimonials", num: "3" },
+              { href: "#stats", labelKey: "home.quickNav.stats", num: "4" },
+              { href: "#locations", labelKey: "home.quickNav.locations", num: "5" },
+              { href: "#referral", labelKey: "home.quickNav.referral", num: "6" },
+            ].map((item, i, arr) => (
+              <li key={item.href} className="flex items-center">
+                <a
+                  href={item.href}
+                  className="group inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm font-semibold text-white/90 rounded-lg hover:bg-white/20 hover:text-white transition-all duration-200"
+                >
+                  <span className="w-5 h-5 flex items-center justify-center rounded text-[11px] font-bold bg-white/20 text-white group-hover:bg-white/30 transition-colors">{item.num}</span>
+                  {t(item.labelKey)}
+                </a>
+                {i < arr.length - 1 && (
+                  <span className="hidden sm:block w-px h-4 bg-white/30 ml-1 sm:ml-2" />
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
       {/* === 3. PAY RANGES === */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section id="pay-ranges" className="py-16 sm:py-20 bg-white scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <SectionLabel className="mb-3">{t("home.payRanges.sectionLabel")}</SectionLabel>
@@ -106,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* === 4. JOB TYPE FILTER + FEATURED JOBS === */}
-      <section className="py-16 sm:py-20 bg-slate-50">
+      <section id="open-jobs" className="py-16 sm:py-20 bg-slate-50 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-8">
             <SectionLabel className="mb-3">{t("home.featuredJobs.sectionLabel")}</SectionLabel>
@@ -165,7 +194,7 @@ export default function HomePage() {
       </section>
 
       {/* === 5. CANDIDATE TESTIMONIALS (moved up for emotional proof) === */}
-      <section className="py-20 sm:py-28 bg-white">
+      <section id="testimonials" className="py-20 sm:py-28 bg-white scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("home.candidateTestimonials.sectionLabel")}</SectionLabel>
@@ -180,7 +209,7 @@ export default function HomePage() {
       </section>
 
       {/* === 6. STATS BAR === */}
-      <section className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface py-16 sm:py-20">
+      <section id="stats" className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface py-16 sm:py-20 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {stats.map((stat, i) => (
@@ -208,7 +237,7 @@ export default function HomePage() {
       </section>
 
       {/* === 7. LOCATIONS PREVIEW === */}
-      <section className="py-20 sm:py-28 bg-slate-50">
+      <section id="locations" className="py-20 sm:py-28 bg-slate-50 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("home.locationsPreview.sectionLabel")}</SectionLabel>
@@ -261,7 +290,7 @@ export default function HomePage() {
       </section>
 
       {/* === 9. REFER A FRIEND === */}
-      <section className="py-16 sm:py-20">
+      <section id="referral" className="py-16 sm:py-20 scroll-mt-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-2xl p-8 sm:p-12 text-center">

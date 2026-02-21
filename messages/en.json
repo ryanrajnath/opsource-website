@@ -47,6 +47,14 @@
   },
 
   "home": {
+    "quickNav": {
+      "payRanges": "Pay Ranges",
+      "openJobs": "Open Jobs",
+      "testimonials": "Testimonials",
+      "stats": "By the Numbers",
+      "locations": "Locations",
+      "referral": "Refer a Friend"
+    },
     "hero": {
       "sectionLabel": "Staffing Solutions That Work",
       "title": "Your Source of",

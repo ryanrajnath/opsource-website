@@ -56,6 +56,27 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Quick Nav */}
+      <nav className="bg-white border-b border-slate-200 sticky top-14 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ul className="flex items-center gap-2 py-3 overflow-x-auto scrollbar-hide">
+            {services.map((service) => {
+              const keys = serviceKeys[service.id];
+              return (
+                <li key={service.id}>
+                  <a
+                    href={`#${service.id}`}
+                    className="inline-block whitespace-nowrap px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 rounded-full hover:bg-orange-action hover:text-white transition-colors"
+                  >
+                    {keys ? t(keys.titleKey) : service.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </nav>
+
       {/* Service Details */}
       {services.map((service, i) => {
         const isEven = i % 2 === 0;
@@ -66,7 +87,7 @@ export default function ServicesPage() {
           <section
             key={service.id}
             id={service.id}
-            className={`py-20 sm:py-28 ${isEven ? "bg-white" : "bg-slate-50"}`}
+            className={`py-20 sm:py-28 scroll-mt-28 ${isEven ? "bg-white" : "bg-slate-50"}`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-16`}>

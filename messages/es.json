@@ -50,6 +50,7 @@
     "quickNav": {
       "payRanges": "Salarios",
       "openJobs": "Empleos",
+      "clients": "Clientes",
       "testimonials": "Testimonios",
       "stats": "En Cifras",
       "locations": "Ubicaciones",
@@ -94,6 +95,11 @@
       "sectionLabel": "De Nuestros Trabajadores",
       "title": "Lo Que Dicen los Buscadores de Empleo",
       "subtitle": "Personas reales, historias reales. Escuche a los trabajadores que hemos colocado en el Sureste."
+    },
+    "clients": {
+      "sectionLabel": "A Quiénes Servimos",
+      "title": "Confianza de Líderes de la Industria",
+      "subtitle": "Proveemos talento para fabricantes y empleadores líderes en la región de Upstate SC."
     },
     "statsBar": {
       "employersLink": "Empleadores: Explore nuestras soluciones de personal"

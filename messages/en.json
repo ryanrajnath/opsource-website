@@ -50,6 +50,7 @@
     "quickNav": {
       "payRanges": "Pay Ranges",
       "openJobs": "Open Jobs",
+      "clients": "Who We Serve",
       "testimonials": "Testimonials",
       "stats": "By the Numbers",
       "locations": "Locations",
@@ -94,6 +95,11 @@
       "sectionLabel": "From Our Workers",
       "title": "What Job Seekers Say",
       "subtitle": "Real people, real stories. Hear from workers we've placed across the Southeast."
+    },
+    "clients": {
+      "sectionLabel": "Who We Serve",
+      "title": "Trusted by Industry Leaders",
+      "subtitle": "We source talent for leading manufacturers and employers across the Upstate SC region."
     },
     "statsBar": {
       "employersLink": "Employers: Explore our staffing solutions"

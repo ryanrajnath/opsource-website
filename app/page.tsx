@@ -117,10 +117,11 @@ export default function HomePage() {
             {[
               { href: "#pay-ranges", labelKey: "home.quickNav.payRanges", num: "1" },
               { href: "#open-jobs", labelKey: "home.quickNav.openJobs", num: "2" },
-              { href: "#testimonials", labelKey: "home.quickNav.testimonials", num: "3" },
+              { href: "#clients", labelKey: "home.quickNav.clients", num: "3" },
               { href: "#stats", labelKey: "home.quickNav.stats", num: "4" },
               { href: "#locations", labelKey: "home.quickNav.locations", num: "5" },
-              { href: "#referral", labelKey: "home.quickNav.referral", num: "6" },
+              { href: "#testimonials", labelKey: "home.quickNav.testimonials", num: "6" },
+              { href: "#referral", labelKey: "home.quickNav.referral", num: "7" },
             ].map((item, i, arr) => (
               <li key={item.href} className="flex items-center">
                 <a
@@ -229,7 +230,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* === 5. STATS BAR === */}
+      {/* === 5. WHO WE SERVE / CLIENT LOGOS === */}
+      <section id="clients" className="py-20 sm:py-28 bg-white scroll-mt-28 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-14">
+            <SectionLabel className="mb-3">{t("home.clients.sectionLabel")}</SectionLabel>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("home.clients.title")}</h2>
+            <p className="text-slate-500 max-w-xl mx-auto">{t("home.clients.subtitle")}</p>
+          </ScrollReveal>
+        </div>
+
+        {/* Infinite scrolling marquee */}
+        <div className="relative">
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 lg:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 lg:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+          <div className="flex animate-marquee hover:[animation-play-state:paused]">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex shrink-0 items-center gap-8 sm:gap-12 lg:gap-16 px-4 sm:px-6 lg:px-8">
+                {[
+                  { src: "/logos/bmw.svg", alt: "BMW Manufacturing" },
+                  { src: "/logos/michelin.svg", alt: "Michelin North America" },
+                  { src: "/logos/zf-group.svg", alt: "ZF Group" },
+                  { src: "/logos/bosch.svg", alt: "Bosch" },
+                  { src: "/logos/oshkosh.svg", alt: "Oshkosh Defense" },
+                  { src: "/logos/magna.svg", alt: "Magna" },
+                  { src: "/logos/isuzu.svg", alt: "Isuzu North America" },
+                  { src: "/logos/techtronic.svg", alt: "Techtronic Industries" },
+                  { src: "/logos/freightliner.svg", alt: "Freightliner / Daimler" },
+                  { src: "/logos/milliken.svg", alt: "Milliken & Company" },
+                  { src: "/logos/nutra.svg", alt: "Nutra Manufacturing" },
+                  { src: "/logos/fujifilm.svg", alt: "Fujifilm" },
+                  { src: "/logos/renfro.svg", alt: "Renfro Industrial" },
+                  { src: "/logos/ge-vernova.svg", alt: "GE Vernova" },
+                ].map((logo) => (
+                  <img
+                    key={`${setIndex}-${logo.alt}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-8 sm:h-10 lg:h-12 w-auto shrink-0 opacity-70 hover:opacity-100 transition-all duration-500"
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* === 6. STATS BAR === */}
       <section id="stats" className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface py-16 sm:py-20 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">

@@ -88,7 +88,7 @@
       "sectionLabel": "Contratando Ahora",
       "title": "Empleos Destacados",
       "subtitle": "Posiciones reales disponibles ahora mismo. Aplique hoy, comience esta semana.",
-      "walkInNote": "O visite cualquiera de nuestras 10 ubicaciones — no necesita cita"
+      "walkInNote": "O visite cualquiera de nuestras oficinas — no necesita cita"
     },
     "candidateTestimonials": {
       "sectionLabel": "De Nuestros Trabajadores",
@@ -101,7 +101,7 @@
     "locationsPreview": {
       "sectionLabel": "Encuéntrenos Cerca de Usted",
       "title": "Ubicaciones que Servimos",
-      "subtitle": "Con 10 sucursales en el Sureste, siempre estamos cerca de donde nos necesita.",
+      "subtitle": "Con oficinas en el Sureste, siempre estamos cerca de donde nos necesita.",
       "walkInsWelcomeAll": "Se aceptan visitas sin cita en todas las ubicaciones.",
       "contactOnSite": "¡Contáctenos sobre servicios en sitio!"
     },
@@ -121,8 +121,9 @@
   },
 
   "urgencyBanner": {
-    "headline": "¡Estamos Contratando AHORA en las 10 Ubicaciones!",
-    "subtext": "Visítenos hoy o aplique en línea — la mayoría de los candidatos comienzan en 3 días"
+    "headline": "¡Contratando AHORA — Visítenos o Aplique!",
+    "subtext": "Visítenos hoy o aplique en línea — la mayoría de los candidatos comienzan en 3 días",
+    "quickApply": "Aplicar Rápido →"
   },
 
   "about": {
@@ -263,7 +264,7 @@
       "subtitle": "¿Sin currículum? No hay problema. Así de fácil es comenzar.",
       "step1": {
         "title": "Visítenos o Aplique en Línea",
-        "description": "Visite cualquiera de nuestras 10 ubicaciones o aplique en línea. No necesita cita. Traiga una identificación válida y lo pondremos en marcha."
+        "description": "Visite cualquiera de nuestras ubicaciones o aplique en línea. No necesita cita. Traiga una identificación válida y lo pondremos en marcha."
       },
       "step2": {
         "title": "Entrevista Rápida y Evaluación",
@@ -334,7 +335,7 @@
   "locations": {
     "hero": {
       "title": "Nuestras Ubicaciones",
-      "subtitle": "Con 10 sucursales en el Sureste, siempre estamos cerca de donde nos necesita."
+      "subtitle": "Con oficinas en el Sureste, siempre estamos cerca de donde nos necesita."
     },
     "hq": {
       "sectionLabel": "Sede Central",

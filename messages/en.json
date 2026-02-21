@@ -88,7 +88,7 @@
       "sectionLabel": "Hiring Now",
       "title": "Featured Jobs",
       "subtitle": "Real positions available right now. Apply today, start this week.",
-      "walkInNote": "Or walk into any of our 10 locations — no appointment needed"
+      "walkInNote": "Or walk into any of our offices — no appointment needed"
     },
     "candidateTestimonials": {
       "sectionLabel": "From Our Workers",
@@ -101,7 +101,7 @@
     "locationsPreview": {
       "sectionLabel": "Find Us Near You",
       "title": "Locations We Service",
-      "subtitle": "With 10 branches across the Southeast, we're always close to where you need us.",
+      "subtitle": "With offices across the Southeast, we're always close to where you need us.",
       "walkInsWelcomeAll": "Walk-ins welcome at all locations.",
       "contactOnSite": "Contact us about on-site services!"
     },
@@ -121,8 +121,9 @@
   },
 
   "urgencyBanner": {
-    "headline": "We're Hiring NOW Across All 10 Locations",
-    "subtext": "Walk in today or apply online — most candidates start within 3 days"
+    "headline": "We're Hiring NOW — Walk In or Apply Online!",
+    "subtext": "Walk in today or apply online — most candidates start within 3 days",
+    "quickApply": "Quick Apply →"
   },
 
   "about": {
@@ -263,7 +264,7 @@
       "subtitle": "No resume? No problem. Here's how easy it is to get started.",
       "step1": {
         "title": "Walk In or Apply Online",
-        "description": "Visit any of our 10 locations or apply online. No appointment needed. Bring a valid ID and we'll get you started."
+        "description": "Visit any of our locations or apply online. No appointment needed. Bring a valid ID and we'll get you started."
       },
       "step2": {
         "title": "Quick Interview & Skills Match",
@@ -334,7 +335,7 @@
   "locations": {
     "hero": {
       "title": "Our Locations",
-      "subtitle": "With 10 branches across the Southeast, we're always close to where you need us."
+      "subtitle": "With offices across the Southeast, we're always close to where you need us."
     },
     "hq": {
       "sectionLabel": "Headquarters",

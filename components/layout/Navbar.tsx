@@ -197,15 +197,15 @@ export function Navbar() {
         <LanguageToggle className="shrink-0 text-[11px] px-2 py-2" />
         <a
           href="tel:8668708133"
-          className="flex-[2] flex items-center justify-center gap-2 bg-orange-action text-white font-semibold py-2.5 rounded-lg text-sm shadow-[0_2px_10px_rgba(234,88,12,0.25)]"
+          className="flex-1 flex items-center justify-center gap-2 bg-orange-action text-white font-semibold py-2.5 rounded-lg text-sm shadow-[0_2px_10px_rgba(234,88,12,0.25)]"
         >
           <Phone className="w-4 h-4" />
-          {t("nav.callUsMobile")}
+          {t("common.callUs")}
         </a>
         <Link
           href={EXTERNAL_URLS.jobPortal}
           target="_blank"
-          className="flex-1 flex items-center justify-center gap-2 border-2 border-navy-deep text-navy-deep font-semibold py-2.5 rounded-lg text-xs"
+          className="flex-1 flex items-center justify-center gap-2 border-2 border-navy-deep text-navy-deep font-semibold py-2.5 rounded-lg text-sm"
         >
           <Search className="w-3.5 h-3.5" />
           {t("common.findAJob")}

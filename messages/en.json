@@ -459,5 +459,15 @@
     "warehouse": "Warehouse",
     "manufacturing": "Manufacturing",
     "skilledTrades": "Skilled Trades"
+  },
+
+  "chat": {
+    "title": "OpSource Assistant",
+    "welcome": "Hi! I'm the OpSource assistant. How can I help you today?",
+    "placeholder": "Type a message...",
+    "suggestion1": "What jobs are available?",
+    "suggestion2": "Office locations",
+    "suggestion3": "How do I apply?",
+    "suggestion4": "I need workers"
   }
 }

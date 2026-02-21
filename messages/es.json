@@ -459,5 +459,15 @@
     "warehouse": "Almacén",
     "manufacturing": "Manufactura",
     "skilledTrades": "Oficios Especializados"
+  },
+
+  "chat": {
+    "title": "Asistente OpSource",
+    "welcome": "¡Hola! Soy el asistente de OpSource. ¿En qué puedo ayudarte hoy?",
+    "placeholder": "Escribe un mensaje...",
+    "suggestion1": "¿Qué empleos hay disponibles?",
+    "suggestion2": "Ubicaciones de oficinas",
+    "suggestion3": "¿Cómo aplico?",
+    "suggestion4": "Necesito trabajadores"
   }
 }

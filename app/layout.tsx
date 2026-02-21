@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { LanguagePrompt } from "@/components/ui/LanguagePrompt";
+import { ChatBot } from "@/components/ui/ChatBot";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -49,6 +50,7 @@ export default function RootLayout({
           <Footer />
           <ScrollToTop />
           <LanguagePrompt />
+          <ChatBot />
         </LanguageProvider>
       </body>
     </html>

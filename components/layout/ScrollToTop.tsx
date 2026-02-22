@@ -12,7 +12,7 @@ export function ScrollToTop() {
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={cn(
-        "fixed bottom-6 right-6 z-50 w-12 h-12 bg-navy-deep text-white rounded-lg shadow-lg flex items-center justify-center hover:bg-orange-action transition-all duration-300",
+        "fixed bottom-24 right-4 z-50 w-10 h-10 bg-navy-deep text-white rounded-lg shadow-lg flex items-center justify-center hover:bg-orange-action transition-all duration-300 lg:bottom-24 lg:right-6 lg:w-12 lg:h-12",
         visible
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-2 pointer-events-none"

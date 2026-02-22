@@ -237,7 +237,7 @@ export function ChatBot() {
       <div
         className={cn(
           "fixed z-[100] flex flex-col shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300",
-          "inset-0 rounded-none lg:inset-auto lg:bottom-6 lg:right-6 lg:rounded-2xl lg:origin-bottom-right",
+          "inset-0 bottom-[60px] rounded-none lg:inset-auto lg:bottom-6 lg:right-6 lg:rounded-2xl lg:origin-bottom-right",
           open
             ? "scale-100 opacity-100 lg:w-[380px] lg:h-[min(520px,calc(100vh-8rem))]"
             : "w-0 h-0 scale-90 opacity-0 pointer-events-none"

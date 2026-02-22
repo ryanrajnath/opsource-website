@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Search, Users, MapPin, ArrowRight, Flame, Clock, BadgeDollarSign, Gift } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -8,6 +9,7 @@ import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { UrgencyBanner } from "@/components/ui/UrgencyBanner";
 import { Button } from "@/components/ui/Button";
 import { TabbedTestimonials } from "@/components/ui/TabbedTestimonials";
+import { LocationMap } from "@/components/ui/LocationMap";
 import { JobTypeFilter } from "@/components/ui/JobTypeFilter";
 import { stats } from "@/data/stats";
 import { testimonials } from "@/data/testimonials";
@@ -22,6 +24,7 @@ const employerTestimonials = testimonials.filter((t) => t.type === "employer");
 
 export default function HomePage() {
   const { t } = useTranslation();
+  const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
 
   return (
     <>
@@ -307,37 +310,113 @@ export default function HomePage() {
       </section>
 
       {/* === 7. LOCATIONS PREVIEW === */}
-      <section id="locations" className="py-20 sm:py-28 bg-slate-50 scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <SectionLabel className="mb-3">{t("home.locationsPreview.sectionLabel")}</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("home.locationsPreview.title")}</h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">{t("home.locationsPreview.subtitle")}</p>
+      <section id="locations" className="py-10 sm:py-14 bg-slate-50 scroll-mt-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-6 sm:mb-8">
+            <SectionLabel className="mb-2">{t("home.locationsPreview.sectionLabel")}</SectionLabel>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2 font-[family-name:var(--font-heading)]">{t("home.locationsPreview.title")}</h2>
+            <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">{t("home.locationsPreview.subtitle")}</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
-            {locations.map((loc, i) => (
-              <ScrollReveal key={loc.id} delay={i * 0.05}>
-                <Link href={`/locations#${loc.id}`} className="group bg-white rounded-lg p-5 text-center border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block hover:scale-[1.02]">
-                  <div className="w-10 h-10 bg-navy-deep/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-navy-deep group-hover:text-white transition-all text-navy-deep">
-                    <MapPin className="w-5 h-5" />
+          {/* Desktop: side by side | Mobile: map then list */}
+          <div className="grid lg:grid-cols-[5fr_7fr] gap-4 lg:gap-8 items-center">
+            {/* Left: City list grouped by state */}
+            <ScrollReveal className="order-2 lg:order-1">
+              <div className="space-y-4">
+                {/* South Carolina */}
+                <div>
+                  <h4 className="text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">South Carolina</h4>
+                  <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
+                    {locations.filter(l => l.state === "SC").map(loc => (
+                      <Link
+                        key={loc.id}
+                        href={`/locations#${loc.id}`}
+                        className={`group flex items-center gap-1.5 py-1 px-1.5 rounded transition-all duration-200 ${
+                          hoveredLocation === loc.id
+                            ? "bg-navy-deep/10 text-navy-deep"
+                            : "text-slate-600 hover:text-navy-deep hover:bg-slate-100"
+                        }`}
+                        onMouseEnter={() => setHoveredLocation(loc.id)}
+                        onMouseLeave={() => setHoveredLocation(null)}
+                      >
+                        <MapPin className={`w-3 h-3 shrink-0 transition-colors duration-200 ${
+                          hoveredLocation === loc.id ? "text-orange-action" : "text-slate-400 group-hover:text-orange-action"
+                        }`} />
+                        <span className="text-[13px] font-medium">
+                          {loc.city}
+                          {loc.isHQ && <span className="text-[9px] text-orange-action font-bold ml-1">HQ</span>}
+                        </span>
+                      </Link>
+                    ))}
                   </div>
-                  <h3 className="font-bold text-slate-800 text-sm">{loc.city}</h3>
-                  <p className="text-xs text-slate-400">{loc.state}</p>
-                  <p className="text-xs text-emerald-600 font-medium mt-1">{t("common.walkInsWelcome")}</p>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+                </div>
 
-          <ScrollReveal className="text-center mt-10">
-            <p className="text-slate-500">
-              {t("home.locationsPreview.walkInsWelcomeAll")}{" "}
-              <Link href="/contact" className="text-navy-deep font-semibold hover:text-orange-action transition-colors">
-                {t("home.locationsPreview.contactOnSite")}
-              </Link>
-            </p>
-          </ScrollReveal>
+                {/* North Carolina */}
+                <div>
+                  <h4 className="text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">North Carolina</h4>
+                  <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
+                    {locations.filter(l => l.state === "NC").map(loc => (
+                      <Link
+                        key={loc.id}
+                        href={`/locations#${loc.id}`}
+                        className={`group flex items-center gap-1.5 py-1 px-1.5 rounded transition-all duration-200 ${
+                          hoveredLocation === loc.id
+                            ? "bg-navy-deep/10 text-navy-deep"
+                            : "text-slate-600 hover:text-navy-deep hover:bg-slate-100"
+                        }`}
+                        onMouseEnter={() => setHoveredLocation(loc.id)}
+                        onMouseLeave={() => setHoveredLocation(null)}
+                      >
+                        <MapPin className={`w-3 h-3 shrink-0 transition-colors duration-200 ${
+                          hoveredLocation === loc.id ? "text-orange-action" : "text-slate-400 group-hover:text-orange-action"
+                        }`} />
+                        <span className="text-[13px] font-medium">{loc.city}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tennessee */}
+                <div>
+                  <h4 className="text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">Tennessee</h4>
+                  <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
+                    {locations.filter(l => l.state === "TN").map(loc => (
+                      <Link
+                        key={loc.id}
+                        href={`/locations#${loc.id}`}
+                        className={`group flex items-center gap-1.5 py-1 px-1.5 rounded transition-all duration-200 ${
+                          hoveredLocation === loc.id
+                            ? "bg-navy-deep/10 text-navy-deep"
+                            : "text-slate-600 hover:text-navy-deep hover:bg-slate-100"
+                        }`}
+                        onMouseEnter={() => setHoveredLocation(loc.id)}
+                        onMouseLeave={() => setHoveredLocation(null)}
+                      >
+                        <MapPin className={`w-3 h-3 shrink-0 transition-colors duration-200 ${
+                          hoveredLocation === loc.id ? "text-orange-action" : "text-slate-400 group-hover:text-orange-action"
+                        }`} />
+                        <span className="text-[13px] font-medium">{loc.city}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                <p className="text-[11px] text-slate-400 pt-1">
+                  {t("home.locationsPreview.walkInsWelcomeAll")}{" "}
+                  <Link href="/contact" className="text-navy-deep font-semibold hover:text-orange-action transition-colors">
+                    {t("home.locationsPreview.contactOnSite")}
+                  </Link>
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Right: Map — constrained height on mobile */}
+            <ScrollReveal className="order-1 lg:order-2" direction="scale">
+              <div className="max-h-[250px] sm:max-h-none">
+                <LocationMap hoveredCity={hoveredLocation} onHoverCity={setHoveredLocation} />
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 

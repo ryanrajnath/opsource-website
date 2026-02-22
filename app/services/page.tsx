@@ -150,7 +150,7 @@ export default function ServicesPage() {
               const Icon = step.icon;
               return (
                 <ScrollReveal key={step.titleKey} delay={i * 0.05}>
-                  <div className="relative bg-white border border-slate-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="relative bg-white border border-slate-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-orange-action text-white rounded-full flex items-center justify-center text-sm font-bold font-[family-name:var(--font-mono)]">
                       {i + 1}
                     </div>
@@ -193,7 +193,7 @@ export default function ServicesPage() {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={item.titleKey} delay={i * 0.05}>
-                  <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center hover:shadow-md transition-all duration-300">
+                  <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center hover:shadow-md transition-all duration-300 h-full">
                     <div className="w-12 h-12 bg-navy-deep/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-6 h-6 text-navy-deep" />
                     </div>
@@ -221,7 +221,7 @@ export default function ServicesPage() {
               const Icon = step.icon;
               return (
                 <ScrollReveal key={step.titleKey} delay={i * 0.05}>
-                  <div className="relative bg-slate-50 border border-slate-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="relative bg-slate-50 border border-slate-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-orange-action text-white rounded-full flex items-center justify-center text-sm font-bold font-[family-name:var(--font-mono)]">
                       {i + 1}
                     </div>

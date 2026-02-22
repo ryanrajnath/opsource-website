@@ -181,7 +181,7 @@ export default function AboutPage() {
               const Icon = industry.icon;
               return (
                 <ScrollReveal key={industry.nameKey} delay={i * 0.05}>
-                  <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 flex items-start gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 flex items-start gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                     <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 ${industry.color === "navy-deep" ? "bg-navy-deep/10" : "bg-orange-action/10"}`}>
                       <Icon className={`w-7 h-7 ${industry.color === "navy-deep" ? "text-navy-deep" : "text-orange-action"}`} />
                     </div>
@@ -208,7 +208,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
             {managers.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 0.05}>
-                <div className="bg-white border border-slate-200 rounded-lg p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 accent-bar-orange">
+                <div className="bg-white border border-slate-200 rounded-lg p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 accent-bar-orange h-full">
                   <Image src={member.image} alt={member.name} width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4" />
                   <h3 className="font-bold text-slate-800 text-sm">{member.name}</h3>
                   <p className="text-navy-deep text-xs mb-3">{member.title}</p>

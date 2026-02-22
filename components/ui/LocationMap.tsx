@@ -6,22 +6,23 @@ export interface CityDot {
   state: string;
   cx: number;
   cy: number;
+  isHQ?: boolean;
 }
 
 export const cityDots: CityDot[] = [
   // SC cities — coordinates in the 960x600 US map space, cropped via viewBox
   { id: "greenville", city: "Greenville", state: "SC", cx: 724, cy: 358 },
-  { id: "spartanburg", city: "Spartanburg", state: "SC", cx: 734, cy: 348 },
-  { id: "anderson", city: "Anderson", state: "SC", cx: 710, cy: 368 },
-  { id: "gaffney", city: "Gaffney", state: "SC", cx: 742, cy: 340 },
-  { id: "greenwood", city: "Greenwood", state: "SC", cx: 722, cy: 376 },
-  { id: "columbia", city: "Columbia", state: "SC", cx: 752, cy: 370 },
-  { id: "charleston", city: "Charleston", state: "SC", cx: 790, cy: 385 },
-  { id: "summerville", city: "Summerville", state: "SC", cx: 782, cy: 378 },
+  { id: "spartanburg", city: "Spartanburg", state: "SC", cx: 735, cy: 353, isHQ: true },
+  { id: "anderson", city: "Anderson", state: "SC", cx: 727, cy: 364 },
+  { id: "gaffney", city: "Gaffney", state: "SC", cx: 742, cy: 347 },
+  { id: "greenwood", city: "Greenwood", state: "SC", cx: 736, cy: 373 },
+  { id: "columbia", city: "Columbia", state: "SC", cx: 756, cy: 375 },
+  { id: "charleston", city: "Charleston", state: "SC", cx: 777, cy: 391 },
+  { id: "summerville", city: "Summerville", state: "SC", cx: 776, cy: 389 },
   // NC
-  { id: "arden", city: "Arden", state: "NC", cx: 712, cy: 330 },
+  { id: "arden", city: "Arden", state: "NC", cx: 716, cy: 337 },
   // TN
-  { id: "kingsport", city: "Kingsport", state: "TN", cx: 690, cy: 318 },
+  { id: "kingsport", city: "Kingsport", state: "TN", cx: 720, cy: 318 },
 ];
 
 // Real geographic SVG paths (public domain, Wikimedia Commons)
@@ -36,6 +37,17 @@ const statePaths = {
   NC: "M834.9,294.3L837,299.2L840.6,305.6L843,308.1L843.6,310.3L841.2,310.5L842,311.1L841.7,315.3L839.1,316.6L838.5,318.7L837.2,321.7L833.5,323.3L831,322.9L829.6,322.8L828,321.5L828.3,322.8L828.3,323.8L830.2,323.8L831,325L829.1,331.4L833.3,331.4L833.9,333L836.2,330.7L837.5,330.2L835.6,333.8L832.5,338.6L831.2,338.6L830.1,338.1L827.3,338.8L822.1,341.2L815.7,346.5L812.3,351.2L810.3,357.7L809.9,360.1L805.2,360.6L799.7,362L789.8,353.7L777.2,346.1L774.3,345.3L761.6,346.8L757.4,347.5L755.7,344.3L752.8,342.2L736.3,342.7L729,343.5L720,348L713.8,350.6L692.6,353.2L693.1,349.1L694.9,347.7L697.7,347L698.3,343.3L702.5,340.6L706.4,339.1L710.6,335.6L715,333.5L715.6,330.4L719.5,326.5L720.1,326.3C720.1,326.3 720.1,327.5 720.9,327.5C721.8,327.5 722.9,327.8 722.9,327.8L725.1,324.2L727.3,323.6L729.5,323.9L731.1,320.4L734,317.8L734.5,315.7L734.7,312L739,312L746.2,311.1L761.9,308.9L777.1,306.8L798.7,302.1L818.7,297.8L829.9,295.4L834.9,294.3zM839.2,327.5L841.8,325L844.9,322.4L846.5,321.7L846.6,319.7L846,313.6L844.5,311.2L843.9,309.4L844.6,309.1L847.4,314.6L847.8,319.1L847.6,322.5L844.2,324L841.4,326.4L840.3,327.6L839.2,327.5z",
   SC: "M764.9,408.1L763.1,409.1L760.5,407.8L759.9,405.7L758.6,402.1L756.3,400L753.7,399.4L752.1,394.5L749.4,388.6L745.2,386.6L743.1,384.7L741.8,382.1L739.7,380.1L737.4,378.9L735.1,375.9L732.1,373.7L727.6,371.9L727.1,370.4L724.6,367.5L724.2,366.1L720.8,360.9L717.4,361.1L713.3,358.6L712,357.4L711.7,355.6L712.5,353.6L714.8,352.7L714.3,350.4L720,348L729.2,343.5L736.9,342.6L753,342.2L755.7,344.1L757.4,347.5L761.7,346.8L774.3,345.4L777.2,346.2L789.8,353.8L799.9,361.9L794.5,367.4L791.9,373.5L791.4,379.8L789.8,380.6L788.7,383.4L786.2,384L784.1,387.6L781.4,390.3L779.1,393.7L777.5,394.5L773.9,397.9L771,398.1L772,401.3L767,406.8L764.9,408.1z",
 };
+
+function starPoints(cx: number, cy: number, outerR: number, innerR: number): string {
+  const points: string[] = [];
+  for (let i = 0; i < 5; i++) {
+    const outerAngle = (Math.PI / 2) + (i * 2 * Math.PI / 5);
+    const innerAngle = outerAngle + Math.PI / 5;
+    points.push(`${cx - outerR * Math.cos(outerAngle)},${cy - outerR * Math.sin(outerAngle)}`);
+    points.push(`${cx - innerR * Math.cos(innerAngle)},${cy - innerR * Math.sin(innerAngle)}`);
+  }
+  return points.join(" ");
+}
 
 interface LocationMapProps {
   hoveredCity: string | null;
@@ -64,7 +76,7 @@ export function LocationMap({ hoveredCity, onHoverCity }: LocationMapProps) {
         {/* State labels */}
         <text x="640" y="348" textAnchor="middle" fill="#1E3A8A" fontSize="7" fontWeight="700" fontFamily="system-ui, sans-serif" opacity="0.5">TN</text>
         <text x="780" y="325" textAnchor="middle" fill="#1E3A8A" fontSize="7" fontWeight="700" fontFamily="system-ui, sans-serif" opacity="0.5">NC</text>
-        <text x="755" y="380" textAnchor="middle" fill="#1E3A8A" fontSize="7" fontWeight="700" fontFamily="system-ui, sans-serif" opacity="0.5">SC</text>
+        <text x="750" y="395" textAnchor="middle" fill="#1E3A8A" fontSize="7" fontWeight="700" fontFamily="system-ui, sans-serif" opacity="0.5">SC</text>
         <text x="690" y="400" textAnchor="middle" fill="#94A3B8" fontSize="5" fontWeight="600" fontFamily="system-ui, sans-serif" opacity="0.4">GA</text>
         <text x="790" y="280" textAnchor="middle" fill="#94A3B8" fontSize="5" fontWeight="600" fontFamily="system-ui, sans-serif" opacity="0.4">VA</text>
 
@@ -88,16 +100,26 @@ export function LocationMap({ hoveredCity, onHoverCity }: LocationMapProps) {
                 className="animate-pulse-dot"
                 style={{ transformOrigin: `${city.cx}px ${city.cy}px` }}
               />
-              {/* Solid dot */}
-              <circle
-                cx={city.cx}
-                cy={city.cy}
-                r={isHovered ? 3.5 : 2.5}
-                fill={isHovered ? "#EA580C" : "#EA580C"}
-                stroke="white"
-                strokeWidth="1"
-                className="transition-all duration-200"
-              />
+              {/* Solid dot or star for HQ */}
+              {city.isHQ ? (
+                <polygon
+                  points={starPoints(city.cx, city.cy, isHovered ? 4.5 : 3.5, isHovered ? 2 : 1.5)}
+                  fill="#EA580C"
+                  stroke="white"
+                  strokeWidth="0.8"
+                  className="transition-all duration-200"
+                />
+              ) : (
+                <circle
+                  cx={city.cx}
+                  cy={city.cy}
+                  r={isHovered ? 3.5 : 2.5}
+                  fill="#EA580C"
+                  stroke="white"
+                  strokeWidth="1"
+                  className="transition-all duration-200"
+                />
+              )}
               {/* Tooltip on hover */}
               {isHovered && (
                 <g>

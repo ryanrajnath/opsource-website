@@ -7,12 +7,19 @@ import { useTranslation } from "@/context/LanguageContext";
 
 interface UrgencyBannerProps {
   className?: string;
+  isOpen?: boolean;
+  onToggle?: (open: boolean) => void;
 }
 
-export function UrgencyBanner({ className }: UrgencyBannerProps) {
+export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: UrgencyBannerProps) {
   const { t } = useTranslation();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = externalIsOpen ?? internalIsOpen;
+  const setIsOpen = (val: boolean) => {
+    setInternalIsOpen(val);
+    onToggle?.(val);
+  };
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 

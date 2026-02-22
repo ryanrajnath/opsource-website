@@ -14,10 +14,14 @@ const jobTypes = [
 
 interface JobTypeFilterProps {
   className?: string;
+  active?: string;
+  onChange?: (type: string) => void;
 }
 
-export function JobTypeFilter({ className }: JobTypeFilterProps) {
-  const [active, setActive] = useState("all");
+export function JobTypeFilter({ className, active: controlledActive, onChange }: JobTypeFilterProps) {
+  const [internalActive, setInternalActive] = useState("all");
+  const active = controlledActive ?? internalActive;
+  const setActive = onChange ?? setInternalActive;
   const { t } = useTranslation();
 
   return (

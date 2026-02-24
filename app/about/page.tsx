@@ -120,12 +120,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 56" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
-            <path d="M0 56V28C240 4 480 -4 720 8C960 20 1200 52 1440 40V56H0Z" fill="white" />
-          </svg>
-        </div>
       </section>
 
       {/* Quick Nav */}

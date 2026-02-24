@@ -136,9 +136,10 @@
   "about": {
     "quickNav": {
       "stats": "By the Numbers",
-      "leadership": "Leadership",
-      "industries": "Industries",
       "values": "Values",
+      "leadership": "Leadership",
+      "clients": "Clients",
+      "industries": "Industries",
       "safety": "Safety",
       "difference": "Difference"
     },

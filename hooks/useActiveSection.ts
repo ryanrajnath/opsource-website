@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 /**
  * Scroll-spy hook using IntersectionObserver.
@@ -9,32 +9,42 @@ import { useState, useEffect, useRef } from "react";
  */
 export function useActiveSection(sectionIds: string[]): string | null {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const intersecting = useRef<Map<string, IntersectionObserverEntry>>(new Map());
+  const visibleIds = useRef<Set<string>>(new Set());
+
+  const pickActive = useCallback(() => {
+    // The "active zone" starts just below the navbar (~112px from viewport top).
+    // Pick the visible section whose top is closest to that anchor point.
+    const anchor = 112;
+    let best: string | null = null;
+    let bestDist = Infinity;
+    for (const id of visibleIds.current) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const top = el.getBoundingClientRect().top;
+      const dist = Math.abs(top - anchor);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = id;
+      }
+    }
+    if (best) {
+      setActiveId(best);
+    }
+    // If nothing is visible, keep the last active section
+    // so the pill doesn't disappear in gaps
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            intersecting.current.set(entry.target.id, entry);
+            visibleIds.current.add(entry.target.id);
           } else {
-            intersecting.current.delete(entry.target.id);
+            visibleIds.current.delete(entry.target.id);
           }
         }
-
-        // Pick the topmost visible section
-        if (intersecting.current.size > 0) {
-          let topmost: string | null = null;
-          let topY = Infinity;
-          for (const [id, entry] of intersecting.current) {
-            const top = entry.boundingClientRect.top;
-            if (top < topY) {
-              topY = top;
-              topmost = id;
-            }
-          }
-          setActiveId(topmost);
-        }
+        pickActive();
       },
       {
         rootMargin: "-112px 0px -40% 0px",
@@ -51,8 +61,20 @@ export function useActiveSection(sectionIds: string[]): string | null {
       }
     }
 
-    return () => observer.disconnect();
-  }, [sectionIds]);
+    // Also update on scroll so the pill tracks correctly
+    // when coasting between observer thresholds
+    const onScroll = () => {
+      if (visibleIds.current.size > 0) {
+        pickActive();
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [sectionIds, pickActive]);
 
   return activeId;
 }

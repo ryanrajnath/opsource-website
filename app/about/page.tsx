@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   Shield,
   Star,
@@ -58,18 +59,72 @@ const safetyBadges = [
   { icon: CheckCircle, labelKey: "about.safety.workersComp" },
 ];
 
+const clientLogos = [
+  { src: "/logos/bmw.svg", alt: "BMW Manufacturing" },
+  { src: "/logos/michelin.svg", alt: "Michelin North America" },
+  { src: "/logos/zf-group.svg", alt: "ZF Group" },
+  { src: "/logos/bosch.svg", alt: "Bosch" },
+  { src: "/logos/oshkosh.svg", alt: "Oshkosh Defense" },
+  { src: "/logos/magna.svg", alt: "Magna" },
+  { src: "/logos/isuzu.svg", alt: "Isuzu North America" },
+  { src: "/logos/techtronic.svg", alt: "Techtronic Industries" },
+  { src: "/logos/freightliner.svg", alt: "Freightliner / Daimler" },
+  { src: "/logos/milliken.svg", alt: "Milliken & Company" },
+  { src: "/logos/nutra.svg", alt: "Nutra Manufacturing" },
+  { src: "/logos/fujifilm.svg", alt: "Fujifilm" },
+  { src: "/logos/renfro.svg", alt: "Renfro Industrial" },
+  { src: "/logos/ge-vernova.svg", alt: "GE Vernova" },
+];
+
 export default function AboutPage() {
   const { t } = useTranslation();
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface overflow-hidden">
-        <div className="absolute inset-0 grid-pattern" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-action/5 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 font-[family-name:var(--font-heading)]">{t("about.hero.title")}</h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">{t("about.hero.subtitle")}</p>
+      {/* Hero + Stats (unified) */}
+      <section className="relative bg-gradient-to-br from-slate-surface via-navy-deep to-[#0c2461] overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-orange-action/8 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-blue-500/8 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-action/3 rounded-full blur-[160px]" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-16 sm:pb-20">
+          {/* Title area */}
+          <div className="text-center mb-14 sm:mb-16">
+            <ScrollReveal>
+              <p className="text-orange-action text-sm font-semibold uppercase tracking-widest mb-4">{t("about.hero.title") === "We Are Here For You" ? "About OpSource" : "Sobre OpSource"}</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.05}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 font-[family-name:var(--font-heading)] leading-[1.1]">{t("about.hero.title")}</h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <p className="text-lg sm:text-xl text-blue-200/80 max-w-2xl mx-auto leading-relaxed">{t("about.hero.subtitle")}</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Stats row — integrated into hero */}
+          <div id="stats" className="scroll-mt-28">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {stats.map((stat, i) => (
+                <ScrollReveal key={stat.labelKey} direction="up" delay={i * 0.08}>
+                  <div className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-6 px-4 hover:bg-white/10 transition-all duration-300">
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-orange-action mb-1.5 font-[family-name:var(--font-heading)]">
+                      <AnimatedCounter target={stat.target} suffix={stat.suffix} />
+                    </div>
+                    <p className="text-blue-200/70 text-sm font-medium">{t(stat.labelKey)}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 56" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
+            <path d="M0 56V28C240 4 480 -4 720 8C960 20 1200 52 1440 40V56H0Z" fill="white" />
+          </svg>
         </div>
       </section>
 
@@ -79,11 +134,12 @@ export default function AboutPage() {
           <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-2.5">
             {[
               { href: "#stats", labelKey: "about.quickNav.stats", num: "1" },
-              { href: "#leadership", labelKey: "about.quickNav.leadership", num: "2" },
-              { href: "#industries", labelKey: "about.quickNav.industries", num: "3" },
-              { href: "#values", labelKey: "about.quickNav.values", num: "4" },
-              { href: "#safety", labelKey: "about.quickNav.safety", num: "5" },
-              { href: "#difference", labelKey: "about.quickNav.difference", num: "6" },
+              { href: "#values", labelKey: "about.quickNav.values", num: "2" },
+              { href: "#leadership", labelKey: "about.quickNav.leadership", num: "3" },
+              { href: "#clients", labelKey: "about.quickNav.clients", num: "4" },
+              { href: "#industries", labelKey: "about.quickNav.industries", num: "5" },
+              { href: "#safety", labelKey: "about.quickNav.safety", num: "6" },
+              { href: "#difference", labelKey: "about.quickNav.difference", num: "7" },
             ].map((item, i, arr) => (
               <li key={item.href} className="flex items-center">
                 <a
@@ -102,26 +158,34 @@ export default function AboutPage() {
         </div>
       </nav>
 
-      {/* By the Numbers */}
-      <section id="stats" className="scroll-mt-28 bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface py-12">
+      {/* 2. Core Values */}
+      <section id="values" className="scroll-mt-28 py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <ScrollReveal key={stat.labelKey} direction="up">
-                <div className="text-center">
-                  <div className="text-4xl sm:text-5xl font-extrabold text-orange-action mb-2 font-[family-name:var(--font-heading)]">
-                    <AnimatedCounter target={stat.target} suffix={stat.suffix} />
+          <ScrollReveal className="text-center mb-16">
+            <SectionLabel className="mb-3">{t("about.values.sectionLabel")}</SectionLabel>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("about.values.title")}</h2>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {coreValues.map((value, i) => {
+              const Icon = value.icon;
+              return (
+                <ScrollReveal key={value.titleKey} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.05}>
+                  <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-5 ${value.color === "navy-deep" ? "bg-navy-deep/10" : "bg-orange-action/10"}`}>
+                      <Icon className={`w-8 h-8 ${value.color === "navy-deep" ? "text-navy-deep" : "text-orange-action"}`} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">{t(value.titleKey)}</h3>
+                    <p className="text-slate-500 text-sm">{t(value.descKey)}</p>
                   </div>
-                  <p className="text-slate-300 text-sm sm:text-base font-medium">{t(stat.labelKey)}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Executive Team */}
-      <section id="leadership" className="scroll-mt-28 py-20 sm:py-28 bg-white">
+      {/* 3. Executive Team — Owners, Executives, Coordinators */}
+      <section id="leadership" className="scroll-mt-28 py-20 sm:py-28 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <SectionLabel className="mb-3">{t("about.team.leadershipLabel")}</SectionLabel>
@@ -132,11 +196,11 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center gap-8 lg:gap-12 mb-16">
             {owners.map((member, i) => (
               <ScrollReveal key={member.name} direction="scale" delay={i * 0.05}>
-                <div className="text-center w-48">
-                  <Image src={member.image} alt={member.name} width={144} height={144} className="w-36 h-36 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 hover:ring-4 hover:ring-orange-action/20 transition-all" />
-                  <h3 className="font-bold text-slate-800 text-lg">{member.name}</h3>
+                <Link href={`/about/${member.slug}`} className="group text-center w-48 block">
+                  <Image src={member.image} alt={member.name} width={144} height={144} className="w-36 h-36 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 group-hover:ring-4 group-hover:ring-orange-action/30 transition-all" />
+                  <h3 className="font-bold text-slate-800 text-lg group-hover:text-orange-action transition-colors">{member.name}</h3>
                   <p className="text-navy-deep text-sm font-medium">{member.title}</p>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
@@ -144,30 +208,84 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {executives.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 0.05}>
-                <div className="text-center">
-                  <Image src={member.image} alt={member.name} width={128} height={128} className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 hover:ring-4 hover:ring-orange-action/20 transition-all" />
-                  <h3 className="font-bold text-slate-800">{member.name}</h3>
+                <Link href={`/about/${member.slug}`} className="group text-center block">
+                  <Image src={member.image} alt={member.name} width={128} height={128} className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 group-hover:ring-4 group-hover:ring-orange-action/30 transition-all" />
+                  <h3 className="font-bold text-slate-800 group-hover:text-orange-action transition-colors">{member.name}</h3>
                   <p className="text-navy-deep text-sm">{member.title}</p>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 mb-8">
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
             {coordinators.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 0.05}>
-                <div className="text-center w-48">
-                  <Image src={member.image} alt={member.name} width={112} height={112} className="w-28 h-28 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 hover:ring-4 hover:ring-orange-action/20 transition-all" />
-                  <h3 className="font-bold text-slate-800 text-sm">{member.name}</h3>
+                <Link href={`/about/${member.slug}`} className="group text-center w-48 block">
+                  <Image src={member.image} alt={member.name} width={112} height={112} className="w-28 h-28 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 group-hover:ring-4 group-hover:ring-orange-action/30 transition-all" />
+                  <h3 className="font-bold text-slate-800 text-sm group-hover:text-orange-action transition-colors">{member.name}</h3>
                   <p className="text-navy-deep text-xs">{member.title}</p>
-                </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Managers — grouped with the rest of the team */}
+          <ScrollReveal className="text-center mb-12">
+            <SectionLabel className="mb-3">{t("about.team.ourTeamLabel")}</SectionLabel>
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("about.team.managers")}</h3>
+            <div className="w-20 h-1 bg-orange-action mx-auto rounded-full" />
+          </ScrollReveal>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
+            {managers.map((member, i) => (
+              <ScrollReveal key={member.name} delay={i * 0.05}>
+                <Link href={`/about/${member.slug}`} className="group bg-white border border-slate-200 rounded-lg p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 accent-bar-orange h-full block">
+                  <Image src={member.image} alt={member.name} width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4" />
+                  <h3 className="font-bold text-slate-800 text-sm group-hover:text-orange-action transition-colors">{member.name}</h3>
+                  <p className="text-navy-deep text-xs mb-3">{member.title}</p>
+                  <div className="flex items-center justify-center gap-3 pt-3 border-t border-slate-100">
+                    <span className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-navy-deep group-hover:text-white transition-all">
+                      <Phone className="w-3.5 h-3.5" />
+                    </span>
+                    <span className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-orange-action group-hover:text-white transition-all">
+                      <MessageSquare className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Industries We Serve */}
+      {/* 4. Client Logos Marquee */}
+      <section id="clients" className="scroll-mt-28 py-14 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-8">
+            <SectionLabel className="mb-3">{t("home.clients.sectionLabel")}</SectionLabel>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-2 font-[family-name:var(--font-heading)]">{t("home.clients.title")}</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto text-sm">{t("home.clients.subtitle")}</p>
+          </ScrollReveal>
+        </div>
+
+        <div className="relative overflow-hidden py-5">
+          <div className="flex animate-marquee hover:[animation-play-state:paused]">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex shrink-0 items-center gap-8 sm:gap-12 lg:gap-16 px-4 sm:px-6 lg:px-8">
+                {clientLogos.map((logo) => (
+                  <img
+                    key={`${setIndex}-${logo.alt}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-8 sm:h-10 lg:h-12 w-auto shrink-0 opacity-70 hover:opacity-100 transition-all duration-500"
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Industries We Serve */}
       <section id="industries" className="scroll-mt-28 py-20 sm:py-28 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
@@ -197,63 +315,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Managers */}
-      <section className="py-20 sm:py-28 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <SectionLabel className="mb-3">{t("about.team.ourTeamLabel")}</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("about.team.managers")}</h2>
-            <div className="w-20 h-1 bg-orange-action mx-auto rounded-full" />
-          </ScrollReveal>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
-            {managers.map((member, i) => (
-              <ScrollReveal key={member.name} delay={i * 0.05}>
-                <div className="bg-white border border-slate-200 rounded-lg p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 accent-bar-orange h-full">
-                  <Image src={member.image} alt={member.name} width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4" />
-                  <h3 className="font-bold text-slate-800 text-sm">{member.name}</h3>
-                  <p className="text-navy-deep text-xs mb-3">{member.title}</p>
-                  <div className="flex items-center justify-center gap-3 pt-3 border-t border-slate-100">
-                    <a href="tel:8668708133" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:bg-navy-deep hover:text-white transition-all" aria-label={`Call ${member.name}`}>
-                      <Phone className="w-3.5 h-3.5" />
-                    </a>
-                    <a href="sms:8668708133" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:bg-orange-action hover:text-white transition-all" aria-label={`Text ${member.name}`}>
-                      <MessageSquare className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section id="values" className="scroll-mt-28 py-20 sm:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <SectionLabel className="mb-3">{t("about.values.sectionLabel")}</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 font-[family-name:var(--font-heading)]">{t("about.values.title")}</h2>
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {coreValues.map((value, i) => {
-              const Icon = value.icon;
-              return (
-                <ScrollReveal key={value.titleKey} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.05}>
-                  <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-5 ${value.color === "navy-deep" ? "bg-navy-deep/10" : "bg-orange-action/10"}`}>
-                      <Icon className={`w-8 h-8 ${value.color === "navy-deep" ? "text-navy-deep" : "text-orange-action"}`} />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">{t(value.titleKey)}</h3>
-                    <p className="text-slate-500 text-sm">{t(value.descKey)}</p>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Safety & Compliance */}
+      {/* 6. Safety & Compliance */}
       <section id="safety" className="scroll-mt-28 py-12 bg-emerald-50 border-y border-emerald-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-8">
@@ -276,7 +338,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Candidate Testimonial Highlight */}
+      {/* 7. Candidate Testimonial Highlight */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -291,7 +353,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* OpSource Difference */}
+      {/* 8. OpSource Difference */}
       <section id="difference" className="scroll-mt-28 py-20 sm:py-28 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">

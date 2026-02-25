@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/context/LanguageContext";
-import { matchFaq, leadCaptureSteps, formatLeadSummary } from "@/data/chatFaq";
+import { leadCaptureSteps, formatLeadSummary } from "@/data/chatFaq";
 
 interface Message {
   role: "user" | "assistant";
@@ -52,33 +52,6 @@ export function ChatBot() {
   const inputRef = useRef<HTMLInputElement>(null);
   const pendingLeadPromptRef = useRef(false);
 
-  const isSpanish = useCallback(
-    (text: string): boolean => {
-      if (locale === "es") return true;
-      const spanishIndicators = [
-        "hola",
-        "quiero",
-        "necesito",
-        "trabajo",
-        "dónde",
-        "donde",
-        "cómo",
-        "como",
-        "qué",
-        "que",
-        "por favor",
-        "gracias",
-        "busco",
-        "tengo",
-        "puedo",
-        "hay",
-      ];
-      const lower = text.toLowerCase();
-      return spanishIndicators.some((w) => lower.includes(w));
-    },
-    [locale]
-  );
-
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -104,6 +77,26 @@ export function ChatBot() {
       });
     },
     []
+  );
+
+  const getAIResponse = useCallback(
+    async (allMessages: Message[]): Promise<string> => {
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: allMessages }),
+        });
+        if (!res.ok) throw new Error("API error");
+        const data = await res.json();
+        return data.message;
+      } catch {
+        return locale === "es"
+          ? "Lo siento, no pude procesar tu mensaje. ¿Podrías intentarlo de nuevo?"
+          : "Sorry, I couldn't process your message. Could you try again?";
+      }
+    },
+    [locale]
   );
 
   const startLeadCapture = useCallback(async () => {
@@ -184,22 +177,12 @@ export function ChatBot() {
         }
       }
 
-      // FAQ matching
-      const spanish = isSpanish(trimmed);
-      const result = matchFaq(trimmed);
-      await addBotMessage(result.response);
-
-      // Suggest lead capture if appropriate and not already completed
-      if (result.suggestLeadCapture && !leadCapture.completed) {
-        pendingLeadPromptRef.current = true;
-        setTimeout(async () => {
-          const transitionMsg =
-            spanish || locale === "es"
-              ? "¿Te gustaría que un miembro de nuestro equipo se comunique contigo? Solo necesito algunos datos rápidos."
-              : "Would you like a team member to reach out to you? I just need a few quick details.";
-          await addBotMessage(transitionMsg);
-        }, 800);
-      }
+      // AI-powered response via Gemini
+      const allMessages: Message[] = [...messages, userMsg];
+      setTyping(true);
+      const aiResponse = await getAIResponse(allMessages);
+      setTyping(false);
+      setMessages((prev) => [...prev, { role: "assistant", content: aiResponse }]);
     },
     [
       typing,
@@ -207,9 +190,10 @@ export function ChatBot() {
       leadCapture.completed,
       processLeadCaptureStep,
       startLeadCapture,
-      isSpanish,
       locale,
       addBotMessage,
+      getAIResponse,
+      messages,
     ]
   );
 

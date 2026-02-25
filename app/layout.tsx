@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { PageTransition } from "@/components/layout/PageTransition";
 import { LanguagePrompt } from "@/components/ui/LanguagePrompt";
 import { ChatBot } from "@/components/ui/ChatBot";
 import "./globals.css";
@@ -46,7 +47,9 @@ export default function RootLayout({
           </a>
           <ScrollProgress />
           <Navbar />
-          <main id="main-content" className="pb-20 lg:pb-0">{children}</main>
+          <main id="main-content" className="pb-20 lg:pb-0">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
           <ScrollToTop />
           <LanguagePrompt />

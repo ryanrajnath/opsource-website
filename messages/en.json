@@ -144,6 +144,7 @@
       "difference": "Difference"
     },
     "hero": {
+      "sectionLabel": "About OpSource",
       "title": "We Are Here For You",
       "subtitle": "20+ years connecting hardworking people with great companies across the Southeast."
     },
@@ -212,6 +213,20 @@
       "title": "The OpSource Difference",
       "quote": "At OpSource, our #1 focus is you.",
       "mission": "Our mission is to serve and connect great people to great companies through our shared vision of building a business that is the right choice for service and connection."
+    },
+    "bio": {
+      "sectionLabel": "About OpSource",
+      "aboutPrefix": "About",
+      "areasOfExpertise": "Areas of Expertise",
+      "previous": "Previous",
+      "next": "Next",
+      "viewFullTeam": "View Full Team"
+    },
+    "tierLabels": {
+      "owner": "Owner",
+      "executive": "Executive Leadership",
+      "coordinator": "Operations Team",
+      "manager": "Branch & Regional Management"
     }
   },
 
@@ -342,8 +357,14 @@
 
   "locations": {
     "hero": {
+      "sectionLabel": "Find Your Branch",
       "title": "Our Locations",
       "subtitle": "With offices across the Southeast, we're always close to where you need us."
+    },
+    "stats": {
+      "states": "States",
+      "branches": "Branches",
+      "walkIns": "Walk-Ins Welcome"
     },
     "hq": {
       "sectionLabel": "Headquarters",
@@ -367,6 +388,7 @@
 
   "contact": {
     "hero": {
+      "sectionLabel": "Contact Us",
       "title": "Contact Us",
       "subtitle": "Have a question or need staffing support? We'd love to hear from you."
     },
@@ -408,8 +430,9 @@
     },
     "quickApply": {
       "title": "Quick Apply",
-      "subtitle": "No resume needed. Just 3 fields — we'll call you back within 2 hours.",
+      "subtitle": "No resume needed — we'll call you back within 2 hours.",
       "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
       "phonePlaceholder": "Your Phone Number",
       "jobTypePlaceholder": "What kind of work?",
       "jobTypeWarehouse": "Warehouse & General Labor",
@@ -417,10 +440,13 @@
       "jobTypeSkilledTrades": "Skilled Trades (Welding, CNC, etc.)",
       "jobTypeMaintenance": "Maintenance & Technical",
       "jobTypeOther": "Other / Not Sure",
+      "smsOptIn": "I agree to receive SMS messages about job opportunities",
+      "emailOptIn": "I agree to receive email updates about jobs and services",
       "successTitle": "We Got You!",
       "successMessage": "A recruiter will call you back within 2 hours during business hours.",
       "validation": {
         "nameRequired": "Name is required",
+        "emailRequired": "Please enter a valid email address",
         "phoneRequired": "Phone number is required",
         "jobTypeRequired": "Please select a job type"
       }

@@ -18,12 +18,41 @@ export default function LocationsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface overflow-hidden">
-        <div className="absolute inset-0 grid-pattern" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-action/5 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 font-[family-name:var(--font-heading)]">{t("locations.hero.title")}</h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">{t("locations.hero.subtitle")}</p>
+      <section className="relative bg-gradient-to-br from-slate-surface via-navy-deep to-[#0c2461] overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-orange-action/8 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-blue-500/8 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-action/3 rounded-full blur-[160px]" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-16 sm:pb-20">
+          <div className="text-center mb-14 sm:mb-16">
+            <ScrollReveal>
+              <p className="text-orange-action text-sm font-semibold uppercase tracking-widest mb-4">{t("locations.hero.sectionLabel")}</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.05}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 font-[family-name:var(--font-heading)] leading-[1.1]">{t("locations.hero.title")}</h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <p className="text-lg sm:text-xl text-blue-200/80 max-w-2xl mx-auto leading-relaxed">{t("locations.hero.subtitle")}</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Quick stats row */}
+          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+            {[
+              { value: "3", labelKey: "locations.stats.states" },
+              { value: "10+", labelKey: "locations.stats.branches" },
+              { value: "100%", labelKey: "locations.stats.walkIns" },
+            ].map((stat, i) => (
+              <ScrollReveal key={stat.labelKey} delay={i * 0.08}>
+                <div className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-5 px-4 hover:bg-white/10 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-orange-action mb-1 font-[family-name:var(--font-heading)]">{stat.value}</div>
+                  <p className="text-blue-200/70 text-xs sm:text-sm font-medium">{t(stat.labelKey)}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

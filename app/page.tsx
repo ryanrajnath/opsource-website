@@ -44,7 +44,7 @@ export default function HomePage() {
       <UrgencyBanner isOpen={quickApplyOpen} onToggle={setQuickApplyOpen} />
 
       {/* === 2. SPLIT-AUDIENCE HERO === */}
-      <section className="relative bg-slate-surface overflow-hidden">
+      <section className="relative bg-gradient-to-br from-slate-surface via-slate-surface to-[#0c2461] overflow-hidden">
         {/* Video background — mobile (portrait crop) */}
         <video
           autoPlay

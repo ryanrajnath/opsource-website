@@ -77,7 +77,8 @@ const clientLogos = [
 ];
 
 export default function AboutPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const l = (v: { en: string; es: string }) => v[locale];
 
   return (
     <>
@@ -93,7 +94,7 @@ export default function AboutPage() {
           {/* Title area */}
           <div className="text-center mb-14 sm:mb-16">
             <ScrollReveal>
-              <p className="text-orange-action text-sm font-semibold uppercase tracking-widest mb-4">{t("about.hero.title") === "We Are Here For You" ? "About OpSource" : "Sobre OpSource"}</p>
+              <p className="text-orange-action text-sm font-semibold uppercase tracking-widest mb-4">{t("about.hero.sectionLabel")}</p>
             </ScrollReveal>
             <ScrollReveal delay={0.05}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 font-[family-name:var(--font-heading)] leading-[1.1]">{t("about.hero.title")}</h1>
@@ -193,7 +194,7 @@ export default function AboutPage() {
                 <Link href={`/about/${member.slug}`} className="group text-center w-48 block">
                   <Image src={member.image} alt={member.name} width={144} height={144} className="w-36 h-36 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 group-hover:ring-4 group-hover:ring-orange-action/30 transition-all" />
                   <h3 className="font-bold text-slate-800 text-lg group-hover:text-orange-action transition-colors">{member.name}</h3>
-                  <p className="text-navy-deep text-sm font-medium">{member.title}</p>
+                  <p className="text-navy-deep text-sm font-medium">{l(member.title)}</p>
                 </Link>
               </ScrollReveal>
             ))}
@@ -205,7 +206,7 @@ export default function AboutPage() {
                 <Link href={`/about/${member.slug}`} className="group text-center block">
                   <Image src={member.image} alt={member.name} width={128} height={128} className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 group-hover:ring-4 group-hover:ring-orange-action/30 transition-all" />
                   <h3 className="font-bold text-slate-800 group-hover:text-orange-action transition-colors">{member.name}</h3>
-                  <p className="text-navy-deep text-sm">{member.title}</p>
+                  <p className="text-navy-deep text-sm">{l(member.title)}</p>
                 </Link>
               </ScrollReveal>
             ))}
@@ -217,7 +218,7 @@ export default function AboutPage() {
                 <Link href={`/about/${member.slug}`} className="group text-center w-48 block">
                   <Image src={member.image} alt={member.name} width={112} height={112} className="w-28 h-28 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4 group-hover:ring-4 group-hover:ring-orange-action/30 transition-all" />
                   <h3 className="font-bold text-slate-800 text-sm group-hover:text-orange-action transition-colors">{member.name}</h3>
-                  <p className="text-navy-deep text-xs">{member.title}</p>
+                  <p className="text-navy-deep text-xs">{l(member.title)}</p>
                 </Link>
               </ScrollReveal>
             ))}
@@ -235,7 +236,7 @@ export default function AboutPage() {
                 <Link href={`/about/${member.slug}`} className="group bg-white border border-slate-200 rounded-lg p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 accent-bar-orange h-full block">
                   <Image src={member.image} alt={member.name} width={96} height={96} className="w-24 h-24 rounded-full mx-auto object-cover shadow-lg border-4 border-white mb-4" />
                   <h3 className="font-bold text-slate-800 text-sm group-hover:text-orange-action transition-colors">{member.name}</h3>
-                  <p className="text-navy-deep text-xs mb-3">{member.title}</p>
+                  <p className="text-navy-deep text-xs mb-3">{l(member.title)}</p>
                   <div className="flex items-center justify-center gap-3 pt-3 border-t border-slate-100">
                     <span className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-navy-deep group-hover:text-white transition-all">
                       <Phone className="w-3.5 h-3.5" />

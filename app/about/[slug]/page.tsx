@@ -9,16 +9,10 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useTranslation } from "@/context/LanguageContext";
 import { notFound } from "next/navigation";
 
-const tierLabel: Record<string, string> = {
-  owner: "Owner",
-  executive: "Executive Leadership",
-  coordinator: "Operations Team",
-  manager: "Branch & Regional Management",
-};
-
 export default function TeamMemberPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const l = (v: { en: string; es: string }) => v[locale];
   const member = getTeamMemberBySlug(slug);
 
   if (!member) {
@@ -33,19 +27,22 @@ export default function TeamMemberPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface overflow-hidden">
-        <div className="absolute inset-0 grid-pattern" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-action/5 rounded-full blur-3xl" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <section className="relative bg-gradient-to-br from-slate-surface via-navy-deep to-[#0c2461] overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-orange-action/8 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-blue-500/8 rounded-full blur-[100px]" />
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-16 sm:pb-24">
           {/* Breadcrumb */}
           <ScrollReveal>
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-10">
+            <nav className="flex items-center gap-2 text-sm text-blue-200/60 mb-10">
               <Link href="/about" className="hover:text-white transition-colors inline-flex items-center gap-1.5">
                 <ArrowLeft className="w-4 h-4" />
                 {t("about.hero.title")}
               </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-              <span className="text-slate-300">{member.name}</span>
+              <ChevronRight className="w-3.5 h-3.5 text-blue-200/30" />
+              <span className="text-blue-200/80">{member.name}</span>
             </nav>
           </ScrollReveal>
 
@@ -53,7 +50,7 @@ export default function TeamMemberPage() {
             {/* Photo */}
             <ScrollReveal direction="scale">
               <div className="relative">
-                <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
+                <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl ring-1 ring-white/5">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -62,7 +59,7 @@ export default function TeamMemberPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-orange-action rounded-xl flex items-center justify-center shadow-lg">
+                <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-orange-action rounded-xl flex items-center justify-center shadow-lg shadow-orange-action/20">
                   <span className="text-white text-xl font-bold font-[family-name:var(--font-heading)]">
                     {member.name.split(" ").map((n) => n[0]).join("")}
                   </span>
@@ -72,30 +69,30 @@ export default function TeamMemberPage() {
 
             {/* Info */}
             <ScrollReveal className="flex-1 text-center md:text-left">
-              <p className="text-orange-action text-sm font-semibold uppercase tracking-wider mb-2">
-                {tierLabel[member.tier]}
+              <p className="text-orange-action text-sm font-semibold uppercase tracking-widest mb-3">
+                {t(`about.tierLabels.${member.tier}`)}
               </p>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-2 font-[family-name:var(--font-heading)]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 font-[family-name:var(--font-heading)] leading-[1.1]">
                 {member.name}
               </h1>
-              <p className="text-xl text-blue-200 font-medium mb-4">{member.title}</p>
+              <p className="text-xl text-blue-200/80 font-medium mb-5">{l(member.title)}</p>
 
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-slate-400">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-sm">
                 {member.location && (
-                  <span className="inline-flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-orange-action" />
+                  <span className="inline-flex items-center gap-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-1.5 text-blue-200/70">
+                    <MapPin className="w-3.5 h-3.5 text-orange-action" />
                     {member.location}
                   </span>
                 )}
                 {member.email && (
-                  <a href={`mailto:${member.email}`} className="inline-flex items-center gap-1.5 hover:text-white transition-colors">
-                    <Mail className="w-4 h-4 text-orange-action" />
+                  <a href={`mailto:${member.email}`} className="inline-flex items-center gap-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-1.5 text-blue-200/70 hover:bg-white/10 hover:text-white transition-all">
+                    <Mail className="w-3.5 h-3.5 text-orange-action" />
                     {member.email}
                   </a>
                 )}
                 {member.linkedin && (
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-white transition-colors">
-                    <Linkedin className="w-4 h-4 text-orange-action" />
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-1.5 text-blue-200/70 hover:bg-white/10 hover:text-white transition-all">
+                    <Linkedin className="w-3.5 h-3.5 text-orange-action" />
                     LinkedIn
                   </a>
                 )}
@@ -113,10 +110,10 @@ export default function TeamMemberPage() {
             <div className="flex-1">
               <ScrollReveal>
                 <h2 className="text-2xl font-bold text-slate-800 mb-6 font-[family-name:var(--font-heading)]">
-                  About {member.name.split(" ")[0]}
+                  {t("about.bio.aboutPrefix")} {member.name.split(" ")[0]}
                 </h2>
                 <p className="text-slate-600 leading-relaxed text-lg">
-                  {member.bio}
+                  {member.bio && l(member.bio)}
                 </p>
               </ScrollReveal>
             </div>
@@ -126,14 +123,14 @@ export default function TeamMemberPage() {
               <div className="lg:w-72 shrink-0">
                 <ScrollReveal delay={0.1}>
                   <div className="bg-slate-50 border border-slate-200 rounded-xl p-6">
-                    <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Areas of Expertise</h3>
+                    <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">{t("about.bio.areasOfExpertise")}</h3>
                     <div className="flex flex-wrap gap-2">
                       {member.specialties.map((s) => (
                         <span
-                          key={s}
+                          key={s.en}
                           className="inline-block bg-white border border-slate-200 rounded-full px-3 py-1.5 text-sm font-medium text-slate-700"
                         >
-                          {s}
+                          {l(s)}
                         </span>
                       ))}
                     </div>
@@ -158,9 +155,9 @@ export default function TeamMemberPage() {
                 >
                   <ArrowLeft className="w-5 h-5 text-slate-400 group-hover:text-orange-action transition-colors shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Previous</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">{t("about.bio.previous")}</p>
                     <p className="font-semibold text-slate-800 group-hover:text-orange-action transition-colors truncate">{prev.name}</p>
-                    <p className="text-sm text-slate-500 truncate">{prev.title}</p>
+                    <p className="text-sm text-slate-500 truncate">{l(prev.title)}</p>
                   </div>
                 </Link>
               ) : (
@@ -176,9 +173,9 @@ export default function TeamMemberPage() {
                   className="group flex items-center justify-end gap-4 py-8 pl-6 hover:bg-white transition-colors text-right h-full"
                 >
                   <div className="min-w-0">
-                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Next</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">{t("about.bio.next")}</p>
                     <p className="font-semibold text-slate-800 group-hover:text-orange-action transition-colors truncate">{next.name}</p>
-                    <p className="text-sm text-slate-500 truncate">{next.title}</p>
+                    <p className="text-sm text-slate-500 truncate">{l(next.title)}</p>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-orange-action transition-colors shrink-0" />
                 </Link>
@@ -198,7 +195,7 @@ export default function TeamMemberPage() {
             className="inline-flex items-center gap-2 text-navy-deep hover:text-orange-action font-semibold transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            View Full Team
+            {t("about.bio.viewFullTeam")}
           </Link>
         </div>
       </section>

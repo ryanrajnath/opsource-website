@@ -144,6 +144,7 @@
       "difference": "Diferencia"
     },
     "hero": {
+      "sectionLabel": "Sobre OpSource",
       "title": "Estamos Aquí Para Usted",
       "subtitle": "Más de 20 años conectando personas trabajadoras con grandes empresas en el Sureste."
     },
@@ -212,6 +213,20 @@
       "title": "La Diferencia OpSource",
       "quote": "En OpSource, nuestro enfoque #1 es usted.",
       "mission": "Nuestra misión es servir y conectar a personas excelentes con grandes empresas a través de nuestra visión compartida de construir un negocio que sea la opción correcta para el servicio y la conexión."
+    },
+    "bio": {
+      "sectionLabel": "Sobre OpSource",
+      "aboutPrefix": "Acerca de",
+      "areasOfExpertise": "Áreas de Especialización",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "viewFullTeam": "Ver Equipo Completo"
+    },
+    "tierLabels": {
+      "owner": "Propietario",
+      "executive": "Liderazgo Ejecutivo",
+      "coordinator": "Equipo de Operaciones",
+      "manager": "Gerencia de Sucursal y Regional"
     }
   },
 
@@ -342,8 +357,14 @@
 
   "locations": {
     "hero": {
+      "sectionLabel": "Encuentra Tu Sucursal",
       "title": "Nuestras Ubicaciones",
       "subtitle": "Con oficinas en el Sureste, siempre estamos cerca de donde nos necesita."
+    },
+    "stats": {
+      "states": "Estados",
+      "branches": "Sucursales",
+      "walkIns": "Bienvenidos Sin Cita"
     },
     "hq": {
       "sectionLabel": "Sede Central",
@@ -367,6 +388,7 @@
 
   "contact": {
     "hero": {
+      "sectionLabel": "Contáctenos",
       "title": "Contáctenos",
       "subtitle": "¿Tiene una pregunta o necesita apoyo con personal? Nos encantaría saber de usted."
     },
@@ -408,8 +430,9 @@
     },
     "quickApply": {
       "title": "Aplicación Rápida",
-      "subtitle": "No necesita currículum. Solo 3 campos — le llamaremos en 2 horas.",
+      "subtitle": "No necesita currículum — le llamaremos en 2 horas.",
       "namePlaceholder": "Su Nombre",
+      "emailPlaceholder": "Su Correo Electrónico",
       "phonePlaceholder": "Su Número de Teléfono",
       "jobTypePlaceholder": "¿Qué tipo de trabajo?",
       "jobTypeWarehouse": "Almacén y Trabajo General",
@@ -417,10 +440,13 @@
       "jobTypeSkilledTrades": "Oficios Especializados (Soldadura, CNC, etc.)",
       "jobTypeMaintenance": "Mantenimiento y Técnico",
       "jobTypeOther": "Otro / No Estoy Seguro",
+      "smsOptIn": "Acepto recibir mensajes SMS sobre oportunidades de empleo",
+      "emailOptIn": "Acepto recibir correos electrónicos sobre empleos y servicios",
       "successTitle": "¡Listo!",
       "successMessage": "Un reclutador le llamará en las próximas 2 horas durante horario laboral.",
       "validation": {
         "nameRequired": "El nombre es requerido",
+        "emailRequired": "Por favor ingrese un correo electrónico válido",
         "phoneRequired": "El número de teléfono es requerido",
         "jobTypeRequired": "Por favor seleccione un tipo de trabajo"
       }

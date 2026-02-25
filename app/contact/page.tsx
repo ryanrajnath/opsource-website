@@ -27,41 +27,53 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-slate-surface via-navy-deep to-slate-surface overflow-hidden">
-        <div className="absolute inset-0 grid-pattern" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-action/5 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 font-[family-name:var(--font-heading)]">{t("contact.hero.title")}</h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">{t("contact.hero.subtitle")}</p>
-        </div>
-      </section>
+      <section className="relative bg-gradient-to-br from-slate-surface via-navy-deep to-[#0c2461] overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-orange-action/8 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-blue-500/8 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-action/3 rounded-full blur-[160px]" />
 
-      {/* Contact Info Cards */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-16 sm:pb-20">
+          <div className="text-center mb-14 sm:mb-16">
+            <ScrollReveal>
+              <p className="text-orange-action text-sm font-semibold uppercase tracking-widest mb-4">{t("contact.hero.sectionLabel")}</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.05}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 font-[family-name:var(--font-heading)] leading-[1.1]">{t("contact.hero.title")}</h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <p className="text-lg sm:text-xl text-blue-200/80 max-w-2xl mx-auto leading-relaxed">{t("contact.hero.subtitle")}</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Contact info cards integrated into hero */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {infoCards.map((card, i) => {
               const Icon = card.icon;
               return (
-                <ScrollReveal key={card.labelKey} delay={i * 0.05}>
-                  <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                    <div className="w-12 h-12 bg-navy-deep/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-navy-deep" />
-                    </div>
-                    <h3 className="font-bold text-slate-800 mb-1">{t(card.labelKey)}</h3>
+                <ScrollReveal key={card.labelKey} delay={i * 0.08} className="h-full">
+                  <div className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-5 px-4 hover:bg-white/10 transition-all duration-300 h-full flex flex-col items-center justify-center">
+                    <Icon className="w-5 h-5 text-orange-action mx-auto mb-2" />
+                    <h3 className="text-white font-semibold text-sm mb-1">{t(card.labelKey)}</h3>
                     {card.href ? (
-                      <a href={card.href} target={card.href.startsWith("http") ? "_blank" : undefined} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined} className="text-navy-deep text-sm hover:text-orange-action transition-colors">
+                      <a href={card.href} target={card.href.startsWith("http") ? "_blank" : undefined} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined} className="text-blue-200/70 text-xs hover:text-white transition-colors">
                         {card.value}
                       </a>
                     ) : (
-                      <p className="text-slate-500 text-sm whitespace-pre-line">{card.value}</p>
+                      <p className="text-blue-200/70 text-xs whitespace-pre-line">{card.value}</p>
                     )}
                   </div>
                 </ScrollReveal>
               );
             })}
           </div>
+        </div>
+      </section>
 
+      {/* Main Content */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Text to Apply Banner */}
           <ScrollReveal className="mb-20">
             <div className="bg-gradient-to-r from-navy-deep to-slate-surface rounded-xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">

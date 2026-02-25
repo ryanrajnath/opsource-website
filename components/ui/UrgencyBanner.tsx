@@ -24,13 +24,19 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [jobType, setJobType] = useState("");
+  const [smsOptIn, setSmsOptIn] = useState(false);
+  const [emailOptIn, setEmailOptIn] = useState(false);
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {};
     if (!name.trim()) {
       newErrors.name = t("contact.quickApply.validation.nameRequired");
+    }
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = t("contact.quickApply.validation.emailRequired");
     }
     if (!phone.trim()) {
       newErrors.phone = t("contact.quickApply.validation.phoneRequired");
@@ -55,8 +61,11 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
     setTimeout(() => {
       setIsSubmitted(false);
       setName("");
+      setEmail("");
       setPhone("");
       setJobType("");
+      setSmsOptIn(false);
+      setEmailOptIn(false);
       setErrors({});
     }, 300);
   };
@@ -159,6 +168,26 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
                       )}
                     </div>
 
+                    {/* Email */}
+                    <div className="flex-1 w-full sm:w-auto">
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
+                        }}
+                        placeholder={t("contact.quickApply.emailPlaceholder")}
+                        className={cn(
+                          "w-full px-3 py-2 rounded-lg bg-white/10 border text-white placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-colors",
+                          errors.email ? "border-red-400" : "border-white/20"
+                        )}
+                      />
+                      {errors.email && (
+                        <p className="text-red-400 text-xs mt-1">{errors.email}</p>
+                      )}
+                    </div>
+
                     {/* Phone */}
                     <div className="flex-1 w-full sm:w-auto">
                       <input
@@ -220,11 +249,33 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-2 rounded-lg text-sm transition-colors whitespace-nowrap shrink-0"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap shrink-0 self-end"
                     >
                       <Send className="w-4 h-4" />
                       {t("contact.quickApply.title")}
                     </button>
+                  </div>
+
+                  {/* Opt-in checkboxes */}
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 mt-3">
+                    <label className="flex items-center gap-2 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={smsOptIn}
+                        onChange={(e) => setSmsOptIn(e.target.checked)}
+                        className="w-3.5 h-3.5 rounded border-white/30 bg-white/10 text-orange-action focus:ring-orange-400/50 accent-orange-action"
+                      />
+                      <span className="text-xs text-white/60 group-hover:text-white/80 transition-colors">{t("contact.quickApply.smsOptIn")}</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={emailOptIn}
+                        onChange={(e) => setEmailOptIn(e.target.checked)}
+                        className="w-3.5 h-3.5 rounded border-white/30 bg-white/10 text-orange-action focus:ring-orange-400/50 accent-orange-action"
+                      />
+                      <span className="text-xs text-white/60 group-hover:text-white/80 transition-colors">{t("contact.quickApply.emailOptIn")}</span>
+                    </label>
                   </div>
                 </form>
               </div>

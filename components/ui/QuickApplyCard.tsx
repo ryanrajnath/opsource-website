@@ -10,8 +10,11 @@ import { useTranslation } from "@/context/LanguageContext";
 
 type QuickApplyData = {
   name: string;
+  email: string;
   phone: string;
   jobType: string;
+  smsOptIn?: boolean;
+  emailOptIn?: boolean;
 };
 
 export function QuickApplyCard() {
@@ -20,8 +23,11 @@ export function QuickApplyCard() {
 
   const quickApplySchema = useMemo(() => z.object({
     name: z.string().min(2, t("contact.quickApply.validation.nameRequired")),
+    email: z.string().email(t("contact.quickApply.validation.emailRequired")),
     phone: z.string().min(7, t("contact.quickApply.validation.phoneRequired")),
     jobType: z.string().min(1, t("contact.quickApply.validation.jobTypeRequired")),
+    smsOptIn: z.boolean().optional(),
+    emailOptIn: z.boolean().optional(),
   }), [locale, t]);
 
   const {
@@ -68,6 +74,15 @@ export function QuickApplyCard() {
         </div>
         <div>
           <input
+            type="email"
+            placeholder={t("contact.quickApply.emailPlaceholder")}
+            {...register("email")}
+            className="w-full px-4 py-3 rounded-lg border border-orange-200 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-orange-action/50 focus:border-orange-action transition-all placeholder:text-slate-400"
+          />
+          {errors.email && <p className="mt-1 text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.email.message}</p>}
+        </div>
+        <div>
+          <input
             type="tel"
             placeholder={t("contact.quickApply.phonePlaceholder")}
             {...register("phone")}
@@ -88,6 +103,24 @@ export function QuickApplyCard() {
             <option value="other">{t("contact.quickApply.jobTypeOther")}</option>
           </select>
           {errors.jobType && <p className="mt-1 text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.jobType.message}</p>}
+        </div>
+        <div className="space-y-2">
+          <label className="flex items-start gap-2.5 cursor-pointer group">
+            <input
+              type="checkbox"
+              {...register("smsOptIn")}
+              className="mt-0.5 w-4 h-4 rounded border-orange-300 text-orange-action focus:ring-orange-action/50 accent-orange-action"
+            />
+            <span className="text-xs text-slate-600 leading-snug group-hover:text-slate-800 transition-colors">{t("contact.quickApply.smsOptIn")}</span>
+          </label>
+          <label className="flex items-start gap-2.5 cursor-pointer group">
+            <input
+              type="checkbox"
+              {...register("emailOptIn")}
+              className="mt-0.5 w-4 h-4 rounded border-orange-300 text-orange-action focus:ring-orange-action/50 accent-orange-action"
+            />
+            <span className="text-xs text-slate-600 leading-snug group-hover:text-slate-800 transition-colors">{t("contact.quickApply.emailOptIn")}</span>
+          </label>
         </div>
         <Button type="submit" variant="orange" size="lg" disabled={isSubmitting} className="w-full">
           {isSubmitting ? t("common.submitting") : t("common.getCalledBack")} <Zap className="w-4 h-4" />

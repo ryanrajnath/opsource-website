@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Zap, CheckCircle2, AlertCircle } from "lucide-react";
+import { Zap, CheckCircle2, AlertCircle, Paperclip, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useTranslation } from "@/context/LanguageContext";
 
@@ -17,8 +17,19 @@ type QuickApplyData = {
   emailOptIn?: boolean;
 };
 
+const ACCEPTED_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
 export function QuickApplyCard() {
   const [submitted, setSubmitted] = useState(false);
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [resumeError, setResumeError] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const { t, locale } = useTranslation();
 
   const quickApplySchema = useMemo(() => z.object({
@@ -29,6 +40,44 @@ export function QuickApplyCard() {
     smsOptIn: z.boolean().optional(),
     emailOptIn: z.boolean().optional(),
   }), [locale, t]);
+
+  const validateFile = useCallback((file: File): string | null => {
+    if (!ACCEPTED_TYPES.includes(file.type)) {
+      return t("contact.quickApply.resumeInvalidType");
+    }
+    if (file.size > MAX_FILE_SIZE) {
+      return t("contact.quickApply.resumeTooLarge");
+    }
+    return null;
+  }, [t]);
+
+  const handleFileSelect = useCallback((file: File) => {
+    const error = validateFile(file);
+    if (error) {
+      setResumeError(error);
+      setResumeFile(null);
+    } else {
+      setResumeError(null);
+      setResumeFile(file);
+    }
+  }, [validateFile]);
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files[0];
+    if (file) handleFileSelect(file);
+  }, [handleFileSelect]);
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  }, []);
 
   const {
     register,
@@ -103,6 +152,58 @@ export function QuickApplyCard() {
             <option value="other">{t("contact.quickApply.jobTypeOther")}</option>
           </select>
           {errors.jobType && <p className="mt-1 text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.jobType.message}</p>}
+        </div>
+        <div>
+          <div
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onClick={() => fileInputRef.current?.click()}
+            className={`relative w-full rounded-lg border-2 border-dashed cursor-pointer transition-all ${
+              isDragging
+                ? "border-orange-action bg-orange-100/60"
+                : resumeFile
+                ? "border-green-400 bg-green-50/50"
+                : "border-orange-200 bg-white hover:border-orange-300 hover:bg-orange-50/30"
+            } px-4 py-4 text-center`}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".pdf,.doc,.docx"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) handleFileSelect(file);
+              }}
+            />
+            {resumeFile ? (
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <Paperclip className="w-4 h-4 text-green-600 shrink-0" />
+                  <span className="text-sm text-slate-700 truncate">{resumeFile.name}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setResumeFile(null);
+                    if (fileInputRef.current) fileInputRef.current.value = "";
+                  }}
+                  className="p-1 rounded-full hover:bg-red-100 text-slate-400 hover:text-red-500 transition-colors shrink-0"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center gap-1">
+                <Paperclip className="w-5 h-5 text-orange-300" />
+                <p className="text-sm text-slate-500">{t("contact.quickApply.resumeDropzone")}</p>
+                <p className="text-xs text-slate-400">{t("contact.quickApply.resumeFormats")}</p>
+              </div>
+            )}
+          </div>
+          {resumeError && <p className="mt-1 text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{resumeError}</p>}
         </div>
         <div className="space-y-2">
           <label className="flex items-start gap-2.5 cursor-pointer group">

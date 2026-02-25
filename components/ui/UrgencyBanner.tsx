@@ -1,9 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { Flame, Zap, X, Send, CheckCircle } from "lucide-react";
+import { useState, useRef } from "react";
+import { Flame, Zap, X, Send, CheckCircle, Paperclip } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/context/LanguageContext";
+
+const ACCEPTED_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 interface UrgencyBannerProps {
   className?: string;
@@ -29,6 +36,9 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
   const [jobType, setJobType] = useState("");
   const [smsOptIn, setSmsOptIn] = useState(false);
   const [emailOptIn, setEmailOptIn] = useState(false);
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [resumeError, setResumeError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {};
@@ -66,6 +76,9 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
       setJobType("");
       setSmsOptIn(false);
       setEmailOptIn(false);
+      setResumeFile(null);
+      setResumeError(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
       setErrors({});
     }, 300);
   };
@@ -102,7 +115,7 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
       <div
         className={cn(
           "overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <div className="bg-navy-deep text-white py-5 px-4">
@@ -243,6 +256,65 @@ export function UrgencyBanner({ className, isOpen: externalIsOpen, onToggle }: U
                       </select>
                       {errors.jobType && (
                         <p className="text-red-400 text-xs mt-1">{errors.jobType}</p>
+                      )}
+                    </div>
+
+                    {/* Resume Attach */}
+                    <div className="w-full sm:w-auto self-end">
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            if (!ACCEPTED_TYPES.includes(file.type)) {
+                              setResumeError(t("contact.quickApply.resumeInvalidType"));
+                              setResumeFile(null);
+                            } else if (file.size > MAX_FILE_SIZE) {
+                              setResumeError(t("contact.quickApply.resumeTooLarge"));
+                              setResumeFile(null);
+                            } else {
+                              setResumeError(null);
+                              setResumeFile(file);
+                            }
+                          }
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className={cn(
+                          "w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg border border-dashed text-sm transition-colors whitespace-nowrap",
+                          resumeFile
+                            ? "border-green-400 bg-green-400/10 text-green-300"
+                            : "border-white/30 bg-white/5 text-white/70 hover:border-white/50 hover:bg-white/10"
+                        )}
+                      >
+                        <Paperclip className="w-4 h-4 shrink-0" />
+                        {resumeFile ? (
+                          <span className="truncate max-w-[120px]">{resumeFile.name}</span>
+                        ) : (
+                          <span>{t("contact.quickApply.resumeAttach")}</span>
+                        )}
+                        {resumeFile && (
+                          <span
+                            role="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setResumeFile(null);
+                              setResumeError(null);
+                              if (fileInputRef.current) fileInputRef.current.value = "";
+                            }}
+                            className="ml-1 p-0.5 rounded-full hover:bg-red-400/20 text-white/50 hover:text-red-300 transition-colors"
+                          >
+                            <X className="w-3 h-3" />
+                          </span>
+                        )}
+                      </button>
+                      {resumeError && (
+                        <p className="text-red-400 text-xs mt-1">{resumeError}</p>
                       )}
                     </div>
 

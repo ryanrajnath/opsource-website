@@ -37,6 +37,9 @@ next-env.d.ts
 .claude/
 .mcp.json
 
+# form submissions (local dev)
+submissions/
+
 # old static site
 _old/
 

@@ -26,8 +26,8 @@ export const company = {
     linkedin: "https://linkedin.com/company/operational-resources-inc-opsource-",
   },
   externalUrls: {
-    jobPortal: "http://jobs.opsourcestaffing.com",
-    employeePortal: "http://mcigo.net/",
+    jobPortal: "https://jobs.opsourcestaffing.com",
+    employeePortal: "https://mcigo.net/",
     directHire: "https://www.opsourcedirect.com",
   },
 } as const;

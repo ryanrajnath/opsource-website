@@ -1,7 +1,15 @@
 import type { MetadataRoute } from "next";
+import { team } from "@/data/team";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.opsourcestaffing.com";
+
+  const teamPages: MetadataRoute.Sitemap = team.map((member) => ({
+    url: `${baseUrl}/about/${member.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
 
   return [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
@@ -9,5 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/locations`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    ...teamPages,
   ];
 }

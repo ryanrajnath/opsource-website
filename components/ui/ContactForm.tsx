@@ -37,9 +37,12 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // In production, this would POST to an API route
-    console.log("Form submitted:", data);
-    await new Promise((r) => setTimeout(r, 1000));
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error("Submission failed");
     setSubmitted(true);
   };
 

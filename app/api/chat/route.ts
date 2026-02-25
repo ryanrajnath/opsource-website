@@ -7,6 +7,22 @@ import { services } from "@/data/services";
 import { featuredJobs } from "@/data/featuredJobs";
 import { payRanges } from "@/data/payRanges";
 
+// Simple in-memory rate limiter: 20 requests per minute per IP
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 20;
+const RATE_WINDOW_MS = 60_000;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return false;
+  }
+  entry.count++;
+  return entry.count > RATE_LIMIT;
+}
+
 const SYSTEM_PROMPT = `You are the OpSource Staffing virtual assistant on their website. Be helpful, warm, and professional. Keep answers concise (2-4 short paragraphs max). Use plain text only — no markdown, no bullet symbols like "•" or "-", no asterisks. When listing items, use simple numbered lists or short sentences.
 
 Your goal: answer questions about the company and gently guide visitors toward applying for a job or connecting with a recruiter.
@@ -47,6 +63,14 @@ RULES:
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Too many requests. Please wait a moment." },
+        { status: 429 }
+      );
+    }
+
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(

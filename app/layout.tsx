@@ -8,9 +8,11 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { LanguagePrompt } from "@/components/ui/LanguagePrompt";
 import { ChatBot } from "@/components/ui/ChatBot";
+import { LangSync } from "@/components/ui/LangSync";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.opsourcestaffing.com"),
   title: {
     default: "OpSource Staffing — Your Source of Opportunity",
     template: "%s — OpSource Staffing",
@@ -54,6 +56,7 @@ export default function RootLayout({
           <ScrollToTop />
           <LanguagePrompt />
           <ChatBot />
+          <LangSync />
         </LanguageProvider>
       </body>
     </html>

@@ -88,8 +88,15 @@ export function QuickApplyCard() {
   });
 
   const onSubmit = async (data: QuickApplyData) => {
-    console.log("Quick apply:", data);
-    await new Promise((r) => setTimeout(r, 800));
+    const res = await fetch("/api/quick-apply", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...data,
+        resumeFileName: resumeFile?.name || null,
+      }),
+    });
+    if (!res.ok) throw new Error("Submission failed");
     setSubmitted(true);
   };
 

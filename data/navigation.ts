@@ -6,7 +6,15 @@ export interface NavItem {
 }
 
 export const navigation: NavItem[] = [
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "About OpSource", href: "/about" },
+      { label: "Our Leadership", href: "/about#leadership" },
+      { label: "Mission & Values", href: "/about#values" },
+    ],
+  },
   {
     label: "Locations",
     href: "/locations",
@@ -35,6 +43,6 @@ export const navigation: NavItem[] = [
       { label: "Payroll Services", href: "/services#payroll" },
     ],
   },
-  { label: "Job Portal", href: "http://jobs.opsourcestaffing.com", external: true },
-  { label: "Employee Portal", href: "http://mcigo.net/", external: true },
+  { label: "Job Portal", href: "https://jobs.opsourcestaffing.com", external: true },
+  { label: "Employee Portal", href: "https://mcigo.net/", external: true },
 ];

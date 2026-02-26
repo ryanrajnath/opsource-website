@@ -13,6 +13,9 @@ import { LanguageToggle } from "@/components/ui/LanguageToggle";
 
 const navLabelKeys: Record<string, string> = {
   "About": "nav.about",
+  "About OpSource": "nav.aboutOpSource",
+  "Our Leadership": "nav.ourLeadership",
+  "Mission & Values": "nav.missionValues",
   "Locations": "nav.locations",
   "All Locations": "nav.allLocations",
   "Services": "nav.services",

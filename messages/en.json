@@ -30,6 +30,9 @@
 
   "nav": {
     "about": "About",
+    "aboutOpSource": "About OpSource",
+    "ourLeadership": "Our Leadership",
+    "missionValues": "Mission & Values",
     "locations": "Locations",
     "allLocations": "All Locations",
     "services": "Services",

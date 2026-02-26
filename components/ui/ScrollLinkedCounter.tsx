@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface ScrollLinkedCounterProps {
@@ -14,19 +13,51 @@ export function ScrollLinkedCounter({ target, suffix = "", className }: ScrollLi
   const ref = useRef<HTMLSpanElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const [display, setDisplay] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.9", "start 0.3"],
-  });
+  const animate = useCallback(() => {
+    if (hasAnimated) return;
+    setHasAnimated(true);
 
-  const count = useTransform(scrollYProgress, [0, 1], [0, target]);
+    const duration = 1200;
+    const startTime = performance.now();
 
-  useMotionValueEvent(count, "change", (latest) => {
-    if (!prefersReducedMotion) {
-      setDisplay(Math.round(latest));
+    function tick(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(eased * target));
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      }
     }
-  });
+
+    requestAnimationFrame(tick);
+  }, [hasAnimated, target]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setDisplay(target);
+      return;
+    }
+
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          animate();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [prefersReducedMotion, target, animate]);
 
   if (prefersReducedMotion) {
     return (

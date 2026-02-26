@@ -34,6 +34,7 @@ export default function HomePage() {
   const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
   const [quickApplyOpen, setQuickApplyOpen] = useState(false);
   const [jobFilter, setJobFilter] = useState("all");
+  const [showAllJobs, setShowAllJobs] = useState(false);
   const activeSection = useActiveSection(SECTION_IDS);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
@@ -205,45 +206,69 @@ export default function HomePage() {
           </ScrollReveal>
 
           <ScrollReveal className="mb-10">
-            <JobTypeFilter active={jobFilter} onChange={setJobFilter} />
+            <JobTypeFilter active={jobFilter} onChange={(f) => { setJobFilter(f); setShowAllJobs(false); }} />
           </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-              {featuredJobs.filter((job) => jobFilter === "all" || job.type === jobFilter).map((job, i) => (
-                <ScrollReveal key={job.id} delay={i * 0.05}>
-                  <a
-                    href={EXTERNAL_URLS.jobPortal}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative h-full"
-                  >
-                    {/* Left colored bar */}
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-navy-deep/30 group-hover:bg-orange-action transition-colors duration-300" />
+          {(() => {
+            const filtered = featuredJobs.filter((job) => jobFilter === "all" || job.type === jobFilter);
+            const MOBILE_LIMIT = 4;
+            const visibleJobs = showAllJobs ? filtered : filtered;
+            const hasMore = filtered.length > MOBILE_LIMIT;
 
-                    <div className="p-6 pl-5">
-                      {job.urgent && (
-                        <span className="absolute top-3 right-3 inline-flex items-center gap-1 bg-red-50 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">
-                          <Flame className="w-3 h-3" /> {t("common.urgent")}
-                        </span>
-                      )}
-                      <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-orange-action transition-colors font-[family-name:var(--font-heading)]">{job.title}</h3>
-                      <div className="flex items-center gap-1.5 text-slate-500 text-sm mb-1">
-                        <MapPin className="w-3.5 h-3.5" /> {job.location}
-                      </div>
-                      <div className="flex items-center gap-1.5 text-slate-500 text-sm mb-1">
-                        <BadgeDollarSign className="w-3.5 h-3.5" /> {job.payRange}
-                      </div>
-                      <div className="flex items-center gap-1.5 text-slate-500 text-sm mb-4">
-                        <Clock className="w-3.5 h-3.5" /> {job.shift}
-                      </div>
-                      <span className="text-orange-action font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                        {t("common.applyNow")} <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </a>
-                </ScrollReveal>
-              ))}
-          </div>
+            return (
+              <>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                  {visibleJobs.map((job, i) => (
+                    <ScrollReveal
+                      key={job.id}
+                      delay={i * 0.05}
+                      className={!showAllJobs && i >= MOBILE_LIMIT ? "hidden sm:block" : undefined}
+                    >
+                      <a
+                        href={EXTERNAL_URLS.jobPortal}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative h-full"
+                      >
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-navy-deep/30 group-hover:bg-orange-action transition-colors duration-300" />
+                        <div className="p-6 pl-5">
+                          {job.urgent && (
+                            <span className="absolute top-3 right-3 inline-flex items-center gap-1 bg-red-50 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">
+                              <Flame className="w-3 h-3" /> {t("common.urgent")}
+                            </span>
+                          )}
+                          <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-orange-action transition-colors font-[family-name:var(--font-heading)]">{job.title}</h3>
+                          <div className="flex items-center gap-1.5 text-slate-500 text-sm mb-1">
+                            <MapPin className="w-3.5 h-3.5" /> {job.location}
+                          </div>
+                          <div className="flex items-center gap-1.5 text-slate-500 text-sm mb-1">
+                            <BadgeDollarSign className="w-3.5 h-3.5" /> {job.payRange}
+                          </div>
+                          <div className="flex items-center gap-1.5 text-slate-500 text-sm mb-4">
+                            <Clock className="w-3.5 h-3.5" /> {job.shift}
+                          </div>
+                          <span className="text-orange-action font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                            {t("common.applyNow")} <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      </a>
+                    </ScrollReveal>
+                  ))}
+                </div>
+
+                {hasMore && !showAllJobs && (
+                  <div className="text-center mt-6 sm:hidden">
+                    <button
+                      onClick={() => setShowAllJobs(true)}
+                      className="text-orange-action font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
+                    >
+                      {t("common.showAllJobs") || `Show all ${filtered.length} jobs`} <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </>
+            );
+          })()}
 
           <ScrollReveal className="text-center mt-10">
             <Button href={EXTERNAL_URLS.jobPortal} variant="orange" size="lg" external>
@@ -463,12 +488,16 @@ export default function HomePage() {
                     { src: "/logos/renfro.svg", alt: "Renfro Industrial" },
                     { src: "/logos/ge-vernova.svg", alt: "GE Vernova" },
                   ].map((logo) => (
-                    <img
+                    <div
                       key={`${setIndex}-${logo.alt}`}
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="h-8 sm:h-10 lg:h-12 w-auto shrink-0 opacity-70 hover:opacity-100 transition-all duration-500"
-                    />
+                      className="shrink-0 bg-white rounded-lg px-5 py-3 opacity-80 hover:opacity-100 transition-all duration-500"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-8 sm:h-10 lg:h-12 w-auto"
+                      />
+                    </div>
                   ))}
                 </div>
               ))}

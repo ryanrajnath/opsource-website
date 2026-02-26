@@ -66,6 +66,15 @@
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
+/* Hide scrollbar for horizontal scroll navs */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* === Base Styles === */
 html {
   scroll-behavior: smooth;

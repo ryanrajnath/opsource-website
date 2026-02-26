@@ -11,8 +11,8 @@ export const navigation: NavItem[] = [
     href: "/about",
     children: [
       { label: "About OpSource", href: "/about" },
-      { label: "Our Leadership", href: "/about#leadership" },
       { label: "Mission & Values", href: "/about#values" },
+      { label: "Our Leadership", href: "/about#leadership" },
     ],
   },
   {

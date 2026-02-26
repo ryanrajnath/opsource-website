@@ -256,56 +256,14 @@ export default function LocationsPage() {
             <p className="text-slate-500 max-w-lg mx-auto">{t("common.walkInsWelcome")} &mdash; {company.hours.weekdays}</p>
           </ScrollReveal>
 
-          {/* Bento grid: first 2 are featured (large), rest are compact */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-            {branches.slice(0, 2).map((loc, i) => (
-              <ScrollReveal key={loc.id} delay={i * 0.08}>
-                <div
-                  id={loc.id}
-                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 scroll-mt-28 h-full"
-                >
-                  {/* Image header */}
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src={loc.image}
-                      alt={`${loc.city}, ${loc.state}`}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-                    <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between">
-                      <div>
-                        <h3 className="text-2xl font-extrabold text-white font-[family-name:var(--font-heading)] drop-shadow-lg">
-                          {loc.city}
-                        </h3>
-                        <p className="text-white/80 text-sm">{loc.state}</p>
-                      </div>
-                      <span className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                        {t("common.walkInsWelcome")}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <LocationDetail loc={loc} />
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          {/* Remaining branches: 3-column compact cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {branches.slice(2).map((loc, i) => (
+            {branches.map((loc, i) => (
               <ScrollReveal key={loc.id} delay={i * 0.05}>
                 <div
                   id={loc.id}
                   className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 scroll-mt-28 h-full flex flex-col"
                 >
-                  {/* Compact image strip */}
-                  <div className="relative h-36 overflow-hidden">
+                  <div className="relative h-40 overflow-hidden">
                     <Image
                       src={loc.image}
                       alt={`${loc.city}, ${loc.state}`}
@@ -313,13 +271,12 @@ export default function LocationsPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <h3 className="absolute bottom-3 left-4 text-xl font-extrabold text-white font-[family-name:var(--font-heading)] drop-shadow-lg">
                       {loc.city}<span className="text-white/70 font-bold">, {loc.state}</span>
                     </h3>
                   </div>
 
-                  {/* Compact info */}
                   <div className="p-5 flex flex-col flex-1">
                     <p className="text-slate-500 text-sm mb-3">{loc.tagline}</p>
 

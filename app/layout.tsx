@@ -3,7 +3,6 @@ import { inter, plusJakartaSans, jetbrainsMono } from "@/lib/fonts";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { LanguagePrompt } from "@/components/ui/LanguagePrompt";
@@ -47,7 +46,6 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <ScrollProgress />
           <Navbar />
           <main id="main-content" className="pb-20 lg:pb-0">
             <PageTransition>{children}</PageTransition>

@@ -10,7 +10,7 @@ import { MagneticTilt } from "@/components/ui/MagneticTilt";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { UrgencyBanner } from "@/components/ui/UrgencyBanner";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { TabbedTestimonials } from "@/components/ui/TabbedTestimonials";
@@ -36,8 +36,6 @@ export default function HomePage() {
   const [jobFilter, setJobFilter] = useState("all");
   const [showAllJobs, setShowAllJobs] = useState(false);
   const activeSection = useActiveSection(SECTION_IDS);
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
 
   return (
     <>
@@ -189,11 +187,6 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-        {/* Scroll progress bar */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/80 origin-left"
-          style={{ scaleX }}
-        />
       </nav>
 
       {/* === 3. FEATURED JOBS === */}

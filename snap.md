@@ -1,0 +1,393 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - progressbar "Page scroll progress" [ref=e487]
+  - navigation [ref=e3]:
+    - generic [ref=e5]:
+      - link "OpSource Staffing" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "OpSource Staffing" [ref=e7]
+      - generic [ref=e8]:
+        - button "Español" [ref=e9] [cursor=pointer]
+        - link "Find a Job" [ref=e10] [cursor=pointer]:
+          - /url: http://jobs.opsourcestaffing.com
+          - img [ref=e11]
+          - text: Find a Job
+        - button "Open menu" [ref=e14]:
+          - img [ref=e15]
+    - generic [ref=e16]:
+      - button "Open menu" [ref=e17]:
+        - img [ref=e18]
+      - link "Call Us" [ref=e19] [cursor=pointer]:
+        - /url: tel:8668708133
+        - img [ref=e20]
+        - text: Call Us
+      - link "Find a Job" [ref=e22] [cursor=pointer]:
+        - /url: http://jobs.opsourcestaffing.com
+        - img [ref=e23]
+        - text: Find a Job
+  - main [ref=e26]:
+    - generic [ref=e30]:
+      - heading "We Are Here For You" [level=1] [ref=e31]
+      - paragraph [ref=e32]: 20+ years connecting hardworking people with great companies across the Southeast.
+    - generic [ref=e35]:
+      - generic [ref=e37]:
+        - generic [ref=e39]: 0+
+        - paragraph [ref=e40]: Years in Business
+      - generic [ref=e42]:
+        - generic [ref=e44]: 0+
+        - paragraph [ref=e45]: Locations
+      - generic [ref=e47]:
+        - generic [ref=e49]: 0+
+        - paragraph [ref=e50]: Annual Placements
+      - generic [ref=e52]:
+        - generic [ref=e54]: 0+
+        - paragraph [ref=e55]: Client Partners
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - generic [ref=e59]: What We Stand For
+        - heading "Our Core Values" [level=2] [ref=e60]
+      - generic [ref=e61]:
+        - generic [ref=e63]:
+          - img [ref=e65]
+          - heading "Integrity" [level=3] [ref=e67]
+          - paragraph [ref=e68]: We keep our promises to clients and workers — showing up on time, every time, with honesty you can count on.
+        - generic [ref=e70]:
+          - img [ref=e72]
+          - heading "Excellence" [level=3] [ref=e74]
+          - paragraph [ref=e75]: We vet every candidate thoroughly and follow up relentlessly so your operation never misses a beat.
+        - generic [ref=e77]:
+          - img [ref=e79]
+          - heading "Loyalty" [level=3] [ref=e81]
+          - paragraph [ref=e82]: We build lasting relationships — not one-time placements. Many of our clients and workers have been with us for 10+ years.
+        - generic [ref=e84]:
+          - img [ref=e86]
+          - heading "Servant-Leadership" [level=3] [ref=e91]
+          - paragraph [ref=e92]: We answer the phone, solve problems same-day, and treat every person who walks through our door with respect.
+    - generic [ref=e94]:
+      - generic [ref=e95]:
+        - generic [ref=e96]: Leadership
+        - heading "Executive Team" [level=2] [ref=e97]
+      - generic [ref=e99]:
+        - link "William Renfrow William Renfrow Owner" [ref=e101] [cursor=pointer]:
+          - /url: /about/william-renfrow
+          - img "William Renfrow" [ref=e102]
+          - heading "William Renfrow" [level=3] [ref=e103]
+          - paragraph [ref=e104]: Owner
+        - link "Jesse Sprinkle Jesse Sprinkle Owner" [ref=e106] [cursor=pointer]:
+          - /url: /about/jesse-sprinkle
+          - img "Jesse Sprinkle" [ref=e107]
+          - heading "Jesse Sprinkle" [level=3] [ref=e108]
+          - paragraph [ref=e109]: Owner
+      - generic [ref=e110]:
+        - link "Andrew Franseen Andrew Franseen Chief Executive Officer" [ref=e112] [cursor=pointer]:
+          - /url: /about/andrew-franseen
+          - img "Andrew Franseen" [ref=e113]
+          - heading "Andrew Franseen" [level=3] [ref=e114]
+          - paragraph [ref=e115]: Chief Executive Officer
+        - link "Dagan Rainey Dagan Rainey Director of Operations" [ref=e117] [cursor=pointer]:
+          - /url: /about/dagan-rainey
+          - img "Dagan Rainey" [ref=e118]
+          - heading "Dagan Rainey" [level=3] [ref=e119]
+          - paragraph [ref=e120]: Director of Operations
+        - link "Will J. Sprinkle Will J. Sprinkle Director of Business" [ref=e122] [cursor=pointer]:
+          - /url: /about/will-j-sprinkle
+          - img "Will J. Sprinkle" [ref=e123]
+          - heading "Will J. Sprinkle" [level=3] [ref=e124]
+          - paragraph [ref=e125]: Director of Business
+      - generic [ref=e126]:
+        - link "Lindsey Sebastian Lindsey Sebastian Operations Coordinator" [ref=e128] [cursor=pointer]:
+          - /url: /about/lindsey-sebastian
+          - img "Lindsey Sebastian" [ref=e129]
+          - heading "Lindsey Sebastian" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Operations Coordinator
+        - link "Mandy Goodwin Mandy Goodwin Operations Coordinator" [ref=e133] [cursor=pointer]:
+          - /url: /about/mandy-goodwin
+          - img "Mandy Goodwin" [ref=e134]
+          - heading "Mandy Goodwin" [level=3] [ref=e135]
+          - paragraph [ref=e136]: Operations Coordinator
+      - generic [ref=e137]:
+        - generic [ref=e138]: Our Team
+        - heading "Managers" [level=3] [ref=e139]
+      - generic [ref=e141]:
+        - link "Dawn Grigg Dawn Grigg Business Development Manager" [ref=e143] [cursor=pointer]:
+          - /url: /about/dawn-grigg
+          - img "Dawn Grigg" [ref=e144]
+          - heading "Dawn Grigg" [level=3] [ref=e145]
+          - paragraph [ref=e146]: Business Development Manager
+          - generic [ref=e147]:
+            - img [ref=e149]
+            - img [ref=e152]
+        - link "Jonathan Ryan Jonathan Ryan Business Development Manager" [ref=e155] [cursor=pointer]:
+          - /url: /about/jonathan-ryan
+          - img "Jonathan Ryan" [ref=e156]
+          - heading "Jonathan Ryan" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Business Development Manager
+          - generic [ref=e159]:
+            - img [ref=e161]
+            - img [ref=e164]
+        - link "Josh Threatt Josh Threatt Skilled Trades Branch Manager" [ref=e167] [cursor=pointer]:
+          - /url: /about/josh-threatt
+          - img "Josh Threatt" [ref=e168]
+          - heading "Josh Threatt" [level=3] [ref=e169]
+          - paragraph [ref=e170]: Skilled Trades Branch Manager
+          - generic [ref=e171]:
+            - img [ref=e173]
+            - img [ref=e176]
+        - link "Trent Dover Trent Dover Direct Hire Branch Manager" [ref=e179] [cursor=pointer]:
+          - /url: /about/trent-dover
+          - img "Trent Dover" [ref=e180]
+          - heading "Trent Dover" [level=3] [ref=e181]
+          - paragraph [ref=e182]: Direct Hire Branch Manager
+          - generic [ref=e183]:
+            - img [ref=e185]
+            - img [ref=e188]
+        - link "Lisa Stafford Lisa Stafford Spartanburg & Gaffney Branch Manager" [ref=e191] [cursor=pointer]:
+          - /url: /about/lisa-stafford
+          - img "Lisa Stafford" [ref=e192]
+          - heading "Lisa Stafford" [level=3] [ref=e193]
+          - paragraph [ref=e194]: Spartanburg & Gaffney Branch Manager
+          - generic [ref=e195]:
+            - img [ref=e197]
+            - img [ref=e200]
+        - link "Rachel Touchet Rachel Touchet Greenville Branch Manager" [ref=e203] [cursor=pointer]:
+          - /url: /about/rachel-touchet
+          - img "Rachel Touchet" [ref=e204]
+          - heading "Rachel Touchet" [level=3] [ref=e205]
+          - paragraph [ref=e206]: Greenville Branch Manager
+          - generic [ref=e207]:
+            - img [ref=e209]
+            - img [ref=e212]
+        - link "Xavier Urgell Xavier Urgell Summerville Branch Manager" [ref=e215] [cursor=pointer]:
+          - /url: /about/xavier-urgell
+          - img "Xavier Urgell" [ref=e216]
+          - heading "Xavier Urgell" [level=3] [ref=e217]
+          - paragraph [ref=e218]: Summerville Branch Manager
+          - generic [ref=e219]:
+            - img [ref=e221]
+            - img [ref=e224]
+        - link "Tina Miller Tina Miller Area Manager - Market Development" [ref=e227] [cursor=pointer]:
+          - /url: /about/tina-miller
+          - img "Tina Miller" [ref=e228]
+          - heading "Tina Miller" [level=3] [ref=e229]
+          - paragraph [ref=e230]: Area Manager - Market Development
+          - generic [ref=e231]:
+            - img [ref=e233]
+            - img [ref=e236]
+    - generic [ref=e238]:
+      - generic [ref=e240]:
+        - generic [ref=e241]: Who We Serve
+        - heading "Trusted by Industry Leaders" [level=2] [ref=e242]
+        - paragraph [ref=e243]: We source talent for leading manufacturers and employers across the Upstate SC region.
+      - generic [ref=e245]:
+        - generic [ref=e246]:
+          - img "BMW Manufacturing" [ref=e247]
+          - img "Michelin North America" [ref=e248]
+          - img "ZF Group" [ref=e249]
+          - img "Bosch" [ref=e250]
+          - img "Oshkosh Defense" [ref=e251]
+          - img "Magna" [ref=e252]
+          - img "Isuzu North America" [ref=e253]
+          - img "Techtronic Industries" [ref=e254]
+          - img "Freightliner / Daimler" [ref=e255]
+          - img "Milliken & Company" [ref=e256]
+          - img "Nutra Manufacturing" [ref=e257]
+          - img "Fujifilm" [ref=e258]
+          - img "Renfro Industrial" [ref=e259]
+          - img "GE Vernova" [ref=e260]
+        - generic [ref=e261]:
+          - img "BMW Manufacturing" [ref=e262]
+          - img "Michelin North America" [ref=e263]
+          - img "ZF Group" [ref=e264]
+          - img "Bosch" [ref=e265]
+          - img "Oshkosh Defense" [ref=e266]
+          - img "Magna" [ref=e267]
+          - img "Isuzu North America" [ref=e268]
+          - img "Techtronic Industries" [ref=e269]
+          - img "Freightliner / Daimler" [ref=e270]
+          - img "Milliken & Company" [ref=e271]
+          - img "Nutra Manufacturing" [ref=e272]
+          - img "Fujifilm" [ref=e273]
+          - img "Renfro Industrial" [ref=e274]
+          - img "GE Vernova" [ref=e275]
+    - generic [ref=e277]:
+      - generic [ref=e278]:
+        - generic [ref=e279]: Our Expertise
+        - heading "Industries We Serve" [level=2] [ref=e280]
+        - paragraph [ref=e281]: Deep experience in the sectors that power the Southeast economy.
+      - generic [ref=e282]:
+        - generic [ref=e284]:
+          - img [ref=e286]
+          - generic [ref=e288]:
+            - heading "Automotive Manufacturing" [level=3] [ref=e289]
+            - paragraph [ref=e290]: Assembly lines, quality control, and production support staff.
+        - generic [ref=e292]:
+          - img [ref=e294]
+          - generic [ref=e299]:
+            - heading "Food & Beverage" [level=3] [ref=e300]
+            - paragraph [ref=e301]: Processing, packaging, sanitation, and warehouse operations.
+        - generic [ref=e303]:
+          - img [ref=e305]
+          - generic [ref=e310]:
+            - heading "Distribution & Logistics" [level=3] [ref=e311]
+            - paragraph [ref=e312]: Forklift operators, pickers, packers, and shipping coordinators.
+        - generic [ref=e314]:
+          - img [ref=e316]
+          - generic [ref=e321]:
+            - heading "Construction" [level=3] [ref=e322]
+            - paragraph [ref=e323]: Skilled trades, general laborers, and site support personnel.
+        - generic [ref=e325]:
+          - img [ref=e327]
+          - generic [ref=e329]:
+            - heading "Aerospace & Defense" [level=3] [ref=e330]
+            - paragraph [ref=e331]: Precision assembly, inspection, and certified technical roles.
+        - generic [ref=e333]:
+          - img [ref=e335]
+          - generic [ref=e337]:
+            - heading "Pharmaceutical & Chemical" [level=3] [ref=e338]
+            - paragraph [ref=e339]: Cleanroom operators, batch processing, and compliance-ready staff.
+    - generic [ref=e341]:
+      - generic [ref=e342]:
+        - generic [ref=e343]: Your Safety Matters
+        - heading "Safety & Compliance" [level=2] [ref=e344]
+      - generic [ref=e346]:
+        - generic [ref=e347]:
+          - img [ref=e348]
+          - text: OSHA Compliant
+        - generic [ref=e350]:
+          - img [ref=e351]
+          - text: Drug-Free Workplace
+        - generic [ref=e354]:
+          - img [ref=e355]
+          - text: Safety Training Provided
+        - generic [ref=e357]:
+          - img [ref=e358]
+          - text: Workers' Comp Coverage
+    - generic [ref=e364]:
+      - img [ref=e365]
+      - blockquote [ref=e368]: I walked in on a Monday and was working by Wednesday. They treated me like a person, not just a number.
+      - paragraph [ref=e369]: — Marcus T., Forklift Operator, Greenville SC
+    - generic [ref=e371]:
+      - heading "The OpSource Difference" [level=2] [ref=e373]
+      - generic [ref=e376]:
+        - generic [ref=e377]:
+          - paragraph [ref=e378]: "At OpSource, our #1 focus is you."
+          - paragraph [ref=e379]: Our mission is to serve and connect great people to great companies through our shared vision of building a business that is the right choice for service and connection.
+          - generic [ref=e380]:
+            - link "Facebook" [ref=e381] [cursor=pointer]:
+              - /url: https://facebook.com/OpSourceStaffing
+              - img [ref=e382]
+            - link "LinkedIn" [ref=e384] [cursor=pointer]:
+              - /url: https://linkedin.com/company/operational-resources-inc-opsource-
+              - img [ref=e385]
+            - link "Email" [ref=e389] [cursor=pointer]:
+              - /url: mailto:media@opsourcestaffing.com
+              - img [ref=e390]
+        - img "OpSource Badge" [ref=e394]
+  - contentinfo [ref=e395]:
+    - generic [ref=e396]:
+      - generic [ref=e397]:
+        - generic [ref=e398]:
+          - link "OpSource Staffing" [ref=e399] [cursor=pointer]:
+            - /url: /
+            - img "OpSource Staffing" [ref=e400]
+          - paragraph [ref=e401]: Connecting hardworking people with great companies across SC, NC & TN since 2003. Industrial staffing, skilled trades, and workforce solutions.
+          - button "Español" [ref=e402] [cursor=pointer]
+          - generic [ref=e403]:
+            - generic [ref=e404]:
+              - heading "Company" [level=4] [ref=e405]
+              - navigation "Company links" [ref=e406]:
+                - link "About" [ref=e407] [cursor=pointer]:
+                  - /url: /about
+                - link "Services" [ref=e408] [cursor=pointer]:
+                  - /url: /services
+                - link "Locations" [ref=e409] [cursor=pointer]:
+                  - /url: /locations
+                - link "Contact Us" [ref=e410] [cursor=pointer]:
+                  - /url: /contact
+            - generic [ref=e411]:
+              - heading "Resources" [level=4] [ref=e412]
+              - navigation "Resource links" [ref=e413]:
+                - link "Job Portal" [ref=e414] [cursor=pointer]:
+                  - /url: http://jobs.opsourcestaffing.com
+                - link "Employee Portal" [ref=e415] [cursor=pointer]:
+                  - /url: http://mcigo.net/
+                - link "OpSource Direct" [ref=e416] [cursor=pointer]:
+                  - /url: https://www.opsourcedirect.com
+        - generic [ref=e417]:
+          - heading "Corporate Office" [level=3] [ref=e418]
+          - generic [ref=e419]:
+            - generic [ref=e420]:
+              - img [ref=e421]
+              - paragraph [ref=e424]:
+                - text: 135 North Church Street
+                - text: Spartanburg, SC 29306
+            - generic [ref=e425]:
+              - img [ref=e426]
+              - link "(866) 870-8133" [ref=e428] [cursor=pointer]:
+                - /url: tel:8668708133
+            - generic [ref=e429]:
+              - img [ref=e430]
+              - paragraph [ref=e433]:
+                - text: "Mon – Thu: 8:00am – 5:30pm"
+                - text: "Friday: 8:00am – 3:00pm"
+        - generic [ref=e434]:
+          - heading "Connect With Us" [level=3] [ref=e435]
+          - generic [ref=e436]:
+            - link "Facebook" [ref=e437] [cursor=pointer]:
+              - /url: https://facebook.com/OpSourceStaffing
+              - img [ref=e438]
+            - link "LinkedIn" [ref=e440] [cursor=pointer]:
+              - /url: https://linkedin.com/company/operational-resources-inc-opsource-
+              - img [ref=e441]
+            - generic "Instagram (coming soon)" [ref=e445]:
+              - img [ref=e446]
+          - generic [ref=e449]:
+            - paragraph [ref=e450]: “Do what's right, not what's easy — TOGETHER!”
+            - paragraph [ref=e451]: — Jesse Sprinkle, Owner & CEO
+      - generic [ref=e452]:
+        - link "Find a Job" [ref=e453] [cursor=pointer]:
+          - /url: http://jobs.opsourcestaffing.com
+        - link "(866) 870-8133" [ref=e454] [cursor=pointer]:
+          - /url: tel:8668708133
+          - img [ref=e455]
+          - text: (866) 870-8133
+      - generic [ref=e457]:
+        - paragraph [ref=e458]: © 2026 OpSource Staffing. All rights reserved.
+        - paragraph [ref=e459]: Equal Opportunity Employer. OpSource Staffing is committed to providing equal employment opportunities regardless of race, color, religion, sex, national origin, age, disability, or veteran status.
+  - button "Scroll to top" [ref=e488]:
+    - img [ref=e489]
+  - generic [ref=e474]:
+    - generic [ref=e475]:
+      - button "Close" [ref=e476]:
+        - img [ref=e477]
+      - paragraph [ref=e480]: 🇺🇸 🇲🇽
+      - heading "Choose Your Language" [level=3] [ref=e481]
+      - paragraph [ref=e482]: Elija su idioma
+    - generic [ref=e483]:
+      - button "Español" [ref=e484]
+      - button "English" [ref=e485]
+  - generic:
+    - generic:
+      - generic:
+        - img
+        - generic: OpSource Assistant
+      - button "Close chat":
+        - img
+    - generic:
+      - generic:
+        - paragraph: Hi! I'm the OpSource assistant. How can I help you today?
+        - generic:
+          - button "What jobs are available?"
+          - button "Office locations"
+          - button "How do I apply?"
+          - button "I need workers"
+    - generic:
+      - textbox "Type a message..."
+      - button "Send" [disabled]:
+        - img
+  - button "Open chat" [ref=e461] [cursor=pointer]:
+    - img [ref=e462]
+  - button "Open Next.js Dev Tools" [ref=e469] [cursor=pointer]:
+    - img [ref=e470]
+  - alert [ref=e486]
